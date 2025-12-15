@@ -1,0 +1,35 @@
+{
+  "13bm/GhidraMCP": {
+    "trivy": [],
+    "osv-scanner": [],
+    "semgrep": [
+      {
+        "id": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Detected use of a Java socket that is not encrypted. As a result, the traffic could be read by an attacker intercepting the network traffic. Use an SSLSocket created by 'SSLSocketFactory' or 'SSLServerSocketFactory' instead.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "rule_name": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "rule_id": "java.lang.security.audit.crypto.unencrypted-socket.unencrypted-socket",
+        "confidence": "HIGH",
+        "file_location": "/tmp/tmp_maj4kd3/GhidraMCP/src/main/java/ghidra/mcp/MCPServer.java",
+        "line_range": "50-50",
+        "categories": [
+          "CWE-319: Cleartext Transmission of Sensitive Information"
+        ]
+      }
+    ]
+  }
+}
