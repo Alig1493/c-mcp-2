@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout scan repository
@@ -71,13 +72,17 @@ jobs:
         run: |
           uv run python -m vmcp.cli aggregate --results-dir results
 
-      - name: Commit results
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.PR_CREATE_PAT }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_WORKFLOW: ${{ github.workflow }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add results/ SCAN_RESULTS.md
-          git commit -m "Add scan results for ${{ inputs.repo_url }}" || echo "No changes to commit"
-          git push
+          chmod +x scripts/create_scan_pr.sh
+          ./scripts/create_scan_pr.sh "${{ inputs.repo_url }}"
 
   parallel-scan:
     runs-on: ubuntu-latest

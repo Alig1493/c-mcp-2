@@ -69,19 +69,31 @@ vmcp aggregate --results-dir results
 ### GitHub Actions Usage (Primary Method)
 
 **🚀 Quick Start:**
-1. Push this repository to GitHub
-2. Go to **Actions** tab in your GitHub repository
-3. Select **"Vulnerability Scan"** workflow
-4. Click **"Run workflow"** button
-5. Enter:
-   - **Repository URL**: `https://github.com/org/target-repo` (the repo to scan)
-   - **Scanners**: Leave empty for auto-detect, or specify: `trivy,semgrep,osv-scanner`
-6. Click **"Run workflow"** to start
 
-**📊 View Results:**
-- Results are automatically committed to `results/<org>/<repo>/violations.json`
-- Summary table is updated in `README.md`
-- Download artifacts from the workflow run
+1. **Setup** (One-time):
+   - Create a `PR_CREATE_PAT` token with `repo` and `workflow` permissions
+   - Add it to repository secrets
+   - See [docs/SETUP_PR_TOKEN.md](docs/SETUP_PR_TOKEN.md) for detailed instructions
+
+2. **Run a Scan**:
+   - Go to **Actions** tab in your GitHub repository
+   - Select **"Vulnerability Scan"** workflow
+   - Click **"Run workflow"** button
+   - Enter:
+     - **Repository URL**: `https://github.com/org/target-repo` (the repo to scan)
+     - **Scanners**: Leave empty for auto-detect, or specify: `trivy,semgrep,osv-scanner`
+   - Click **"Run workflow"** to start
+
+3. **Review Results**:
+   - A pull request is automatically created with scan results
+   - Review `results/<org>/<repo>/violations.json` for detailed findings
+   - Check `SCAN_RESULTS.md` for summary table
+   - Merge the PR when ready
+
+**📊 PR Contents:**
+- Branch: `scan-results/<org>-<repo>-<timestamp>`
+- Files changed: `results/` directory and `SCAN_RESULTS.md`
+- Labels: `automated`, `security`, `vulnerability-scan`
 
 **See [QUICK_START.md](QUICK_START.md) for detailed instructions.**
 
