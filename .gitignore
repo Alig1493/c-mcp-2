@@ -32,3 +32,6 @@ Thumbs.db
 # Security scanners cache
 .semgrep/
 .trivy/
+
+.coverage
+examples
