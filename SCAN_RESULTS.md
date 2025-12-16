@@ -12,3 +12,4 @@
 | [BurtTheCoder/mcp-virustotal](https://github.com/BurtTheCoder/mcp-virustotal) | [📋](results/BurtTheCoder-mcp-virustotal-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [kontext-dev/attestable-mcp-server](https://github.com/kontext-dev/attestable-mcp-server) | [📋](results/kontext-dev-attestable-mcp-server-violations.json) | 12 | 1 | 6 | 5 | 0 | 8 | osv-scanner, semgrep, trivy | 🔴 |
 | [makalin/SecureMCP](https://github.com/makalin/SecureMCP) | [📋](results/makalin-SecureMCP-violations.json) | 9 | 1 | 3 | 5 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
+| [slouchd/cyberchef-api-mcp-server](https://github.com/slouchd/cyberchef-api-mcp-server) | [📋](results/slouchd-cyberchef-api-mcp-server-violations.json) | 7 | 1 | 5 | 1 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
