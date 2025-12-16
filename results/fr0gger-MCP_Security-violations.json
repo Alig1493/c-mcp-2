@@ -1,0 +1,7 @@
+{
+  "fr0gger/MCP_Security": {
+    "trivy": [],
+    "osv-scanner": [],
+    "semgrep": []
+  }
+}
