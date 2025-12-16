@@ -226,16 +226,22 @@ def generate_summary_table(results: dict[str, Any]) -> str:
     lines = [
         "# Vulnerability Scan Results",
         "",
-        "| Project | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |",
-        "|---------|-------|----------|------|--------|-----|---------|----------|--------|",
+        "| Project | Results | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |",
+        "|---------|---------|-------|----------|------|--------|-----|---------|----------|--------|",
     ]
 
     for row in rows:
         # Convert org/repo to org-repo for filename
         safe_filename = row['org_repo'].replace('/', '-')
-        results_link = f"[{row['org_repo']}](results/{safe_filename}-violations.json)"
+
+        # Link to original GitHub repository
+        repo_link = f"[{row['org_repo']}](https://github.com/{row['org_repo']})"
+
+        # Link to violations file
+        violations_link = f"[📋](results/{safe_filename}-violations.json)"
+
         lines.append(
-            f"| {results_link} | {row['total']} | "
+            f"| {repo_link} | {violations_link} | {row['total']} | "
             f"{row['severity_counts']['CRITICAL']} | {row['severity_counts']['HIGH']} | "
             f"{row['severity_counts']['MEDIUM']} | {row['severity_counts']['LOW']} | "
             f"{row['fixable']} | {row['scanners']} | {row['status']} |"
