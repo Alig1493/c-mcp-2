@@ -25,6 +25,7 @@
 | [Gaffx/volatility-mcp](https://github.com/Gaffx/volatility-mcp) | [📋](results/Gaffx-volatility-mcp-violations.json) | 3 | 0 | 3 | 0 | 0 | 3 | osv-scanner, semgrep, trivy | 🔴 |
 | [LaurieWired/GhidraMCP](https://github.com/LaurieWired/GhidraMCP) | [📋](results/LaurieWired-GhidraMCP-violations.json) | 4 | 0 | 3 | 1 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [firstorderai/authenticator_mcp](https://github.com/firstorderai/authenticator_mcp) | [📋](results/firstorderai-authenticator_mcp-violations.json) | 3 | 0 | 2 | 1 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
+| [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub) | [📋](results/mariocandela-beelzebub-violations.json) | 10 | 0 | 1 | 9 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
 | [intruder-io/intruder-mcp](https://github.com/intruder-io/intruder-mcp) | [📋](results/intruder-io-intruder-mcp-violations.json) | 6 | 0 | 5 | 1 | 0 | 5 | osv-scanner, semgrep, trivy | 🔴 |
 | [nickpending/mcp-recon](https://github.com/nickpending/mcp-recon) | [📋](results/nickpending-mcp-recon-violations.json) | 14 | 0 | 3 | 10 | 1 | 11 | osv-scanner, semgrep, trivy | 🔴 |
 | [panther-labs/mcp-panther](https://github.com/panther-labs/mcp-panther) | [📋](results/panther-labs-mcp-panther-violations.json) | 6 | 0 | 4 | 1 | 1 | 3 | osv-scanner, semgrep, trivy | 🔴 |

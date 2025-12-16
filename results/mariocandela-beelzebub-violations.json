@@ -1,0 +1,339 @@
+{
+  "mariocandela/beelzebub": {
+    "trivy": [
+      {
+        "id": "CVE-2025-47914",
+        "identifier_type": "cve",
+        "affected_range": "v0.41.0",
+        "aliases": [],
+        "details": "SSH Agent servers do not validate the size of messages when processing new identity requests, which may cause the program to panic if the message is malformed due to an out of bounds read.",
+        "fixed_version": "0.45.0",
+        "published": "2025-11-19T21:15:50.517000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/721960"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/76364"
+          },
+          {
+            "type": "web",
+            "url": "https://go.googlesource.com/crypto"
+          },
+          {
+            "type": "web",
+            "url": "https://groups.google.com/g/golang-announce/c/w-oX3UxNcZA"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-47914"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-4135"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "SSH Agent servers do not validate the size of messages when processing ...",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-58181",
+        "identifier_type": "cve",
+        "affected_range": "v0.41.0",
+        "aliases": [],
+        "details": "SSH servers parsing GSSAPI authentication requests do not validate the number of mechanisms specified in the request, allowing an attacker to cause unbounded memory consumption.",
+        "fixed_version": "0.45.0",
+        "published": "2025-11-19T21:15:50.850000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/721961"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/76363"
+          },
+          {
+            "type": "web",
+            "url": "https://groups.google.com/g/golang-announce/c/w-oX3UxNcZA"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58181"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-4134"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "SSH servers parsing GSSAPI authentication requests do not validate the ...",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      }
+    ],
+    "osv-scanner": [],
+    "semgrep": [
+      {
+        "id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+          }
+        ],
+        "scores": [],
+        "severity": "HIGH",
+        "source": null,
+        "summary": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "rule_name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "rule_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "confidence": "MEDIUM",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/Dockerfile",
+        "line_range": "29-29",
+        "categories": [
+          "CWE-269: Improper Privilege Management"
+        ]
+      },
+      {
+        "id": "go.lang.security.audit.net.use-tls.use-tls",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Found an HTTP server without TLS. Use 'http.ListenAndServeTLS' instead. See https://golang.org/pkg/net/http/#ListenAndServeTLS for more information.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://golang.org/pkg/net/http/#ListenAndServeTLS"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "go.lang.security.audit.net.use-tls.use-tls",
+        "rule_name": "go.lang.security.audit.net.use-tls.use-tls",
+        "rule_id": "go.lang.security.audit.net.use-tls.use-tls",
+        "confidence": "MEDIUM",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/builder/builder.go",
+        "line_range": "115-115",
+        "categories": [
+          "CWE-319: Cleartext Transmission of Sensitive Information"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'rabbitmq' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/integration_test/docker-compose.yml",
+        "line_range": "3-3",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'rabbitmq' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/integration_test/docker-compose.yml",
+        "line_range": "3-3",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Variable `resp` is likely modified and later used on error. In some cases this could result  in panics due to a nil dereference",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://blog.trailofbits.com/2019/11/07/attacking-go-vr-ttps/"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "rule_name": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "rule_id": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "confidence": "HIGH",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/protocols/strategies/HTTP/http.go",
+        "line_range": "37-42",
+        "categories": [
+          "CWE-665: Improper Initialization"
+        ]
+      },
+      {
+        "id": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Variable `resp` is likely modified and later used on error. In some cases this could result  in panics due to a nil dereference",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://blog.trailofbits.com/2019/11/07/attacking-go-vr-ttps/"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "rule_name": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "rule_id": "trailofbits.go.invalid-usage-of-modified-variable.invalid-usage-of-modified-variable",
+        "confidence": "HIGH",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/protocols/strategies/HTTP/http.go",
+        "line_range": "51-56",
+        "categories": [
+          "CWE-665: Improper Initialization"
+        ]
+      },
+      {
+        "id": "go.lang.security.audit.xss.no-fprintf-to-responsewriter.no-fprintf-to-responsewriter",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Detected 'Fprintf' or similar writing to 'http.ResponseWriter'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package to render data to users.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "go.lang.security.audit.xss.no-fprintf-to-responsewriter.no-fprintf-to-responsewriter",
+        "rule_name": "go.lang.security.audit.xss.no-fprintf-to-responsewriter.no-fprintf-to-responsewriter",
+        "rule_id": "go.lang.security.audit.xss.no-fprintf-to-responsewriter.no-fprintf-to-responsewriter",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/protocols/strategies/HTTP/http.go",
+        "line_range": "60-60",
+        "categories": [
+          "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+        ]
+      },
+      {
+        "id": "go.lang.security.audit.net.use-tls.use-tls",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Found an HTTP server without TLS. Use 'http.ListenAndServeTLS' instead. See https://golang.org/pkg/net/http/#ListenAndServeTLS for more information.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://golang.org/pkg/net/http/#ListenAndServeTLS"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "go.lang.security.audit.net.use-tls.use-tls",
+        "rule_name": "go.lang.security.audit.net.use-tls.use-tls",
+        "rule_id": "go.lang.security.audit.net.use-tls.use-tls",
+        "confidence": "MEDIUM",
+        "file_location": "/tmp/tmpbxczztp0/beelzebub/protocols/strategies/HTTP/http.go",
+        "line_range": "71-71",
+        "categories": [
+          "CWE-319: Cleartext Transmission of Sensitive Information"
+        ]
+      }
+    ]
+  }
+}
