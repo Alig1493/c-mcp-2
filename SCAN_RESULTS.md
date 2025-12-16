@@ -27,6 +27,7 @@
 | [vespo92/OPNSenseMCP](https://github.com/vespo92/OPNSenseMCP) | [📋](results/vespo92-OPNSenseMCP-violations.json) | 42 | 0 | 1 | 17 | 24 | 0 | osv-scanner, semgrep, trivy | 🔴 |
 | [BurtTheCoder/mcp-shodan](https://github.com/BurtTheCoder/mcp-shodan) | [📋](results/BurtTheCoder-mcp-shodan-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [BurtTheCoder/mcp-virustotal](https://github.com/BurtTheCoder/mcp-virustotal) | [📋](results/BurtTheCoder-mcp-virustotal-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
+| [jyjune/mcp_vms](https://github.com/jyjune/mcp_vms) | [📋](results/jyjune-mcp_vms-violations.json) | 6 | 1 | 4 | 1 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
 | [kontext-dev/attestable-mcp-server](https://github.com/kontext-dev/attestable-mcp-server) | [📋](results/kontext-dev-attestable-mcp-server-violations.json) | 12 | 1 | 6 | 5 | 0 | 8 | osv-scanner, semgrep, trivy | 🔴 |
 | [makalin/SecureMCP](https://github.com/makalin/SecureMCP) | [📋](results/makalin-SecureMCP-violations.json) | 9 | 1 | 3 | 5 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
 | [roadwy/cve-search_mcp](https://github.com/roadwy/cve-search_mcp) | [📋](results/roadwy-cve-search_mcp-violations.json) | 12 | 1 | 7 | 4 | 0 | 11 | osv-scanner, semgrep, trivy | 🔴 |
