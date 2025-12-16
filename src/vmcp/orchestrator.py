@@ -60,18 +60,18 @@ class ScanOrchestrator:
         output_path = Path(output_dir) / self.org_name / self.repo_name
 
         output_path.mkdir(parents=True, exist_ok=True)
-
-        # Format results
-        formatted_results = {
-            f"{self.org_name}/{self.repo_name}": {
-                scanner: [vuln.model_dump(mode='json') for vuln in vulnerabilities]
-                for scanner, vulnerabilities in results.items()
+        
+        for scanner, vulnerabilities in results.items():
+            # Format results
+            formatted_results = {
+                f"{self.org_name}/{self.repo_name}": {
+                    scanner: [vuln.model_dump(mode='json') for vuln in vulnerabilities]
+                }
             }
-        }
 
-        # Save to violations.json
-        violations_file = output_path / 'violations.json'
-        with open(violations_file, 'w') as f:
-            json.dump(formatted_results, f, indent=2, default=str)
+            # Save to violations.json
+            violations_file = output_path / f'{scanner}-violations.json'
+            with open(violations_file, 'w') as f:
+                json.dump(formatted_results, f, indent=2, default=str)
 
-        print(f"Results saved to {violations_file}")
+            print(f"Results saved to {violations_file}")

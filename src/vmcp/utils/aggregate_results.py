@@ -49,15 +49,14 @@ def get_worst_severity(vulnerabilities: list[dict[str, Any]]) -> str:
 def aggregate_results(results_dir: str) -> dict[str, Any]:
     """Aggregate all vulnerability results."""
     results = {}
+    results_dir = Path('results')
+    violations_files = list(results_dir.glob('*_violations.json'))
 
     # Find all violations.json files
-    for root, _, files in os.walk(results_dir):
-        if 'violations.json' in files:
-            file_path = os.path.join(root, 'violations.json')
-
-            with open(file_path, 'r') as f:
-                data = json.load(f)
-                results.update(data)
+    for violations_files in violations_files:
+        with open(violations_files, 'r') as f:
+            data = json.load(f)
+            results.update(data)
 
     return results
 

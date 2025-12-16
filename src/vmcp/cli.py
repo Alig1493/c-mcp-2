@@ -4,6 +4,9 @@ import asyncio
 import sys
 from pathlib import Path
 
+import subprocess
+import tempfile
+
 from vmcp.orchestrator import ScanOrchestrator
 from vmcp.utils.aggregate_results import aggregate_results, generate_summary_table
 from vmcp.utils.detect_language import detect_languages, select_scanners
@@ -13,8 +16,6 @@ from vmcp.utils.enhance_cve_links import process_results_file
 async def scan_repository(repo_url: str, output_dir: str, scanners: list[str] | None = None) -> None:
     """Scan a repository for vulnerabilities."""
     # Clone repository
-    import subprocess
-    import tempfile
 
     # Parse org/repo from URL
     if repo_url.endswith('.git'):
@@ -51,10 +52,12 @@ async def scan_repository(repo_url: str, output_dir: str, scanners: list[str] | 
         orchestrator.save_results(results, output_dir)
 
         # Enhance CVE links
-        violations_file = Path(output_dir) / org_name / repo_name / 'violations.json'
-        if violations_file.exists():
-            print("Enhancing CVE links...")
-            await process_results_file(str(violations_file))
+        results_dir = Path('results')
+        violations_files = list(results_dir.glob('*_violations.json'))
+        for violations_file in violations_files:
+            if violations_file.exists():
+                print("Enhancing CVE links...")
+                await process_results_file(str(violations_file))
 
 
 def aggregate_command(results_dir: str) -> None:
