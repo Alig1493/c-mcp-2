@@ -21,6 +21,7 @@
 | [BurtTheCoder/mcp-virustotal](https://github.com/BurtTheCoder/mcp-virustotal) | [📋](results/BurtTheCoder-mcp-virustotal-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [kontext-dev/attestable-mcp-server](https://github.com/kontext-dev/attestable-mcp-server) | [📋](results/kontext-dev-attestable-mcp-server-violations.json) | 12 | 1 | 6 | 5 | 0 | 8 | osv-scanner, semgrep, trivy | 🔴 |
 | [makalin/SecureMCP](https://github.com/makalin/SecureMCP) | [📋](results/makalin-SecureMCP-violations.json) | 9 | 1 | 3 | 5 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
+| [pullkitsan/mobsf-mcp-server](https://github.com/pullkitsan/mobsf-mcp-server) | [📋](results/pullkitsan-mobsf-mcp-server-violations.json) | 2 | 1 | 1 | 0 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
 | [securityfortech/secops-mcp](https://github.com/securityfortech/secops-mcp) | [📋](results/securityfortech-secops-mcp-violations.json) | 12 | 1 | 7 | 4 | 0 | 11 | osv-scanner, semgrep, trivy | 🔴 |
 | [slouchd/cyberchef-api-mcp-server](https://github.com/slouchd/cyberchef-api-mcp-server) | [📋](results/slouchd-cyberchef-api-mcp-server-violations.json) | 7 | 1 | 5 | 1 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
 | [safedep/vet](https://github.com/safedep/vet) | [📋](results/safedep-vet-violations.json) | 205 | 17 | 89 | 91 | 8 | 193 | osv-scanner, semgrep, trivy | 🔴 |
