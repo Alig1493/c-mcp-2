@@ -1,0 +1,81 @@
+{
+  "zinja-coder/jadx-ai-mcp": {
+    "trivy": [
+      {
+        "id": "CVE-2024-6763",
+        "identifier_type": "cve",
+        "affected_range": "11.0.25",
+        "aliases": [],
+        "details": "Eclipse Jetty is a lightweight, highly scalable, Java-based web server and Servlet engine . It includes a utility class, HttpURI, for URI/URL parsing.\n\nThe HttpURI class does insufficient validation on the authority segment of a URI.  However the behaviour of HttpURI\n differs from the common browsers in how it handles a URI that would be \nconsidered invalid if fully validated against the RRC.  Specifically HttpURI\n and the browser may differ on the value of the host extracted from an \ninvalid URI and thus a combination of Jetty and a vulnerable browser may\n be vulnerable to a open redirect attack or to a SSRF attack if the URI \nis used after passing validation checks.",
+        "fixed_version": "12.0.12",
+        "published": "2024-10-14T16:15:04.163000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2024-6763"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/jetty/jetty.project"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/jetty/jetty.project/pull/12012"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/jetty/jetty.project/security/advisories/GHSA-qh8g-58pp-2wxh"
+          },
+          {
+            "type": "web",
+            "url": "https://gitlab.eclipse.org/security/cve-assignement/-/issues/25"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6763"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250306-0005"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250306-0005/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2024-6763"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 3.7,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "nvd"
+          },
+          {
+            "type": "cvss",
+            "value": 3.7,
+            "version": "redhat"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "org.eclipse.jetty:jetty-http: jetty: Jetty URI parsing of invalid authority",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      }
+    ],
+    "osv-scanner": [],
+    "semgrep": []
+  }
+}
