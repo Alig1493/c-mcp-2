@@ -1,0 +1,62 @@
+{
+  "fosdickio/binary_ninja_mcp": {
+    "trivy": [],
+    "osv-scanner": [],
+    "semgrep": [
+      {
+        "id": "html.security.audit.missing-integrity.missing-integrity",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "html.security.audit.missing-integrity.missing-integrity",
+        "rule_name": "html.security.audit.missing-integrity.missing-integrity",
+        "rule_id": "html.security.audit.missing-integrity.missing-integrity",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmp9ejzmb0j/binary_ninja_mcp/docs_for_llms/bn_docs_index.html",
+        "line_range": "15-15",
+        "categories": [
+          "CWE-353: Missing Support for Integrity Check"
+        ]
+      },
+      {
+        "id": "html.security.audit.missing-integrity.missing-integrity",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "html.security.audit.missing-integrity.missing-integrity",
+        "rule_name": "html.security.audit.missing-integrity.missing-integrity",
+        "rule_id": "html.security.audit.missing-integrity.missing-integrity",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmp9ejzmb0j/binary_ninja_mcp/docs_for_llms/bn_docs_plugins.html",
+        "line_range": "15-15",
+        "categories": [
+          "CWE-353: Missing Support for Integrity Check"
+        ]
+      }
+    ]
+  }
+}
