@@ -4,6 +4,7 @@
 |---------|---------|-------|----------|------|--------|-----|---------|----------|--------|
 | [HaroldFinchIFT/vuln-nist-mcp-server](https://github.com/HaroldFinchIFT/vuln-nist-mcp-server) | [📋](results/HaroldFinchIFT-vuln-nist-mcp-server-violations.json) | 0 | 0 | 0 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🟢 |
 | [atomicchonk/roadrecon_mcp_server](https://github.com/atomicchonk/roadrecon_mcp_server) | [📋](results/atomicchonk-roadrecon_mcp_server-violations.json) | 0 | 0 | 0 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🟢 |
+| [zboralski/ida-headless-mcp](https://github.com/zboralski/ida-headless-mcp) | [📋](results/zboralski-ida-headless-mcp-violations.json) | 13 | 0 | 0 | 0 | 0 | 13 | osv-scanner, semgrep, trivy | 🟡 |
 | [sanyambassi/thales-cdsp-crdp-mcp-server](https://github.com/sanyambassi/thales-cdsp-crdp-mcp-server) | [📋](results/sanyambassi-thales-cdsp-crdp-mcp-server-violations.json) | 2 | 0 | 0 | 0 | 2 | 0 | osv-scanner, semgrep, trivy | 🟡 |
 | [StacklokLabs/osv-mcp](https://github.com/StacklokLabs/osv-mcp) | [📋](results/StacklokLabs-osv-mcp-violations.json) | 17 | 0 | 0 | 0 | 0 | 17 | osv-scanner, semgrep, trivy | 🟡 |
 | [13bm/GhidraMCP](https://github.com/13bm/GhidraMCP) | [📋](results/13bm-GhidraMCP-violations.json) | 1 | 0 | 0 | 1 | 0 | 0 | osv-scanner, semgrep, trivy | 🟡 |
