@@ -1,0 +1,428 @@
+{
+  "gbrigandi/mcp-server-wazuh": {
+    "trivy": [],
+    "osv-scanner": [],
+    "semgrep": [
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-indexer' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose-all-in-one.yml",
+        "line_range": "5-5",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-indexer' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose-all-in-one.yml",
+        "line_range": "5-5",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-manager' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose-all-in-one.yml",
+        "line_range": "25-25",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-manager' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose-all-in-one.yml",
+        "line_range": "25-25",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-dashboard' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose-all-in-one.yml",
+        "line_range": "54-54",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-dashboard' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose-all-in-one.yml",
+        "line_range": "54-54",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-indexer' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose.wazuh-demo.yml",
+        "line_range": "13-13",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-indexer' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose.wazuh-demo.yml",
+        "line_range": "13-13",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-manager' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose.wazuh-demo.yml",
+        "line_range": "35-35",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-manager' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose.wazuh-demo.yml",
+        "line_range": "35-35",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-dashboard' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose.wazuh-demo.yml",
+        "line_range": "62-62",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      },
+      {
+        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Service 'wazuh-dashboard' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+          },
+          {
+            "type": "web",
+            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+          },
+          {
+            "type": "web",
+            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+        "confidence": "LOW",
+        "file_location": "/tmp/tmppmzk_udm/mcp-server-wazuh/docker/docker-compose.wazuh-demo.yml",
+        "line_range": "62-62",
+        "categories": [
+          "CWE-732: Incorrect Permission Assignment for Critical Resource"
+        ]
+      }
+    ]
+  }
+}
