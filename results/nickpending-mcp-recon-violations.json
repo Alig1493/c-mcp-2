@@ -1,0 +1,887 @@
+{
+  "nickpending/mcp-recon": {
+    "trivy": [
+      {
+        "id": "CVE-2025-8556",
+        "identifier_type": "cve",
+        "affected_range": "v1.3.8",
+        "aliases": [],
+        "details": "A flaw was found in CIRCL's implementation of the FourQ elliptic curve. This vulnerability allows an attacker to compromise session security via low-order point injection and incorrect point validation during Diffie-Hellman key exchange.",
+        "fixed_version": "1.6.1",
+        "published": "2025-08-06T09:15:28.173000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-8556"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371624"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/cloudflare/circl"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/cloudflare/circl/security/advisories/GHSA-2x5j-vhc8-9cwm"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/cloudflare/circl/tree/v1.6.1"
+          },
+          {
+            "type": "web",
+            "url": "https://news.ycombinator.com/item?id=45669593"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-8556"
+          },
+          {
+            "type": "web",
+            "url": "https://www.botanica.software/blog/cryptographic-issues-in-cloudflares-circl-fourq-implementation"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-8556"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 3.7,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 3.7,
+            "version": "redhat"
+          }
+        ],
+        "severity": "LOW",
+        "source": "trivy",
+        "summary": "github.com/cloudflare/circl: CIRCL-Fourq: Missing and wrong validation can lead to incorrect results",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "GHSA-2464-8j7c-4cjm",
+        "identifier_type": "other",
+        "affected_range": "v2.1.0",
+        "aliases": [],
+        "details": "### Summary\n\nUse of this library in a security-critical context may result in leaking sensitive information, if used to process sensitive fields.\n\n### Details\n\nOpenBao (and presumably HashiCorp Vault) have surfaced error messages from `mapstructure` as follows:\n\nhttps://github.com/openbao/openbao/blob/98c3a59c040efca724353ca46ca79bd5cdbab920/sdk/framework/field_data.go#L43-L50\n\n```go\n\t\t\t_, _, err := d.getPrimitive(field, schema)\n\t\t\tif err != nil {\n\t\t\t\treturn fmt.Errorf(\"error converting input for field %q: %w\", field, err)\n\t\t\t}\n```\n\nwhere this calls `mapstructure.WeakDecode(...)`: https://github.com/openbao/openbao/blob/98c3a59c040efca724353ca46ca79bd5cdbab920/sdk/framework/field_data.go#L181-L193\n\n```go\n\nfunc (d *FieldData) getPrimitive(k string, schema *FieldSchema) (interface{}, bool, error) {\n\traw, ok := d.Raw[k]\n\tif !ok {\n\t\treturn nil, false, nil\n\t}\n\n\tswitch t := schema.Type; t {\n\tcase TypeBool:\n\t\tvar result bool\n\t\tif err := mapstructure.WeakDecode(raw, &result); err != nil {\n\t\t\treturn nil, false, err\n\t\t}\n\t\treturn result, true, nil\n```\n\nNotably, `WeakDecode(...)` eventually calls one of the decode helpers, which surfaces the original value via `strconv` helpers:\n\nhttps://github.com/go-viper/mapstructure/blob/8c61ec1924fcfa522f9fc6b4618c672db61d1a38/mapstructure.go#L720-L727\n\nhttps://github.com/go-viper/mapstructure/blob/8c61ec1924fcfa522f9fc6b4618c672db61d1a38/mapstructure.go#L791-L798\n\nhttps://github.com/go-viper/mapstructure/blob/8c61ec1924fcfa522f9fc6b4618c672db61d1a38/decode_hooks.go#L180\n\n& more. These are different code paths than are fixed in the previous iteration at https://github.com/go-viper/mapstructure/security/advisories/GHSA-fv92-fjc5-jj9h.\n\n### PoC\n\nTo reproduce with OpenBao:\n\n```\n$ podman run --pull=always -p 8300:8300 openbao/openbao:latest server -dev -dev-root-token-id=root -dev-listen-address=0.0.0.0:8300\n```\n\nand in a new tab:\n\n```\n$ BAO_TOKEN=root BAO_ADDR=http://localhost:8300 bao auth enable userpass\nSuccess! Enabled userpass auth method at: userpass/\n$ curl -X PUT -H \"X-Vault-Request: true\" -H \"X-Vault-Token: root\" -d '{\"ttl\":\"asdf\"}' \"http://localhost:8200/v1/auth/userpass/users/asdf\"\n\n--> server logs:\n\n2025-06-25T21:32:25.101-0500 [ERROR] core: failed to run existence check: error=\"error converting input for field \\\"ttl\\\": time: invalid duration \\\"asdf\\\"\"\n```\n\n### Impact\n\nThis is an information disclosure bug with little mitigation. See https://discuss.hashicorp.com/t/hcsec-2025-09-vault-may-expose-sensitive-information-in-error-logs-when-processing-malformed-data-with-the-kv-v2-plugin/74717 for a previous version. That version was fixed, but this is in the second part of that error message (starting at `'' expected a map, got 'string'` -- when the field type is `string` and a `map` is provided, we see the above information leak -- the previous example had a `map` type field with a `string` value provided).\n\nThis was rated 4.5 Medium by HashiCorp in the past iteration.",
+        "fixed_version": "2.4.0",
+        "published": "2025-08-21T14:37:19Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://github.com/go-viper/mapstructure"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/go-viper/mapstructure/commit/742921c9ba2854d27baa64272487fc5075d2c39c"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/go-viper/mapstructure/security/advisories/GHSA-2464-8j7c-4cjm"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-3900"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "go-viper's mapstructure May Leak Sensitive Information in Logs When Processing Malformed Data",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "GHSA-fv92-fjc5-jj9h",
+        "identifier_type": "other",
+        "affected_range": "v2.1.0",
+        "aliases": [],
+        "details": "### Summary\n\nUse of this library in a security-critical context may result in leaking sensitive information, if used to process sensitive fields.\n\n### Details\n\nOpenBao (and presumably HashiCorp Vault) have surfaced error messages from `mapstructure` as follows:\n\nhttps://github.com/openbao/openbao/blob/98c3a59c040efca724353ca46ca79bd5cdbab920/sdk/framework/field_data.go#L43-L50\n\n```go\n\t\t\t_, _, err := d.getPrimitive(field, schema)\n\t\t\tif err != nil {\n\t\t\t\treturn fmt.Errorf(\"error converting input for field %q: %w\", field, err)\n\t\t\t}\n```\n\nwhere this calls `mapstructure.WeakDecode(...)`: https://github.com/openbao/openbao/blob/98c3a59c040efca724353ca46ca79bd5cdbab920/sdk/framework/field_data.go#L181-L193\n\n```go\n\nfunc (d *FieldData) getPrimitive(k string, schema *FieldSchema) (interface{}, bool, error) {\n\traw, ok := d.Raw[k]\n\tif !ok {\n\t\treturn nil, false, nil\n\t}\n\n\tswitch t := schema.Type; t {\n\tcase TypeBool:\n\t\tvar result bool\n\t\tif err := mapstructure.WeakDecode(raw, &result); err != nil {\n\t\t\treturn nil, false, err\n\t\t}\n\t\treturn result, true, nil\n```\n\nNotably, `WeakDecode(...)` eventually calls one of the decode helpers, which surfaces the original value:\n\nhttps://github.com/go-viper/mapstructure/blob/1a66224d5e54d8757f63bd66339cf764c3292c21/mapstructure.go#L679-L686\n\nhttps://github.com/go-viper/mapstructure/blob/1a66224d5e54d8757f63bd66339cf764c3292c21/mapstructure.go#L726-L730\n\nhttps://github.com/go-viper/mapstructure/blob/1a66224d5e54d8757f63bd66339cf764c3292c21/mapstructure.go#L783-L787\n\n& more.\n\n### PoC\n\nTo reproduce with OpenBao:\n\n```\n$ podman run -p 8300:8300 openbao/openbao:latest server -dev -dev-root-token-id=root -dev-listen-address=0.0.0.0:8300\n```\n\nand in a new tab:\n\n```\n$ BAO_TOKEN=root BAO_ADDR=http://localhost:8300 bao auth enable userpass\nSuccess! Enabled userpass auth method at: userpass/\n$ curl -X PUT -H \"X-Vault-Request: true\" -H \"X-Vault-Token: root\" -d '{\"password\":{\"asdf\":\"my-sensitive-value\"}}' \"http://localhost:8300/v1/auth/userpass/users/adsf\"\n{\"errors\":[\"error converting input for field \\\"password\\\": '' expected type 'string', got unconvertible type 'map[string]interface {}', value: 'map[asdf:my-sensitive-value]'\"]}\n```\n\n### Impact\n\nThis is an information disclosure bug with little mitigation. See https://discuss.hashicorp.com/t/hcsec-2025-09-vault-may-expose-sensitive-information-in-error-logs-when-processing-malformed-data-with-the-kv-v2-plugin/74717 for a previous version. That version was fixed, but this is in the second part of that error message (starting at `'' expected a map, got 'string'` -- when the field type is `string` and a `map` is provided, we see the above information leak -- the previous example had a `map` type field with a `string` value provided).\n\nThis was rated 4.5 Medium by HashiCorp in the past iteration.",
+        "fixed_version": "2.3.0",
+        "published": "2025-06-27T16:24:59Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://github.com/go-viper/mapstructure"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/go-viper/mapstructure/security/advisories/GHSA-fv92-fjc5-jj9h"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "mapstructure May Leak Sensitive Information in Logs When Processing Malformed Data",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-3445",
+        "identifier_type": "cve",
+        "affected_range": "v3.5.1",
+        "aliases": [],
+        "details": "A Path Traversal \"Zip Slip\" vulnerability has been identified in mholt/archiver in Go. This vulnerability allows using a crafted ZIP file containing path traversal symlinks to create or overwrite files with the user's privileges or application utilizing the library.\n\nWhen using the archiver.Unarchive functionality with ZIP files, like this: archiver.Unarchive(zipFile, outputDir),\u00a0 A crafted ZIP file can be extracted in such a way that it writes files to the affected system with the same privileges as the application executing this vulnerable functionality. Consequently, sensitive files may be overwritten, potentially leading to privilege escalation, code execution, and other severe outcomes in some cases.\n\nIt's worth noting that a similar vulnerability was found in TAR files (CVE-2024-0406). Although a fix was implemented, it hasn't been officially released, and the affected project has since been deprecated. The successor to mholt/archiver is a new project called mholt/archives, and its initial release (v0.1.0) removes the Unarchive() functionality.",
+        "fixed_version": null,
+        "published": "2025-04-13T22:15:12.870000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-3445"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/mholt/archiver"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/mholt/archiver/"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/mholt/archiver/commit/fea250ac6eacd56f90a82fbe2481cfdbb9a1bbd1"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/mholt/archiver/issues/267"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-3445"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-3445"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 8.1,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 8.1,
+            "version": "redhat"
+          }
+        ],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "mholt/archiver: A Path Traversal \"Zip Slip\" vulnerability in mholt/archiver",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2024-0406",
+        "identifier_type": "cve",
+        "affected_range": "v3.5.1",
+        "aliases": [],
+        "details": "A flaw was discovered in the mholt/archiver package. This flaw allows an attacker to create a specially crafted tar file, which, when unpacked, may allow access to restricted files or directories. This issue can allow the creation or overwriting of files with the user's or application's privileges using the library.",
+        "fixed_version": null,
+        "published": "2024-04-06T17:15:07.127000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/errata/RHSA-2025:2449"
+          },
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2024-0406"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2257749"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/mholt/archiver"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0406"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2024-2698"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2024-0406"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 6.1,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 7.8,
+            "version": "nvd"
+          },
+          {
+            "type": "cvss",
+            "value": 6.1,
+            "version": "redhat"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "mholt/archiver: path traversal vulnerability",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-11579",
+        "identifier_type": "cve",
+        "affected_range": "v1.1.3",
+        "aliases": [],
+        "details": "github.com/nwaples/rardecode versions <=2.1.1 fail to restrict the dictionary size when reading\u00a0large RAR\u00a0dictionary sizes, which allows an attacker to provide a specially crafted RAR file and cause Denial of Service via an Out Of Memory Crash.",
+        "fixed_version": null,
+        "published": "2025-10-10T12:15:37.743000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-11579"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/nwaples/rardecode"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/nwaples/rardecode/commit/52fb4e825c936636f251f7e7deded39ab11df9a9"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11579"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-4020"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-11579"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "redhat"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "github.com/nwaples/rardecode: RarDecode Out Of Memory Crash",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "GHSA-pmc3-p9hx-jq96",
+        "identifier_type": "other",
+        "affected_range": "v1.6.7",
+        "aliases": [],
+        "details": "### Description\nBefore version 1.7.0, utls did not implement the TLS 1.3 downgrade protection mechanism specified in RFC 8446 Section 4.1.3 when using a utls ClientHello spec. This allowed an active network adversary to downgrade TLS 1.3 connections initiated by a utls client to a lower TLS version (e.g., TLS 1.2) by modifying the ClientHello message to exclude the SupportedVersions extension, causing the server to respond with a TLS 1.2 ServerHello (along with a downgrade canary in the ServerHello random field). Because utls did not check the downgrade canary in the ServerHello random field, clients would accept the downgraded connection without detecting the attack. This attack could also be used by an active network attacker to fingerprint utls connections.\n\n### Fix Commit or Pull Request\n\nrefraction-networking/utls#337, specifically refraction-networking/utls@f8892761e2a4d29054264651d3a86fda83bc83f9\n\n### References\n\n- https://github.com/refraction-networking/utls/issues/181",
+        "fixed_version": "1.7.0",
+        "published": "2025-04-23T14:43:44Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://github.com/refraction-networking/utls"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/refraction-networking/utls/commit/f8892761e2a4d29054264651d3a86fda83bc83f9"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/refraction-networking/utls/issues/181"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/refraction-networking/utls/pull/337"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/refraction-networking/utls/security/advisories/GHSA-pmc3-p9hx-jq96"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 6.5,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "uTLS ServerHellos are accepted without checking TLS 1.3 downgrade canaries",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-58058",
+        "identifier_type": "cve",
+        "affected_range": "v0.5.12",
+        "aliases": [],
+        "details": "xz is a pure golang package for reading and writing xz-compressed files. Prior to version 0.5.14, it is possible to put data in front of an LZMA-encoded byte stream without detecting the situation while reading the header. This can lead to increased memory consumption because the current implementation allocates the full decoding buffer directly after reading the header. The LZMA header doesn't include a magic number or has a checksum to detect such an issue according to the specification. Note that the code recognizes the issue later while reading the stream, but at this time the memory allocation has already been done. This issue has been patched in version 0.5.14.",
+        "fixed_version": "0.5.15",
+        "published": "2025-08-28T22:15:32.577000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-58058"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/ulikunitz/xz"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/ulikunitz/xz/commit/88ddf1d0d98d688db65de034f48960b2760d2ae2"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/ulikunitz/xz/security/advisories/GHSA-jc7w-c686-c4v9"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58058"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-58058"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "redhat"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "github.com/ulikunitz/xz: github.com/ulikunitz/xz leaks memory",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-22869",
+        "identifier_type": "cve",
+        "affected_range": "v0.32.0",
+        "aliases": [],
+        "details": "SSH servers which implement file transfer protocols are vulnerable to a denial of service attack from clients which complete the key exchange slowly, or not at all, causing pending content to be read into memory, but never transmitted.",
+        "fixed_version": "0.35.0",
+        "published": "2025-02-26T08:14:24.997000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/errata/RHSA-2025:3833"
+          },
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-22869"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/2348367"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2348367"
+          },
+          {
+            "type": "web",
+            "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-22869"
+          },
+          {
+            "type": "web",
+            "url": "https://errata.almalinux.org/9/ALSA-2025-3833.html"
+          },
+          {
+            "type": "web",
+            "url": "https://errata.rockylinux.org/RLSA-2025:7484"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/golang/crypto"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/golang/crypto/commit/7292932d45d55c7199324ab0027cc86e8198aa22"
+          },
+          {
+            "type": "web",
+            "url": "https://go-review.googlesource.com/c/crypto/+/652135"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/652135"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/71931"
+          },
+          {
+            "type": "web",
+            "url": "https://linux.oracle.com/cve/CVE-2025-22869.html"
+          },
+          {
+            "type": "web",
+            "url": "https://linux.oracle.com/errata/ELSA-2025-7484.html"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-22869"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-3487"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250411-0010"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250411-0010/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-22869"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 7.5,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 7.5,
+            "version": "redhat"
+          }
+        ],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "golang.org/x/crypto/ssh: Denial of Service in the Key Exchange of golang.org/x/crypto/ssh",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-47914",
+        "identifier_type": "cve",
+        "affected_range": "v0.32.0",
+        "aliases": [],
+        "details": "SSH Agent servers do not validate the size of messages when processing new identity requests, which may cause the program to panic if the message is malformed due to an out of bounds read.",
+        "fixed_version": "0.45.0",
+        "published": "2025-11-19T21:15:50.517000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/721960"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/76364"
+          },
+          {
+            "type": "web",
+            "url": "https://go.googlesource.com/crypto"
+          },
+          {
+            "type": "web",
+            "url": "https://groups.google.com/g/golang-announce/c/w-oX3UxNcZA"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-47914"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-4135"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "SSH Agent servers do not validate the size of messages when processing ...",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-58181",
+        "identifier_type": "cve",
+        "affected_range": "v0.32.0",
+        "aliases": [],
+        "details": "SSH servers parsing GSSAPI authentication requests do not validate the number of mechanisms specified in the request, allowing an attacker to cause unbounded memory consumption.",
+        "fixed_version": "0.45.0",
+        "published": "2025-11-19T21:15:50.850000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/721961"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/76363"
+          },
+          {
+            "type": "web",
+            "url": "https://groups.google.com/g/golang-announce/c/w-oX3UxNcZA"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58181"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-4134"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "ghsa"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "SSH servers parsing GSSAPI authentication requests do not validate the ...",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-22870",
+        "identifier_type": "cve",
+        "affected_range": "v0.34.0",
+        "aliases": [],
+        "details": "Matching of hosts against proxy patterns can improperly treat an IPv6 zone ID as a hostname component. For example, when the NO_PROXY environment variable is set to \"*.example.com\", a request to \"[::1%25.example.com]:80` will incorrectly match and not be proxied.",
+        "fixed_version": "0.36.0",
+        "published": "2025-03-12T19:15:38.310000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "http://www.openwall.com/lists/oss-security/2025/03/07/2"
+          },
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-22870"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/golang/go/issues/71984"
+          },
+          {
+            "type": "web",
+            "url": "https://go-review.googlesource.com/q/project:net"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/654697"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/71984"
+          },
+          {
+            "type": "web",
+            "url": "https://groups.google.com/g/golang-announce/c/4t3lzH3I0eI/m/b42ImqrBAQAJ"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-22870"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-3503"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250509-0007"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250509-0007/"
+          },
+          {
+            "type": "web",
+            "url": "https://ubuntu.com/security/notices/USN-7574-1"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-22870"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 4.4,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 4.4,
+            "version": "redhat"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "golang.org/x/net/proxy: golang.org/x/net/http/httpproxy: HTTP Proxy bypass using IPv6 Zone IDs in golang.org/x/net",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-22872",
+        "identifier_type": "cve",
+        "affected_range": "v0.34.0",
+        "aliases": [],
+        "details": "The tokenizer incorrectly interprets tags with unquoted attribute values that end with a solidus character (/) as self-closing. When directly using Tokenizer, this can result in such tags incorrectly being marked as self-closing, and when using the Parse functions, this can result in content following such tags as being placed in the wrong scope during DOM construction, but only when tags are in foreign content (e.g. <math>, <svg>, etc contexts).",
+        "fixed_version": "0.38.0",
+        "published": "2025-04-16T18:16:04.183000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-22872"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/advisories/GHSA-vvgc-356p-c3xw"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/662715"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/73070"
+          },
+          {
+            "type": "web",
+            "url": "https://groups.google.com/g/golang-announce/c/ezSKR9vqbqA"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-22872"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-3595"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250516-0007"
+          },
+          {
+            "type": "web",
+            "url": "https://security.netapp.com/advisory/ntap-20250516-0007/"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-22872"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 6.5,
+            "version": "redhat"
+          }
+        ],
+        "severity": "MEDIUM",
+        "source": "trivy",
+        "summary": "golang.org/x/net/html: Incorrect Neutralization of Input During Web Page Generation in x/net in golang.org/x/net",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-22868",
+        "identifier_type": "cve",
+        "affected_range": "v0.18.0",
+        "aliases": [],
+        "details": "An attacker can pass a malicious malformed token which causes unexpected memory to be consumed during parsing.",
+        "fixed_version": "0.27.0",
+        "published": "2025-02-26T08:14:24.897000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-22868"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2347423"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2348366"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2352914"
+          },
+          {
+            "type": "web",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2354195"
+          },
+          {
+            "type": "web",
+            "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-22868"
+          },
+          {
+            "type": "web",
+            "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27144"
+          },
+          {
+            "type": "web",
+            "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-29786"
+          },
+          {
+            "type": "web",
+            "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-30204"
+          },
+          {
+            "type": "web",
+            "url": "https://errata.rockylinux.org/RLSA-2025:7479"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/cl/652155"
+          },
+          {
+            "type": "web",
+            "url": "https://go.dev/issue/71490"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-22868"
+          },
+          {
+            "type": "web",
+            "url": "https://pkg.go.dev/vuln/GO-2025-3488"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-22868"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 7.5,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 7.5,
+            "version": "redhat"
+          }
+        ],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "golang.org/x/oauth2/jws: Unexpected memory consumption during token parsing in golang.org/x/oauth2/jws",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      }
+    ],
+    "osv-scanner": [],
+    "semgrep": []
+  }
+}
