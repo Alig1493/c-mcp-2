@@ -14,6 +14,7 @@
 | [BurtTheCoder/mcp-dnstwist](https://github.com/BurtTheCoder/mcp-dnstwist) | [📋](results/BurtTheCoder-mcp-dnstwist-violations.json) | 3 | 0 | 3 | 0 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
 | [BurtTheCoder/mcp-maigret](https://github.com/BurtTheCoder/mcp-maigret) | [📋](results/BurtTheCoder-mcp-maigret-violations.json) | 3 | 0 | 3 | 0 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
 | [firstorderai/authenticator_mcp](https://github.com/firstorderai/authenticator_mcp) | [📋](results/firstorderai-authenticator_mcp-violations.json) | 3 | 0 | 2 | 1 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
+| [qianniuspace/mcp-security-audit](https://github.com/qianniuspace/mcp-security-audit) | [📋](results/qianniuspace-mcp-security-audit-violations.json) | 6 | 0 | 3 | 0 | 3 | 3 | osv-scanner, semgrep, trivy | 🔴 |
 | [rad-security/mcp-server](https://github.com/rad-security/mcp-server) | [📋](results/rad-security-mcp-server-violations.json) | 10 | 0 | 5 | 1 | 4 | 9 | osv-scanner, semgrep, trivy | 🔴 |
 | [sanyambassi/thales-cdsp-cakm-mcp-server](https://github.com/sanyambassi/thales-cdsp-cakm-mcp-server) | [📋](results/sanyambassi-thales-cdsp-cakm-mcp-server-violations.json) | 14 | 0 | 7 | 7 | 0 | 0 | osv-scanner, semgrep, trivy | 🔴 |
 | [sanyambassi/ciphertrust-manager-mcp-server](https://github.com/sanyambassi/ciphertrust-manager-mcp-server) | [📋](results/sanyambassi-ciphertrust-manager-mcp-server-violations.json) | 1 | 0 | 1 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🔴 |
