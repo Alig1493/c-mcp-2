@@ -1,0 +1,7 @@
+{
+  "atomicchonk/roadrecon_mcp_server": {
+    "trivy": [],
+    "osv-scanner": [],
+    "semgrep": []
+  }
+}
