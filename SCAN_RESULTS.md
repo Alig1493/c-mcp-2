@@ -4,6 +4,7 @@
 |---------|---------|-------|----------|------|--------|-----|---------|----------|--------|
 | [HaroldFinchIFT/vuln-nist-mcp-server](https://github.com/HaroldFinchIFT/vuln-nist-mcp-server) | [📋](results/HaroldFinchIFT-vuln-nist-mcp-server-violations.json) | 0 | 0 | 0 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🟢 |
 | [atomicchonk/roadrecon_mcp_server](https://github.com/atomicchonk/roadrecon_mcp_server) | [📋](results/atomicchonk-roadrecon_mcp_server-violations.json) | 0 | 0 | 0 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🟢 |
+| [gbrigandi/mcp-server-cortex](https://github.com/gbrigandi/mcp-server-cortex) | [📋](results/gbrigandi-mcp-server-cortex-violations.json) | 0 | 0 | 0 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🟢 |
 | [gbrigandi/mcp-server-thehive](https://github.com/gbrigandi/mcp-server-thehive) | [📋](results/gbrigandi-mcp-server-thehive-violations.json) | 7 | 0 | 0 | 0 | 2 | 3 | osv-scanner, semgrep, trivy | 🟡 |
 | [jtang613/GhidrAssistMCP](https://github.com/jtang613/GhidrAssistMCP) | [📋](results/jtang613-GhidrAssistMCP-violations.json) | 0 | 0 | 0 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🟢 |
 | [zboralski/ida-headless-mcp](https://github.com/zboralski/ida-headless-mcp) | [📋](results/zboralski-ida-headless-mcp-violations.json) | 13 | 0 | 0 | 0 | 0 | 13 | osv-scanner, semgrep, trivy | 🟡 |
