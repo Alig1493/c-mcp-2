@@ -12,7 +12,7 @@ REPO_URL ?=
 SCANNERS ?=
 
 # GitHub repository where workflow is located
-GH_REPO := Alig1493/c-mcp-2
+GH_REPO := Alig1493/v-mcp-2
 
 help:
 	@echo "VMCP - MCP Vulnerability Scanner Makefile"

@@ -135,7 +135,7 @@ The workflow runs automatically when triggered:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Alig1493/c-mcp-2.git
+git clone https://github.com/Alig1493/v-mcp-2.git
 cd v-mcp-2
 
 # Install dependencies
