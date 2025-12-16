@@ -13,6 +13,7 @@
 | [BurtTheCoder/mcp-dnstwist](https://github.com/BurtTheCoder/mcp-dnstwist) | [📋](results/BurtTheCoder-mcp-dnstwist-violations.json) | 3 | 0 | 3 | 0 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
 | [BurtTheCoder/mcp-maigret](https://github.com/BurtTheCoder/mcp-maigret) | [📋](results/BurtTheCoder-mcp-maigret-violations.json) | 3 | 0 | 3 | 0 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
 | [firstorderai/authenticator_mcp](https://github.com/firstorderai/authenticator_mcp) | [📋](results/firstorderai-authenticator_mcp-violations.json) | 3 | 0 | 2 | 1 | 0 | 2 | osv-scanner, semgrep, trivy | 🔴 |
+| [sanyambassi/ciphertrust-manager-mcp-server](https://github.com/sanyambassi/ciphertrust-manager-mcp-server) | [📋](results/sanyambassi-ciphertrust-manager-mcp-server-violations.json) | 1 | 0 | 1 | 0 | 0 | 0 | osv-scanner, semgrep, trivy | 🔴 |
 | [semgrep/mcp](https://github.com/semgrep/mcp) | [📋](results/semgrep-mcp-violations.json) | 4 | 0 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [vespo92/OPNSenseMCP](https://github.com/vespo92/OPNSenseMCP) | [📋](results/vespo92-OPNSenseMCP-violations.json) | 42 | 0 | 1 | 17 | 24 | 0 | osv-scanner, semgrep, trivy | 🔴 |
 | [BurtTheCoder/mcp-shodan](https://github.com/BurtTheCoder/mcp-shodan) | [📋](results/BurtTheCoder-mcp-shodan-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
