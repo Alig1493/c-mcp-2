@@ -1,7 +1,6 @@
 """Aggregate vulnerability scan results and generate README."""
 import json
 import os
-from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
@@ -84,7 +83,7 @@ def save_aggregated_results(results: dict[str, Any], results_dir: str) -> None:
 
     for org_repo, scanner_results in results.items():
         # Create output directory for this repo
-        output_dir = results_path / org_repo.replace('/', Path.sep)
+        output_dir = results_path / org_repo.replace('/', os.sep)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Save aggregated results
