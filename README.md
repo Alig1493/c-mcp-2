@@ -161,18 +161,27 @@ Results are saved to `results/<org>/<repo>/violations.json`:
 }
 ```
 
-### README Summary
+### SCAN_RESULTS.md Summary
 
-Generated README includes:
+Generated summary table includes detailed vulnerability breakdown:
 
-| Project | Total Findings | Severity | Status |
-|---------|----------------|----------|--------|
-| org/repo | 42 | HIGH | 🔴 |
+| Project | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |
+|---------|-------|----------|------|--------|-----|---------|----------|--------|
+| [org/repo](results/org/repo/violations.json) | 42 | 5 | 12 | 20 | 5 | 18 | trivy, osv-scanner, semgrep | 🔴 |
 
-**Status Indicators**:
-- 🔴 CRITICAL or HIGH severity
-- 🟡 MEDIUM, LOW, or UNKNOWN severity
-- 🟢 No vulnerabilities
+**Columns Explained**:
+- **Project**: Link to detailed violations.json file
+- **Total**: Total number of vulnerabilities found
+- **Critical/High/Medium/Low**: Breakdown by severity level
+- **Fixable**: Number of vulnerabilities with available fixes/patches
+- **Scanners**: Which security scanners were used
+- **Status**: Visual severity indicator (🔴 Critical/High, 🟡 Medium/Low, 🟢 None)
+
+This detailed breakdown helps security teams:
+- **Prioritize** critical and high severity issues immediately
+- **Estimate remediation effort** using the fixable count
+- **Verify scan coverage** by checking which scanners ran
+- **Track security posture** over time with severity metrics
 
 ## Supported Scanners
 

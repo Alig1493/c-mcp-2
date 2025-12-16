@@ -126,16 +126,25 @@ scanners: trivy,osv-scanner
 }
 ```
 
-### README.md Table
+### SCAN_RESULTS.md Table
 ```markdown
-| Project | Total Findings | Severity | Status |
-|---------|----------------|----------|--------|
-| org/repo | 15 | HIGH | 🔴 |
+| Project | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |
+|---------|-------|----------|------|--------|-----|---------|----------|--------|
+| [org/repo](results/org/repo/violations.json) | 42 | 5 | 12 | 20 | 5 | 18 | trivy, osv-scanner, semgrep | 🔴 |
 ```
 
-- **🔴**: Critical or High severity found
-- **🟡**: Medium, Low, or Unknown severity
-- **🟢**: No vulnerabilities found
+**Column Breakdown**:
+- **Project**: Clickable link to detailed violations.json
+- **Total**: Total vulnerabilities found across all scanners
+- **Critical/High/Medium/Low**: Severity breakdown for prioritization
+- **Fixable**: Count of vulnerabilities with available patches/fixes
+- **Scanners**: Which security tools were used
+- **Status**: 🔴 Critical/High | 🟡 Medium/Low | 🟢 None
+
+**Quick Actions**:
+- Focus on **Critical** and **High** first (immediate security risks)
+- Use **Fixable** count to estimate remediation effort
+- Verify all expected **Scanners** ran successfully
 
 ## Troubleshooting
 

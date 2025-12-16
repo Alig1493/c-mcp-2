@@ -102,13 +102,19 @@ When reviewing a vulnerability scan PR:
 
 1. **Check Summary**:
    - [ ] Open `SCAN_RESULTS.md`
-   - [ ] Note total findings and worst severity
+   - [ ] Review the enhanced summary table showing:
+     - Total findings count
+     - Critical and High severity breakdown (priority items)
+     - Medium and Low severity counts
+     - Fixable count (vulnerabilities with available patches)
+     - Scanners used (verify complete coverage)
    - [ ] Verify scanned repository is correct
 
 2. **Review Details**:
    - [ ] Open `results/<org>/<repo>/violations.json`
-   - [ ] Review high/critical severity issues
-   - [ ] Check if fixed versions are available
+   - [ ] Prioritize Critical and High severity issues first
+   - [ ] Check the Fixable count to estimate remediation effort
+   - [ ] Review which scanners found which issues
 
 3. **Validate Links**:
    - [ ] Click on CVE reference links
@@ -133,12 +139,15 @@ When reviewing a vulnerability scan PR:
 
 Automated security scan for: **[django/django](https://github.com/django/django)**
 
-**Total Vulnerabilities Found:** 42
+**Summary:**
+- Total: 42 vulnerabilities
+- Critical: 5 | High: 12 | Medium: 20 | Low: 5
+- Fixable: 18 vulnerabilities have patches available
 
 ### 📊 What's Included
 
-- `results/django/django/violations.json` - Detailed vulnerability data
-- `SCAN_RESULTS.md` - Aggregated summary table
+- `results/django/django/violations.json` - Detailed vulnerability data with all scanner findings
+- `SCAN_RESULTS.md` - Enhanced summary table with severity breakdown and fixable counts
 
 ### 🔍 Scanners Used
 
