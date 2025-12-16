@@ -1,0 +1,288 @@
+{
+  "BurtTheCoder/mcp-shodan": {
+    "trivy": [
+      {
+        "id": "CVE-2025-66414",
+        "identifier_type": "cve",
+        "affected_range": "0.6.1",
+        "aliases": [],
+        "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
+        "fixed_version": "1.24.0",
+        "published": "2025-12-02T19:15:52.347000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
+          }
+        ],
+        "scores": [],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-27152",
+        "identifier_type": "cve",
+        "affected_range": "1.7.9",
+        "aliases": [],
+        "details": "axios is a promise based HTTP client for the browser and node.js. The issue occurs when passing absolute URLs rather than protocol-relative URLs to axios. Even if \u2060baseURL is set, axios sends the request to the specified absolute URL, potentially causing SSRF and credential leakage. This issue impacts both server-side and client-side usage of axios. This issue is fixed in 1.8.2.",
+        "fixed_version": "1.8.2, 0.30.0",
+        "published": "2025-03-07T16:15:38.773000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-27152"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/commit/02c3c69ced0f8fd86407c23203835892313d7fde"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/commit/fb8eec214ce7744b5ca787f2c3b8339b2f54b00f"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/issues/6463"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/pull/6829"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/releases/tag/v1.8.2"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/security/advisories/GHSA-jr5f-v2jv-69x6"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27152"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-27152"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "nvd"
+          },
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "redhat"
+          }
+        ],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "axios: Possible SSRF and Credential Leakage via Absolute URL in axios Requests",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-58754",
+        "identifier_type": "cve",
+        "affected_range": "1.7.9",
+        "aliases": [],
+        "details": "Axios is a promise based HTTP client for the browser and Node.js. When Axios prior to versions 0.30.2 and 1.12.0 runs on Node.js and is given a URL with the `data:` scheme, it does not perform HTTP. Instead, its Node http adapter decodes the entire payload into memory (`Buffer`/`Blob`) and returns a synthetic 200 response. This path ignores `maxContentLength` / `maxBodyLength` (which only protect HTTP responses), so an attacker can supply a very large `data:` URI and cause the process to allocate unbounded memory and crash (DoS), even if the caller requested `responseType: 'stream'`. Versions 0.30.2 and 1.12.0 contain a patch for the issue.",
+        "fixed_version": "1.12.0, 0.30.2",
+        "published": "2025-09-12T02:15:46.873000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-58754"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/commit/945435fc51467303768202250debb8d4ae892593"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/commit/a1b1d3f073a988601583a604f5f9f5d05a3d0b67"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/pull/7011"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/pull/7034"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/releases/tag/v0.30.2"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/releases/tag/v1.12.0"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/axios/axios/security/advisories/GHSA-4hjh-wcwx-xvwj"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58754"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-58754"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 7.5,
+            "version": "ghsa"
+          },
+          {
+            "type": "cvss",
+            "value": 5.3,
+            "version": "redhat"
+          }
+        ],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "axios: Axios DoS via lack of data size check",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      },
+      {
+        "id": "CVE-2025-7783",
+        "identifier_type": "cve",
+        "affected_range": "4.0.1",
+        "aliases": [],
+        "details": "Use of Insufficiently Random Values vulnerability in form-data allows HTTP Parameter Pollution (HPP). This vulnerability is associated with program files lib/form_data.Js.\n\nThis issue affects form-data: < 2.5.4, 3.0.0 - 3.0.3, 4.0.0 - 4.0.3.",
+        "fixed_version": "2.5.4, 3.0.4, 4.0.4",
+        "published": "2025-07-18T17:15:44.747000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://access.redhat.com/security/cve/CVE-2025-7783"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/benweissmann/CVE-2025-7783-poc"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/form-data/form-data"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/form-data/form-data/commit/3d1723080e6577a66f17f163ecd345a21d8d0fd0"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/form-data/form-data/security/advisories/GHSA-fjxv-7rqg-78g4"
+          },
+          {
+            "type": "web",
+            "url": "https://lists.debian.org/debian-lts-announce/2025/07/msg00023.html"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7783"
+          },
+          {
+            "type": "web",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-7783"
+          }
+        ],
+        "scores": [
+          {
+            "type": "cvss",
+            "value": 5.4,
+            "version": "redhat"
+          }
+        ],
+        "severity": "CRITICAL",
+        "source": "trivy",
+        "summary": "form-data: Unsafe random function in form-data",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      }
+    ],
+    "osv-scanner": [],
+    "semgrep": [
+      {
+        "id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+          }
+        ],
+        "scores": [],
+        "severity": "HIGH",
+        "source": null,
+        "summary": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "rule_name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "rule_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "confidence": "MEDIUM",
+        "file_location": "/tmp/tmp1zlkuilz/mcp-shodan/Dockerfile",
+        "line_range": "39-39",
+        "categories": [
+          "CWE-269: Improper Privilege Management"
+        ]
+      }
+    ]
+  }
+}
