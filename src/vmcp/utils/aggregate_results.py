@@ -102,13 +102,37 @@ def save_aggregated_results(results: dict[str, Any], results_dir: str) -> None:
             print(f"Removed scanner-specific file: {scanner_file}")
 
 
+def count_by_severity(vulnerabilities: list[dict[str, Any]]) -> dict[str, int]:
+    """Count vulnerabilities by severity."""
+    counts = {'CRITICAL': 0, 'HIGH': 0, 'MEDIUM': 0, 'LOW': 0}
+    for vuln in vulnerabilities:
+        severity = vuln.get('severity', 'UNKNOWN')
+        if severity in counts:
+            counts[severity] += 1
+    return counts
+
+
+def count_fixable(vulnerabilities: list[dict[str, Any]]) -> int:
+    """Count vulnerabilities with available fixes."""
+    return sum(1 for vuln in vulnerabilities if vuln.get('fixed_version'))
+
+
+def get_scanners_used(scanners: dict[str, list]) -> str:
+    """Get list of scanners that were used."""
+    scanner_names = []
+    for scanner_name, vulns in scanners.items():
+        # Only include scanners that actually ran (even if no vulns found)
+        scanner_names.append(scanner_name)
+    return ', '.join(sorted(scanner_names)) if scanner_names else 'None'
+
+
 def generate_summary_table(results: dict[str, Any]) -> str:
     """Generate summary table for README."""
     lines = [
         "# Vulnerability Scan Results",
         "",
-        "| Project | Total Findings | Severity | Status |",
-        "|---------|----------------|----------|--------|",
+        "| Project | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |",
+        "|---------|-------|----------|------|--------|-----|---------|----------|--------|",
     ]
 
     for org_repo, scanners in sorted(results.items()):
@@ -121,11 +145,23 @@ def generate_summary_table(results: dict[str, Any]) -> str:
         worst_severity = get_worst_severity(all_vulnerabilities)
         status_emoji = SEVERITY_EMOJI.get(worst_severity, '⚪')
 
+        # Get severity breakdown
+        severity_counts = count_by_severity(all_vulnerabilities)
+
+        # Count fixable vulnerabilities
+        fixable_count = count_fixable(all_vulnerabilities)
+
+        # Get scanners used
+        scanners_used = get_scanners_used(scanners)
+
         # Create link to results folder
         results_link = f"[{org_repo}](results/{org_repo}/violations.json)"
 
         lines.append(
-            f"| {results_link} | {total_findings} | {worst_severity} | {status_emoji} |"
+            f"| {results_link} | {total_findings} | "
+            f"{severity_counts['CRITICAL']} | {severity_counts['HIGH']} | "
+            f"{severity_counts['MEDIUM']} | {severity_counts['LOW']} | "
+            f"{fixable_count} | {scanners_used} | {status_emoji} |"
         )
 
     return "\n".join(lines)
