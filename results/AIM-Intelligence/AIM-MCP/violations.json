@@ -130,7 +130,7 @@
         "rule_name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
         "rule_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
         "confidence": "MEDIUM",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/Dockerfile",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/Dockerfile",
         "line_range": "25-25",
         "categories": [
           "CWE-269: Improper Privilege Management"
@@ -157,7 +157,7 @@
         "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "confidence": "LOW",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/scripts/copy-markdown.js",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/scripts/copy-markdown.js",
         "line_range": "14-14",
         "categories": [
           "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
@@ -184,7 +184,7 @@
         "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "confidence": "LOW",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/scripts/copy-markdown.js",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/scripts/copy-markdown.js",
         "line_range": "14-14",
         "categories": [
           "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
@@ -211,7 +211,7 @@
         "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "confidence": "LOW",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/scripts/copy-markdown.js",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/scripts/copy-markdown.js",
         "line_range": "15-15",
         "categories": [
           "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
@@ -238,7 +238,7 @@
         "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "confidence": "LOW",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/scripts/copy-markdown.js",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/scripts/copy-markdown.js",
         "line_range": "15-15",
         "categories": [
           "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
@@ -265,7 +265,7 @@
         "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "confidence": "LOW",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/src/resources/handler.ts",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/src/resources/handler.ts",
         "line_range": "12-12",
         "categories": [
           "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
@@ -292,7 +292,7 @@
         "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
         "confidence": "LOW",
-        "file_location": "/tmp/tmp2dm95o0m/AIM-MCP/src/resources/handler.ts",
+        "file_location": "/tmp/tmpgcb8vi8v/AIM-MCP/src/resources/handler.ts",
         "line_range": "12-12",
         "categories": [
           "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
