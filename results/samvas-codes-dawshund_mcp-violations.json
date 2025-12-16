@@ -1,0 +1,35 @@
+{
+  "samvas-codes/dawshund_mcp": {
+    "trivy": [],
+    "osv-scanner": [],
+    "semgrep": [
+      {
+        "id": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "Running flask app with host 0.0.0.0 could expose the server publicly.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control"
+          }
+        ],
+        "scores": [],
+        "severity": "MEDIUM",
+        "source": null,
+        "summary": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
+        "rule_name": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
+        "rule_id": "python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host",
+        "confidence": "HIGH",
+        "file_location": "/tmp/tmped900tp4/dawshund_mcp/server.py",
+        "line_range": "239-239",
+        "categories": [
+          "CWE-668: Exposure of Resource to Wrong Sphere"
+        ]
+      }
+    ]
+  }
+}
