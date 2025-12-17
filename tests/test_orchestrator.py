@@ -21,6 +21,7 @@ def test_scanner_map_exists():
     assert 'trivy' in ScanOrchestrator.SCANNER_MAP
     assert 'osv-scanner' in ScanOrchestrator.SCANNER_MAP
     assert 'semgrep' in ScanOrchestrator.SCANNER_MAP
+    assert 'yara' in ScanOrchestrator.SCANNER_MAP
 
 
 def test_save_results():
@@ -36,15 +37,17 @@ def test_save_results():
 
         orchestrator.save_results(results, temp_dir)
 
-        # Check file was created
-        output_file = Path(temp_dir) / 'testorg' / 'testrepo' / 'violations.json'
-        assert output_file.exists()
+        # Check scanner files were created (per-scanner format)
+        trivy_file = Path(temp_dir) / 'trivy-violations.json'
+        osv_file = Path(temp_dir) / 'osv-scanner-violations.json'
+
+        assert trivy_file.exists()
+        assert osv_file.exists()
 
         # Check content
         import json
-        with open(output_file) as f:
-            data = json.load(f)
+        with open(trivy_file) as f:
+            trivy_data = json.load(f)
 
-        assert 'testorg/testrepo' in data
-        assert 'trivy' in data['testorg/testrepo']
-        assert 'osv-scanner' in data['testorg/testrepo']
+        assert 'testorg/testrepo' in trivy_data
+        assert 'trivy' in trivy_data['testorg/testrepo']
