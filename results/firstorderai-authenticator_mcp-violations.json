@@ -136,6 +136,7 @@
           "CWE-250: Execution with Unnecessary Privileges"
         ]
       }
-    ]
+    ],
+    "yara": []
   }
 }
