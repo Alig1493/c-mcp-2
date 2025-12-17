@@ -96,7 +96,7 @@ def save_aggregated_results(org_name: str, repo_name: str, results: dict[str, An
     """Save aggregated results to per-repo violations.json files."""
     results_path = Path(results_dir)
     results_path.mkdir(parents=True, exist_ok=True)
-    org_repo = {org_name}/{repo_name}
+    org_repo = f"{org_name}/{repo_name}"
 
     # Convert org/repo to org-repo format for filename
     violations_file = results_path / f'{org_name}-{repo_name}-violations.json'
@@ -149,6 +149,7 @@ def generate_summary_table(results: dict[str, Any]) -> str:
     """Generate summary table for README."""
     # Prepare all row data first
     rows = []
+    print(results)
 
     for org_repo, scanners in results.items():
         # Collect all vulnerabilities across scanners (done once)
