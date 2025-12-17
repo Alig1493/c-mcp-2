@@ -58,21 +58,19 @@ class ScanOrchestrator:
         return dict(results)
 
     def save_results(self, results: dict[str, list[VulnerabilityModel]], output_dir: str) -> None:
-        """Save scan results to JSON file."""
+        """Save scan results to JSON file in new simplified format."""
         output_path = Path(output_dir)
         output_path.mkdir(parents=True, exist_ok=True)
 
-        for scanner, vulnerabilities in results.items():
-            # Format results
-            formatted_results = {
-                f"{self.org_name}/{self.repo_name}": {
-                    scanner: [vuln.model_dump(mode='json') for vuln in vulnerabilities]
-                }
-            }
+        # Format results: {"scanner": [vulns]}
+        formatted_results = {
+            scanner: [vuln.model_dump(mode='json') for vuln in vulnerabilities]
+            for scanner, vulnerabilities in results.items()
+        }
 
-            # Save scanner-specific temp file to results directory
-            violations_file = output_path / f'{scanner}-violations.json'
-            with open(violations_file, 'w') as f:
-                json.dump(formatted_results, f, indent=2, default=str)
-
-            print(f"Results saved to {violations_file}")
+        # Save to scanner-specific temp file
+        for scanner in results.keys():
+            scanner_file = output_path / f'{scanner}-violations.json'
+            with open(scanner_file, 'w') as f:
+                json.dump({scanner: formatted_results[scanner]}, f, indent=2, default=str)
+            print(f"Results saved to {scanner_file}")

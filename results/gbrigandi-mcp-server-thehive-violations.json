@@ -1,268 +1,266 @@
 {
-  "gbrigandi/mcp-server-thehive": {
-    "trivy": [
-      {
-        "id": "CVE-2025-58160",
-        "identifier_type": "cve",
-        "affected_range": "0.3.19",
-        "aliases": [],
-        "details": "tracing is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. Prior to version 0.3.20, tracing-subscriber was vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to manipulate terminal title bars, clear screens or modify terminal display, and potentially mislead users through terminal manipulation. tracing-subscriber version 0.3.20 fixes this vulnerability by escaping ANSI control characters when writing events to destinations that may be printed to the terminal. A workaround involves avoiding printing logs to terminal emulators without escaping ANSI control sequences.",
-        "fixed_version": "0.3.20",
-        "published": "2025-08-29T22:15:32.887000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-58160"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/tracing"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/tracing/security/advisories/GHSA-xwfj-jgwm-7wp5"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58160"
-          },
-          {
-            "type": "web",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-58160"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 3.1,
-            "version": "redhat"
-          }
-        ],
-        "severity": "LOW",
-        "source": "trivy",
-        "summary": "tracing-subscriber: Tracing log pollution",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [
-      {
-        "id": "RUSTSEC-2025-0052",
-        "identifier_type": "other",
-        "affected_range": "0.0.0-0",
-        "aliases": [],
-        "details": "The `async-std` has been discontinued.\n\nAlternatives:\n\n- [smol](https://crates.io/crates/smol)",
-        "fixed_version": null,
-        "published": "2025-08-24T12:00:00Z",
-        "references": [
-          {
-            "type": "PACKAGE",
-            "url": "https://crates.io/crates/async-std"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0052.html"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/async-rs/async-std"
-          }
-        ],
-        "scores": [],
-        "severity": "UNKNOWN",
-        "source": "osv",
-        "summary": "async-std has been discontinued",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "RUSTSEC-2021-0141",
-        "identifier_type": "other",
-        "affected_range": "0.0.0-0",
-        "aliases": [],
-        "details": "dotenv by description is meant to be used in development or testing only.\n\nUsing this in production may or may not be advisable.\n\n## Alternatives\n\nThe below may or may not be feasible alternative(s):\n- [dotenvy](https://crates.io/crates/dotenvy)",
-        "fixed_version": null,
-        "published": "2021-12-24T12:00:00Z",
-        "references": [
-          {
-            "type": "PACKAGE",
-            "url": "https://crates.io/crates/dotenv"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2021-0141.html"
-          },
-          {
-            "type": "REPORT",
-            "url": "https://github.com/dotenv-rs/dotenv/issues/74"
-          }
-        ],
-        "scores": [],
-        "severity": "UNKNOWN",
-        "source": "osv",
-        "summary": "dotenv is Unmaintained",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "RUSTSEC-2024-0436",
-        "identifier_type": "other",
-        "affected_range": "0.0.0-0",
-        "aliases": [],
-        "details": "The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \nthat this project is not longer maintained as well as archived the repository\n\n## Possible Alternative(s)\n\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate",
-        "fixed_version": null,
-        "published": "2024-10-07T12:00:00Z",
-        "references": [
-          {
-            "type": "PACKAGE",
-            "url": "https://crates.io/crates/paste"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2024-0436.html"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/dtolnay/paste"
-          }
-        ],
-        "scores": [],
-        "severity": "UNKNOWN",
-        "source": "osv",
-        "summary": "paste - no longer maintained",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "RUSTSEC-2025-0134",
-        "identifier_type": "other",
-        "affected_range": "0.0.0-0",
-        "aliases": [],
-        "details": "The rustls-pemfile crate is no longer maintained. The repository has been archived since August\n2025, and users are encouraged to depend directly on the underlying PEM parsing code included\nin rustls-pki-types since 1.9.0. The latest version of rustls-pemfile is in fact a thin wrapper\naround the same code used in rustls-pki-types, so migrating should be straightforward.\n\nThe new API is represented by the [`PemObject`][PemObject] trait, which provides methods for\nreading a single or multiple PEM objects from a file or byte slice.\n\n[PemObject]: https://docs.rs/rustls-pki-types/latest/rustls_pki_types/pem/trait.PemObject.html",
-        "fixed_version": null,
-        "published": "2025-11-28T12:00:00Z",
-        "references": [
-          {
-            "type": "PACKAGE",
-            "url": "https://crates.io/crates/rustls-pemfile"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0134.html"
-          },
-          {
-            "type": "REPORT",
-            "url": "https://github.com/rustls/pemfile/issues/61"
-          }
-        ],
-        "scores": [],
-        "severity": "UNKNOWN",
-        "source": "osv",
-        "summary": "rustls-pemfile is unmaintained",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "RUSTSEC-2025-0055",
-        "identifier_type": "other",
-        "affected_range": "0.0.0-0",
-        "aliases": [
-          "CVE-2025-58160",
-          "GHSA-xwfj-jgwm-7wp5"
-        ],
-        "details": "Previous versions of tracing-subscriber were vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to:\n\n- Manipulate terminal title bars\n- Clear screens or modify terminal display\n- Potentially mislead users through terminal manipulation\n\nIn isolation, impact is minimal, however security issues have been found in terminal emulators that enabled an attacker to use ANSI escape sequences via logs to exploit vulnerabilities in the terminal emulator.\n\nThis was patched in [PR #3368](https://github.com/tokio-rs/tracing/pull/3368) to escape ANSI control characters from user input.",
-        "fixed_version": "0.3.20",
-        "published": "2025-08-29T12:00:00Z",
-        "references": [
-          {
-            "type": "PACKAGE",
-            "url": "https://crates.io/crates/tracing-subscriber"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://github.com/advisories/GHSA-xwfj-jgwm-7wp5"
-          }
-        ],
-        "scores": [],
-        "severity": "UNKNOWN",
-        "source": "osv",
-        "summary": "Logging user input may result in poisoning logs with ANSI escape sequences",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "GHSA-xwfj-jgwm-7wp5",
-        "identifier_type": "other",
-        "affected_range": "0",
-        "aliases": [
-          "CVE-2025-58160",
-          "RUSTSEC-2025-0055"
-        ],
-        "details": "### Impact\n\nPrevious versions of tracing-subscriber were vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to:\n\n- Manipulate terminal title bars\n- Clear screens or modify terminal display\n- Potentially mislead users through terminal manipulation\n\nIn isolation, impact is minimal, however security issues have been found in terminal emulators that enabled an attacker to use ANSI escape sequences via logs to exploit vulnerabilities in the terminal emulator.\n\n### Patches\n\n`tracing-subscriber` version 0.3.20 fixes this vulnerability by escaping ANSI control characters in when writing events to destinations that may be printed to the terminal.\n\n### Workarounds\n\nAvoid printing logs to terminal emulators without escaping ANSI control sequences.\n\n### References\n\nhttps://www.packetlabs.net/posts/weaponizing-ansi-escape-sequences/\n\n\n### Acknowledgments\n\nWe would like to thank [zefr0x](http://github.com/zefr0x) who responsibly reported the issue at `security@tokio.rs`.\n\nIf you believe you have found a security vulnerability in any tokio-rs project, please email us at `security@tokio.rs`.",
-        "fixed_version": "0.3.20",
-        "published": "2025-08-29T20:33:56Z",
-        "references": [
-          {
-            "type": "WEB",
-            "url": "https://github.com/tokio-rs/tracing/security/advisories/GHSA-xwfj-jgwm-7wp5"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58160"
-          },
-          {
-            "type": "PACKAGE",
-            "url": "https://github.com/tokio-rs/tracing"
-          },
-          {
-            "type": "WEB",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": "osv",
-        "summary": " Tracing logging user input may result in poisoning logs with ANSI escape sequences",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "semgrep": []
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-58160",
+      "identifier_type": "cve",
+      "affected_range": "0.3.19",
+      "aliases": [],
+      "details": "tracing is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. Prior to version 0.3.20, tracing-subscriber was vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to manipulate terminal title bars, clear screens or modify terminal display, and potentially mislead users through terminal manipulation. tracing-subscriber version 0.3.20 fixes this vulnerability by escaping ANSI control characters when writing events to destinations that may be printed to the terminal. A workaround involves avoiding printing logs to terminal emulators without escaping ANSI control sequences.",
+      "fixed_version": "0.3.20",
+      "published": "2025-08-29T22:15:32.887000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-58160"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/tracing"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/tracing/security/advisories/GHSA-xwfj-jgwm-7wp5"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58160"
+        },
+        {
+          "type": "web",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-58160"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 3.1,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "tracing-subscriber: Tracing log pollution",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [
+    {
+      "id": "RUSTSEC-2025-0052",
+      "identifier_type": "other",
+      "affected_range": "0.0.0-0",
+      "aliases": [],
+      "details": "The `async-std` has been discontinued.\n\nAlternatives:\n\n- [smol](https://crates.io/crates/smol)",
+      "fixed_version": null,
+      "published": "2025-08-24T12:00:00Z",
+      "references": [
+        {
+          "type": "PACKAGE",
+          "url": "https://crates.io/crates/async-std"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0052.html"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/async-rs/async-std"
+        }
+      ],
+      "scores": [],
+      "severity": "UNKNOWN",
+      "source": "osv",
+      "summary": "async-std has been discontinued",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "RUSTSEC-2021-0141",
+      "identifier_type": "other",
+      "affected_range": "0.0.0-0",
+      "aliases": [],
+      "details": "dotenv by description is meant to be used in development or testing only.\n\nUsing this in production may or may not be advisable.\n\n## Alternatives\n\nThe below may or may not be feasible alternative(s):\n- [dotenvy](https://crates.io/crates/dotenvy)",
+      "fixed_version": null,
+      "published": "2021-12-24T12:00:00Z",
+      "references": [
+        {
+          "type": "PACKAGE",
+          "url": "https://crates.io/crates/dotenv"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2021-0141.html"
+        },
+        {
+          "type": "REPORT",
+          "url": "https://github.com/dotenv-rs/dotenv/issues/74"
+        }
+      ],
+      "scores": [],
+      "severity": "UNKNOWN",
+      "source": "osv",
+      "summary": "dotenv is Unmaintained",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "RUSTSEC-2024-0436",
+      "identifier_type": "other",
+      "affected_range": "0.0.0-0",
+      "aliases": [],
+      "details": "The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \nthat this project is not longer maintained as well as archived the repository\n\n## Possible Alternative(s)\n\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate",
+      "fixed_version": null,
+      "published": "2024-10-07T12:00:00Z",
+      "references": [
+        {
+          "type": "PACKAGE",
+          "url": "https://crates.io/crates/paste"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2024-0436.html"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/dtolnay/paste"
+        }
+      ],
+      "scores": [],
+      "severity": "UNKNOWN",
+      "source": "osv",
+      "summary": "paste - no longer maintained",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "RUSTSEC-2025-0134",
+      "identifier_type": "other",
+      "affected_range": "0.0.0-0",
+      "aliases": [],
+      "details": "The rustls-pemfile crate is no longer maintained. The repository has been archived since August\n2025, and users are encouraged to depend directly on the underlying PEM parsing code included\nin rustls-pki-types since 1.9.0. The latest version of rustls-pemfile is in fact a thin wrapper\naround the same code used in rustls-pki-types, so migrating should be straightforward.\n\nThe new API is represented by the [`PemObject`][PemObject] trait, which provides methods for\nreading a single or multiple PEM objects from a file or byte slice.\n\n[PemObject]: https://docs.rs/rustls-pki-types/latest/rustls_pki_types/pem/trait.PemObject.html",
+      "fixed_version": null,
+      "published": "2025-11-28T12:00:00Z",
+      "references": [
+        {
+          "type": "PACKAGE",
+          "url": "https://crates.io/crates/rustls-pemfile"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0134.html"
+        },
+        {
+          "type": "REPORT",
+          "url": "https://github.com/rustls/pemfile/issues/61"
+        }
+      ],
+      "scores": [],
+      "severity": "UNKNOWN",
+      "source": "osv",
+      "summary": "rustls-pemfile is unmaintained",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "RUSTSEC-2025-0055",
+      "identifier_type": "other",
+      "affected_range": "0.0.0-0",
+      "aliases": [
+        "CVE-2025-58160",
+        "GHSA-xwfj-jgwm-7wp5"
+      ],
+      "details": "Previous versions of tracing-subscriber were vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to:\n\n- Manipulate terminal title bars\n- Clear screens or modify terminal display\n- Potentially mislead users through terminal manipulation\n\nIn isolation, impact is minimal, however security issues have been found in terminal emulators that enabled an attacker to use ANSI escape sequences via logs to exploit vulnerabilities in the terminal emulator.\n\nThis was patched in [PR #3368](https://github.com/tokio-rs/tracing/pull/3368) to escape ANSI control characters from user input.",
+      "fixed_version": "0.3.20",
+      "published": "2025-08-29T12:00:00Z",
+      "references": [
+        {
+          "type": "PACKAGE",
+          "url": "https://crates.io/crates/tracing-subscriber"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://github.com/advisories/GHSA-xwfj-jgwm-7wp5"
+        }
+      ],
+      "scores": [],
+      "severity": "UNKNOWN",
+      "source": "osv",
+      "summary": "Logging user input may result in poisoning logs with ANSI escape sequences",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "GHSA-xwfj-jgwm-7wp5",
+      "identifier_type": "other",
+      "affected_range": "0",
+      "aliases": [
+        "CVE-2025-58160",
+        "RUSTSEC-2025-0055"
+      ],
+      "details": "### Impact\n\nPrevious versions of tracing-subscriber were vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to:\n\n- Manipulate terminal title bars\n- Clear screens or modify terminal display\n- Potentially mislead users through terminal manipulation\n\nIn isolation, impact is minimal, however security issues have been found in terminal emulators that enabled an attacker to use ANSI escape sequences via logs to exploit vulnerabilities in the terminal emulator.\n\n### Patches\n\n`tracing-subscriber` version 0.3.20 fixes this vulnerability by escaping ANSI control characters in when writing events to destinations that may be printed to the terminal.\n\n### Workarounds\n\nAvoid printing logs to terminal emulators without escaping ANSI control sequences.\n\n### References\n\nhttps://www.packetlabs.net/posts/weaponizing-ansi-escape-sequences/\n\n\n### Acknowledgments\n\nWe would like to thank [zefr0x](http://github.com/zefr0x) who responsibly reported the issue at `security@tokio.rs`.\n\nIf you believe you have found a security vulnerability in any tokio-rs project, please email us at `security@tokio.rs`.",
+      "fixed_version": "0.3.20",
+      "published": "2025-08-29T20:33:56Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/tokio-rs/tracing/security/advisories/GHSA-xwfj-jgwm-7wp5"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58160"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/tokio-rs/tracing"
+        },
+        {
+          "type": "WEB",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": "osv",
+      "summary": " Tracing logging user input may result in poisoning logs with ANSI escape sequences",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "semgrep": []
 }

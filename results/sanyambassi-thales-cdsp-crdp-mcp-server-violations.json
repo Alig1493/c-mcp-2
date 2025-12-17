@@ -1,62 +1,60 @@
 {
-  "sanyambassi/thales-cdsp-crdp-mcp-server": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpy6zq445o/thales-cdsp-crdp-mcp-server/scripts/test-server.js",
-        "line_range": "19-19",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpy6zq445o/thales-cdsp-crdp-mcp-server/scripts/test-server.js",
-        "line_range": "22-22",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      }
-    ]
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpy6zq445o/thales-cdsp-crdp-mcp-server/scripts/test-server.js",
+      "line_range": "19-19",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpy6zq445o/thales-cdsp-crdp-mcp-server/scripts/test-server.js",
+      "line_range": "22-22",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    }
+  ]
 }

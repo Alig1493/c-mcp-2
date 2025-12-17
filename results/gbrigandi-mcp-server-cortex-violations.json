@@ -1,7 +1,5 @@
 {
-  "gbrigandi/mcp-server-cortex": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": []
 }

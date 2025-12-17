@@ -1,309 +1,307 @@
 {
-  "LaurieWired/GhidraMCP": {
-    "trivy": [
-      {
-        "id": "CVE-2025-53365",
-        "identifier_type": "cve",
-        "affected_range": "1.5.0",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.10.0, if a client deliberately triggers an exception after establishing a streamable HTTP session, this can lead to an uncaught ClosedResourceError on the server side, causing the server to crash and requiring a restart to restore service. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.10.0 contains a patch for the issue.",
-        "fixed_version": "1.10.0",
-        "published": "2025-07-04T22:15:22.117000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-53365"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/7b420656de48cfdb90b39eb582e60b6d55c2f891"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/pull/967"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-j975-95f5-7wqh"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53365"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-53365"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: MCP Server Crash via ClosedResourceError",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-53366",
-        "identifier_type": "cve",
-        "affected_range": "1.5.0",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.9.4, a validation error in the MCP SDK can cause an unhandled exception when processing malformed requests, resulting in service unavailability (500 errors) until manually restarted. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.9.4 contains a patch for the issue.",
-        "fixed_version": "1.9.4",
-        "published": "2025-07-04T22:15:22.300000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-53366"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/29c69e6a47d0104d0afcea6ac35e7ab02fde809a"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/pull/822"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.9.4"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-3qhf-m339-9g5v"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53366"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-53366"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: MCP SDK Denial of Service Vulnerability",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-66416",
-        "identifier_type": "cve",
-        "affected_range": "1.5.0",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.23.0, tThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using FastMCP with streamable HTTP or SSE transport, and has not configured TransportSecuritySettings, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.23.0.",
-        "fixed_version": "1.23.0",
-        "published": "2025-12-02T19:15:52.520000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-66416"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-66416"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 8.1,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: DNS Rebinding Protection Disabled by Default in Model Context Protocol Python SDK",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2024-47081",
-        "identifier_type": "cve",
-        "affected_range": "2.32.3",
-        "aliases": [],
-        "details": "Requests is a HTTP library. Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs. Users should upgrade to version 2.32.4 to receive a fix. For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on one's Requests Session.",
-        "fixed_version": "2.32.4",
-        "published": "2025-06-09T18:15:24.983000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "http://seclists.org/fulldisclosure/2025/Jun/2"
-          },
-          {
-            "type": "web",
-            "url": "http://www.openwall.com/lists/oss-security/2025/06/03/11"
-          },
-          {
-            "type": "web",
-            "url": "http://www.openwall.com/lists/oss-security/2025/06/03/9"
-          },
-          {
-            "type": "web",
-            "url": "http://www.openwall.com/lists/oss-security/2025/06/04/1"
-          },
-          {
-            "type": "web",
-            "url": "http://www.openwall.com/lists/oss-security/2025/06/04/6"
-          },
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/errata/RHSA-2025:12519"
-          },
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2024-47081"
-          },
-          {
-            "type": "web",
-            "url": "https://bugzilla.redhat.com/2371272"
-          },
-          {
-            "type": "web",
-            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371272"
-          },
-          {
-            "type": "web",
-            "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47081"
-          },
-          {
-            "type": "web",
-            "url": "https://errata.almalinux.org/9/ALSA-2025-12519.html"
-          },
-          {
-            "type": "web",
-            "url": "https://errata.rockylinux.org/RLSA-2025:13234"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/psf/requests"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/psf/requests/pull/6965"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7"
-          },
-          {
-            "type": "web",
-            "url": "https://linux.oracle.com/cve/CVE-2024-47081.html"
-          },
-          {
-            "type": "web",
-            "url": "https://linux.oracle.com/errata/ELSA-2025-14999.html"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47081"
-          },
-          {
-            "type": "web",
-            "url": "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env"
-          },
-          {
-            "type": "web",
-            "url": "https://seclists.org/fulldisclosure/2025/Jun/2"
-          },
-          {
-            "type": "web",
-            "url": "https://ubuntu.com/security/notices/USN-7568-1"
-          },
-          {
-            "type": "web",
-            "url": "https://ubuntu.com/security/notices/USN-7762-1"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2024-47081"
-          },
-          {
-            "type": "web",
-            "url": "https://www.openwall.com/lists/oss-security/2025/06/03/9"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "MEDIUM",
-        "source": "trivy",
-        "summary": "requests: Requests vulnerable to .netrc credentials leak via malicious URLs",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-53365",
+      "identifier_type": "cve",
+      "affected_range": "1.5.0",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.10.0, if a client deliberately triggers an exception after establishing a streamable HTTP session, this can lead to an uncaught ClosedResourceError on the server side, causing the server to crash and requiring a restart to restore service. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.10.0 contains a patch for the issue.",
+      "fixed_version": "1.10.0",
+      "published": "2025-07-04T22:15:22.117000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-53365"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/7b420656de48cfdb90b39eb582e60b6d55c2f891"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/pull/967"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-j975-95f5-7wqh"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53365"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-53365"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: MCP Server Crash via ClosedResourceError",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-53366",
+      "identifier_type": "cve",
+      "affected_range": "1.5.0",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.9.4, a validation error in the MCP SDK can cause an unhandled exception when processing malformed requests, resulting in service unavailability (500 errors) until manually restarted. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.9.4 contains a patch for the issue.",
+      "fixed_version": "1.9.4",
+      "published": "2025-07-04T22:15:22.300000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-53366"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/29c69e6a47d0104d0afcea6ac35e7ab02fde809a"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/pull/822"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.9.4"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-3qhf-m339-9g5v"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53366"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-53366"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: MCP SDK Denial of Service Vulnerability",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-66416",
+      "identifier_type": "cve",
+      "affected_range": "1.5.0",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.23.0, tThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using FastMCP with streamable HTTP or SSE transport, and has not configured TransportSecuritySettings, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.23.0.",
+      "fixed_version": "1.23.0",
+      "published": "2025-12-02T19:15:52.520000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-66416"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66416"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 8.1,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: DNS Rebinding Protection Disabled by Default in Model Context Protocol Python SDK",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-47081",
+      "identifier_type": "cve",
+      "affected_range": "2.32.3",
+      "aliases": [],
+      "details": "Requests is a HTTP library. Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs. Users should upgrade to version 2.32.4 to receive a fix. For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on one's Requests Session.",
+      "fixed_version": "2.32.4",
+      "published": "2025-06-09T18:15:24.983000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "http://seclists.org/fulldisclosure/2025/Jun/2"
+        },
+        {
+          "type": "web",
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/03/11"
+        },
+        {
+          "type": "web",
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/03/9"
+        },
+        {
+          "type": "web",
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/04/1"
+        },
+        {
+          "type": "web",
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/04/6"
+        },
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/errata/RHSA-2025:12519"
+        },
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-47081"
+        },
+        {
+          "type": "web",
+          "url": "https://bugzilla.redhat.com/2371272"
+        },
+        {
+          "type": "web",
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371272"
+        },
+        {
+          "type": "web",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47081"
+        },
+        {
+          "type": "web",
+          "url": "https://errata.almalinux.org/9/ALSA-2025-12519.html"
+        },
+        {
+          "type": "web",
+          "url": "https://errata.rockylinux.org/RLSA-2025:13234"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/psf/requests"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/psf/requests/pull/6965"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7"
+        },
+        {
+          "type": "web",
+          "url": "https://linux.oracle.com/cve/CVE-2024-47081.html"
+        },
+        {
+          "type": "web",
+          "url": "https://linux.oracle.com/errata/ELSA-2025-14999.html"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47081"
+        },
+        {
+          "type": "web",
+          "url": "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env"
+        },
+        {
+          "type": "web",
+          "url": "https://seclists.org/fulldisclosure/2025/Jun/2"
+        },
+        {
+          "type": "web",
+          "url": "https://ubuntu.com/security/notices/USN-7568-1"
+        },
+        {
+          "type": "web",
+          "url": "https://ubuntu.com/security/notices/USN-7762-1"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-47081"
+        },
+        {
+          "type": "web",
+          "url": "https://www.openwall.com/lists/oss-security/2025/06/03/9"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "requests: Requests vulnerable to .netrc credentials leak via malicious URLs",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": []
 }

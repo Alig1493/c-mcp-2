@@ -1,7 +1,5 @@
 {
-  "jtang613/GhidrAssistMCP": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": []
 }

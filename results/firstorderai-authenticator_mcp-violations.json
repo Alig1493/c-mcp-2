@@ -1,141 +1,139 @@
 {
-  "firstorderai/authenticator_mcp": {
-    "trivy": [
-      {
-        "id": "CVE-2025-66414",
-        "identifier_type": "cve",
-        "affected_range": "1.10.2",
-        "aliases": [],
-        "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
-        "fixed_version": "1.24.0",
-        "published": "2025-12-02T19:15:52.347000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-13466",
-        "identifier_type": "cve",
-        "affected_range": "2.2.0",
-        "aliases": [],
-        "details": "body-parser 2.2.0 is vulnerable to denial of service due to inefficient handling of URL-encoded bodies with very large numbers of parameters. An attacker can send payloads containing thousands of parameters within the default 100KB request size limit, causing elevated CPU and memory usage. This can lead to service slowdown or partial outages under sustained malicious traffic.\nThis issue is addressed in version 2.2.1.",
-        "fixed_version": "2.2.1",
-        "published": "2025-11-24T19:15:46.857000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-13466"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/expressjs/body-parser"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/expressjs/body-parser/commit/b204886a6744b0b6d297cd0e849d75de836f3b63"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/expressjs/body-parser/releases/tag/v2.2.1"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/expressjs/body-parser/security/advisories/GHSA-wqch-xfxh-vrr4"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13466"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-13466"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "MEDIUM",
-        "source": "trivy",
-        "summary": "body-parser: body-parser denial of service",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "dockerfile.security.missing-user.missing-user",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "dockerfile.security.missing-user.missing-user",
-        "rule_name": "dockerfile.security.missing-user.missing-user",
-        "rule_id": "dockerfile.security.missing-user.missing-user",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmptdi0fco8/authenticator_mcp/Dockerfile",
-        "line_range": "31-31",
-        "categories": [
-          "CWE-250: Execution with Unnecessary Privileges"
-        ]
-      }
-    ]
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-66414",
+      "identifier_type": "cve",
+      "affected_range": "1.10.2",
+      "aliases": [],
+      "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
+      "fixed_version": "1.24.0",
+      "published": "2025-12-02T19:15:52.347000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-13466",
+      "identifier_type": "cve",
+      "affected_range": "2.2.0",
+      "aliases": [],
+      "details": "body-parser 2.2.0 is vulnerable to denial of service due to inefficient handling of URL-encoded bodies with very large numbers of parameters. An attacker can send payloads containing thousands of parameters within the default 100KB request size limit, causing elevated CPU and memory usage. This can lead to service slowdown or partial outages under sustained malicious traffic.\nThis issue is addressed in version 2.2.1.",
+      "fixed_version": "2.2.1",
+      "published": "2025-11-24T19:15:46.857000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-13466"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser/commit/b204886a6744b0b6d297cd0e849d75de836f3b63"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser/releases/tag/v2.2.1"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser/security/advisories/GHSA-wqch-xfxh-vrr4"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13466"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-13466"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "body-parser: body-parser denial of service",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "dockerfile.security.missing-user.missing-user",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "dockerfile.security.missing-user.missing-user",
+      "rule_name": "dockerfile.security.missing-user.missing-user",
+      "rule_id": "dockerfile.security.missing-user.missing-user",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmptdi0fco8/authenticator_mcp/Dockerfile",
+      "line_range": "31-31",
+      "categories": [
+        "CWE-250: Execution with Unnecessary Privileges"
+      ]
+    }
+  ]
 }

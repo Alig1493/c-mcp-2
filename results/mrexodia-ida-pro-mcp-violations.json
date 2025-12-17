@@ -1,89 +1,87 @@
 {
-  "mrexodia/ida-pro-mcp": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "python.lang.security.audit.eval-detected.eval-detected",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A03_2021-Injection"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.eval-detected.eval-detected",
-        "rule_name": "python.lang.security.audit.eval-detected.eval-detected",
-        "rule_id": "python.lang.security.audit.eval-detected.eval-detected",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpeoi35et7/ida-pro-mcp/src/ida_pro_mcp/ida_mcp/api_python.py",
-        "line_range": "118-118",
-        "categories": [
-          "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.exec-detected.exec-detected",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected the use of exec(). exec() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A03_2021-Injection"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.exec-detected.exec-detected",
-        "rule_name": "python.lang.security.audit.exec-detected.exec-detected",
-        "rule_id": "python.lang.security.audit.exec-detected.exec-detected",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpeoi35et7/ida-pro-mcp/src/ida_pro_mcp/ida_mcp/api_python.py",
-        "line_range": "122-122",
-        "categories": [
-          "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.eval-detected.eval-detected",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A03_2021-Injection"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.eval-detected.eval-detected",
-        "rule_name": "python.lang.security.audit.eval-detected.eval-detected",
-        "rule_id": "python.lang.security.audit.eval-detected.eval-detected",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpeoi35et7/ida-pro-mcp/src/ida_pro_mcp/ida_mcp/api_python.py",
-        "line_range": "146-146",
-        "categories": [
-          "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
-        ]
-      }
-    ]
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "python.lang.security.audit.eval-detected.eval-detected",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A03_2021-Injection"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.eval-detected.eval-detected",
+      "rule_name": "python.lang.security.audit.eval-detected.eval-detected",
+      "rule_id": "python.lang.security.audit.eval-detected.eval-detected",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpeoi35et7/ida-pro-mcp/src/ida_pro_mcp/ida_mcp/api_python.py",
+      "line_range": "118-118",
+      "categories": [
+        "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.exec-detected.exec-detected",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected the use of exec(). exec() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A03_2021-Injection"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.exec-detected.exec-detected",
+      "rule_name": "python.lang.security.audit.exec-detected.exec-detected",
+      "rule_id": "python.lang.security.audit.exec-detected.exec-detected",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpeoi35et7/ida-pro-mcp/src/ida_pro_mcp/ida_mcp/api_python.py",
+      "line_range": "122-122",
+      "categories": [
+        "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.eval-detected.eval-detected",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A03_2021-Injection"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.eval-detected.eval-detected",
+      "rule_name": "python.lang.security.audit.eval-detected.eval-detected",
+      "rule_id": "python.lang.security.audit.eval-detected.eval-detected",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpeoi35et7/ida-pro-mcp/src/ida_pro_mcp/ida_mcp/api_python.py",
+      "line_range": "146-146",
+      "categories": [
+        "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+      ]
+    }
+  ]
 }

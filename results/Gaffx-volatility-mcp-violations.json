@@ -1,141 +1,139 @@
 {
-  "Gaffx/volatility-mcp": {
-    "trivy": [],
-    "osv-scanner": [
-      {
-        "id": "GHSA-3qhf-m339-9g5v",
-        "identifier_type": "other",
-        "affected_range": "0",
-        "aliases": [
-          "CVE-2025-53366"
-        ],
-        "details": "A validation error in the MCP SDK can cause an unhandled exception when processing malformed requests, resulting in service unavailability (500 errors) until manually restarted. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures.\n\nThank you to Rich Harang for reporting this issue.",
-        "fixed_version": "1.9.4",
-        "published": "2025-07-04T22:06:49Z",
-        "references": [
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-3qhf-m339-9g5v"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53366"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/pull/822"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/29c69e6a47d0104d0afcea6ac35e7ab02fde809a"
-          },
-          {
-            "type": "PACKAGE",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.9.4"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": "osv",
-        "summary": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "GHSA-9h52-p55h-vw2f",
-        "identifier_type": "other",
-        "affected_range": "0",
-        "aliases": [
-          "CVE-2025-66416"
-        ],
-        "details": "### Description\n\nThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using `FastMCP` with streamable HTTP or SSE transport, and has not configured `TransportSecuritySettings`, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances.\n\nNote that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport.\n\nServers created via `FastMCP()` now have DNS rebinding protection enabled by default when the `host` parameter is `127.0.0.1` or `localhost`. Users are advised to update to version `1.23.0` to receive this automatic protection. Users with custom low-level server configurations using `StreamableHTTPSessionManager` or `SseServerTransport` directly should explicitly configure `TransportSecuritySettings` when running an unauthenticated server on localhost.",
-        "fixed_version": "1.23.0",
-        "published": "2025-12-02T16:52:08Z",
-        "references": [
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
-          },
-          {
-            "type": "PACKAGE",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": "osv",
-        "summary": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "GHSA-j975-95f5-7wqh",
-        "identifier_type": "other",
-        "affected_range": "0",
-        "aliases": [
-          "CVE-2025-53365"
-        ],
-        "details": "If a client deliberately triggers an exception after establishing a streamable HTTP session, this can lead to an uncaught ClosedResourceError on the server side, causing the server to crash and requiring a restart to restore service. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures.\n\nThank you to Rich Harang for reporting this issue.",
-        "fixed_version": "1.10.0",
-        "published": "2025-07-04T22:06:31Z",
-        "references": [
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-j975-95f5-7wqh"
-          },
-          {
-            "type": "ADVISORY",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53365"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/pull/967"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/7b420656de48cfdb90b39eb582e60b6d55c2f891"
-          },
-          {
-            "type": "PACKAGE",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "WEB",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": "osv",
-        "summary": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "semgrep": []
-  }
+  "trivy": [],
+  "osv-scanner": [
+    {
+      "id": "GHSA-3qhf-m339-9g5v",
+      "identifier_type": "other",
+      "affected_range": "0",
+      "aliases": [
+        "CVE-2025-53366"
+      ],
+      "details": "A validation error in the MCP SDK can cause an unhandled exception when processing malformed requests, resulting in service unavailability (500 errors) until manually restarted. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures.\n\nThank you to Rich Harang for reporting this issue.",
+      "fixed_version": "1.9.4",
+      "published": "2025-07-04T22:06:49Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-3qhf-m339-9g5v"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53366"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/pull/822"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/29c69e6a47d0104d0afcea6ac35e7ab02fde809a"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.9.4"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": "osv",
+      "summary": "MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "GHSA-9h52-p55h-vw2f",
+      "identifier_type": "other",
+      "affected_range": "0",
+      "aliases": [
+        "CVE-2025-66416"
+      ],
+      "details": "### Description\n\nThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using `FastMCP` with streamable HTTP or SSE transport, and has not configured `TransportSecuritySettings`, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances.\n\nNote that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport.\n\nServers created via `FastMCP()` now have DNS rebinding protection enabled by default when the `host` parameter is `127.0.0.1` or `localhost`. Users are advised to update to version `1.23.0` to receive this automatic protection. Users with custom low-level server configurations using `StreamableHTTPSessionManager` or `SseServerTransport` directly should explicitly configure `TransportSecuritySettings` when running an unauthenticated server on localhost.",
+      "fixed_version": "1.23.0",
+      "published": "2025-12-02T16:52:08Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": "osv",
+      "summary": "Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "GHSA-j975-95f5-7wqh",
+      "identifier_type": "other",
+      "affected_range": "0",
+      "aliases": [
+        "CVE-2025-53365"
+      ],
+      "details": "If a client deliberately triggers an exception after establishing a streamable HTTP session, this can lead to an uncaught ClosedResourceError on the server side, causing the server to crash and requiring a restart to restore service. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures.\n\nThank you to Rich Harang for reporting this issue.",
+      "fixed_version": "1.10.0",
+      "published": "2025-07-04T22:06:31Z",
+      "references": [
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-j975-95f5-7wqh"
+        },
+        {
+          "type": "ADVISORY",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53365"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/pull/967"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/7b420656de48cfdb90b39eb582e60b6d55c2f891"
+        },
+        {
+          "type": "PACKAGE",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "WEB",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": "osv",
+      "summary": "MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "semgrep": []
 }

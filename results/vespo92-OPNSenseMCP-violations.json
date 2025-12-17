@@ -1,1218 +1,1216 @@
 {
-  "vespo92/OPNSenseMCP": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'redis' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
-          },
-          {
-            "type": "web",
-            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "5-5",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'redis' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
-          },
-          {
-            "type": "web",
-            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "5-5",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'postgres' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
-          },
-          {
-            "type": "web",
-            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "30-30",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'postgres' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
-          },
-          {
-            "type": "web",
-            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "30-30",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'redis-commander' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
-          },
-          {
-            "type": "web",
-            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "54-54",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'redis-commander' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
-          },
-          {
-            "type": "web",
-            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "54-54",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'pgadmin' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
-          },
-          {
-            "type": "web",
-            "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "68-68",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Service 'pgadmin' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
-          },
-          {
-            "type": "web",
-            "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
-          },
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
-        "line_range": "68-68",
-        "categories": [
-          "CWE-732: Incorrect Permission Assignment for Critical Resource"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/event-bus/bus.ts",
-        "line_range": "79-79",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/plugin-system/loader.ts",
-        "line_range": "91-91",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/plugin-system/loader.ts",
-        "line_range": "102-102",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/plugin-system/loader.ts",
-        "line_range": "108-108",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/recorder.ts",
-        "line_range": "266-266",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/storage.ts",
-        "line_range": "23-23",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/storage.ts",
-        "line_range": "34-34",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/storage.ts",
-        "line_range": "73-73",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
-        "line_range": "95-95",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
-        "line_range": "100-100",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
-        "line_range": "482-482",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
-        "line_range": "486-486",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "118-118",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "133-133",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "138-138",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "149-149",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "166-166",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "178-178",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "183-183",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "229-229",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "310-310",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "336-336",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
-        "line_range": "405-405",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/services/dns/blocklist.ts",
-        "line_range": "150-150",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
-        "line_range": "84-84",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
-        "line_range": "98-98",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
-        "line_range": "131-131",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
-        "line_range": "141-141",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
-        "line_range": "282-282",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "The call to 'createDecipheriv' with the Galois Counter Mode (GCM) mode of operation is missing an expected authentication tag length. If the expected authentication tag length is not specified or otherwise checked, the application might be tricked into verifying a shorter-than-expected authentication tag. This can be abused by an attacker to spoof ciphertexts or recover the implicit authentication key of GCM, allowing arbitrary forgeries.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://www.securesystems.de/blog/forging_ciphertexts_under_Galois_Counter_Mode_for_the_Node_js_crypto_module/"
-          },
-          {
-            "type": "web",
-            "url": "https://nodejs.org/api/crypto.html#cryptocreatedecipherivalgorithm-key-iv-options"
-          },
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
-        "rule_name": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
-        "rule_id": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/state/store.ts",
-        "line_range": "143-143",
-        "categories": [
-          "CWE-310: CWE CATEGORY: Cryptographic Issues"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/state/store.ts",
-        "line_range": "439-439",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/www-community/attacks/Path_Traversal"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/state/store.ts",
-        "line_range": "447-447",
-        "categories": [
-          "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Depending on the context, user control data in `Object.assign` can cause web response to include data that it should not have or can lead to a mass assignment vulnerability.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html"
-          },
-          {
-            "type": "web",
-            "url": "https://en.wikipedia.org/wiki/Mass_assignment_vulnerability"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
-        "rule_name": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
-        "rule_id": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/utils/interface-mapper.ts",
-        "line_range": "45-45",
-        "categories": [
-          "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/test-suite/firewall-rules.test.ts",
-        "line_range": "54-54",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      }
-    ]
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'redis' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "5-5",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'redis' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "5-5",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'postgres' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "30-30",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'postgres' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "30-30",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'redis-commander' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "54-54",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'redis-commander' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "54-54",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'pgadmin' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "rule_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "68-68",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Service 'pgadmin' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.atomist.com/security-of-docker-kubernetes/"
+        },
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "rule_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/docker-compose.yml",
+      "line_range": "68-68",
+      "categories": [
+        "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/event-bus/bus.ts",
+      "line_range": "79-79",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/plugin-system/loader.ts",
+      "line_range": "91-91",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/plugin-system/loader.ts",
+      "line_range": "102-102",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/core/plugin-system/loader.ts",
+      "line_range": "108-108",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/recorder.ts",
+      "line_range": "266-266",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/storage.ts",
+      "line_range": "23-23",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/storage.ts",
+      "line_range": "34-34",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/macro/storage.ts",
+      "line_range": "73-73",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
+      "line_range": "95-95",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
+      "line_range": "100-100",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
+      "line_range": "482-482",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/firewall/rule.ts",
+      "line_range": "486-486",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "118-118",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "133-133",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "138-138",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "149-149",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "166-166",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "178-178",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "183-183",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "229-229",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "310-310",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "336-336",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/network/interfaces.ts",
+      "line_range": "405-405",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/services/dns/blocklist.ts",
+      "line_range": "150-150",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
+      "line_range": "84-84",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
+      "line_range": "98-98",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
+      "line_range": "131-131",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
+      "line_range": "141-141",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/resources/system/settings.ts",
+      "line_range": "282-282",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "The call to 'createDecipheriv' with the Galois Counter Mode (GCM) mode of operation is missing an expected authentication tag length. If the expected authentication tag length is not specified or otherwise checked, the application might be tricked into verifying a shorter-than-expected authentication tag. This can be abused by an attacker to spoof ciphertexts or recover the implicit authentication key of GCM, allowing arbitrary forgeries.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://www.securesystems.de/blog/forging_ciphertexts_under_Galois_Counter_Mode_for_the_Node_js_crypto_module/"
+        },
+        {
+          "type": "web",
+          "url": "https://nodejs.org/api/crypto.html#cryptocreatedecipherivalgorithm-key-iv-options"
+        },
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
+      "rule_name": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
+      "rule_id": "javascript.node-crypto.security.gcm-no-tag-length.gcm-no-tag-length",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/state/store.ts",
+      "line_range": "143-143",
+      "categories": [
+        "CWE-310: CWE CATEGORY: Cryptographic Issues"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/state/store.ts",
+      "line_range": "439-439",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/state/store.ts",
+      "line_range": "447-447",
+      "categories": [
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Depending on the context, user control data in `Object.assign` can cause web response to include data that it should not have or can lead to a mass assignment vulnerability.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html"
+        },
+        {
+          "type": "web",
+          "url": "https://en.wikipedia.org/wiki/Mass_assignment_vulnerability"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
+      "rule_name": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
+      "rule_id": "javascript.lang.security.insecure-object-assign.insecure-object-assign",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/src/utils/interface-mapper.ts",
+      "line_range": "45-45",
+      "categories": [
+        "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmp8ccx6nha/OPNSenseMCP/test-suite/firewall-rules.test.ts",
+      "line_range": "54-54",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    }
+  ]
 }

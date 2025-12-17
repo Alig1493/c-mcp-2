@@ -1,118 +1,116 @@
 {
-  "adeptus-innovatio/solvitor-mcp": {
-    "trivy": [
-      {
-        "id": "CVE-2025-55159",
-        "identifier_type": "cve",
-        "affected_range": "0.4.10",
-        "aliases": [],
-        "details": "slab is a pre-allocated storage for a uniform data type. In version 0.4.10, the get_disjoint_mut method incorrectly checked if indices were within the slab's capacity instead of its length, allowing access to uninitialized memory. This could lead to undefined behavior or potential crashes. This has been fixed in slab 0.4.11. A workaround for this issue involves to avoid using get_disjoint_mut with indices that might be beyond the slab's actual length.",
-        "fixed_version": "0.4.11",
-        "published": "2025-08-11T23:15:28.173000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-55159"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/slab"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/slab/commit/2d65c514bc964b192bab212ddf3c1fcea4ae96b8"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/slab/pull/152"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/slab/security/advisories/GHSA-qx2v-8332-m4fv"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55159"
-          },
-          {
-            "type": "web",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0047.html"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-55159"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 4.0,
-            "version": "redhat"
-          }
-        ],
-        "severity": "MEDIUM",
-        "source": "trivy",
-        "summary": "slab: Slab: Out-of-bounds Memory Access Vulnerability",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-58160",
-        "identifier_type": "cve",
-        "affected_range": "0.3.19",
-        "aliases": [],
-        "details": "tracing is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. Prior to version 0.3.20, tracing-subscriber was vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to manipulate terminal title bars, clear screens or modify terminal display, and potentially mislead users through terminal manipulation. tracing-subscriber version 0.3.20 fixes this vulnerability by escaping ANSI control characters when writing events to destinations that may be printed to the terminal. A workaround involves avoiding printing logs to terminal emulators without escaping ANSI control sequences.",
-        "fixed_version": "0.3.20",
-        "published": "2025-08-29T22:15:32.887000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-58160"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/tracing"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/tokio-rs/tracing/security/advisories/GHSA-xwfj-jgwm-7wp5"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58160"
-          },
-          {
-            "type": "web",
-            "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-58160"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 3.1,
-            "version": "redhat"
-          }
-        ],
-        "severity": "LOW",
-        "source": "trivy",
-        "summary": "tracing-subscriber: Tracing log pollution",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-55159",
+      "identifier_type": "cve",
+      "affected_range": "0.4.10",
+      "aliases": [],
+      "details": "slab is a pre-allocated storage for a uniform data type. In version 0.4.10, the get_disjoint_mut method incorrectly checked if indices were within the slab's capacity instead of its length, allowing access to uninitialized memory. This could lead to undefined behavior or potential crashes. This has been fixed in slab 0.4.11. A workaround for this issue involves to avoid using get_disjoint_mut with indices that might be beyond the slab's actual length.",
+      "fixed_version": "0.4.11",
+      "published": "2025-08-11T23:15:28.173000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-55159"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/slab"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/slab/commit/2d65c514bc964b192bab212ddf3c1fcea4ae96b8"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/slab/pull/152"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/slab/security/advisories/GHSA-qx2v-8332-m4fv"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55159"
+        },
+        {
+          "type": "web",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0047.html"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-55159"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 4.0,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "slab: Slab: Out-of-bounds Memory Access Vulnerability",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-58160",
+      "identifier_type": "cve",
+      "affected_range": "0.3.19",
+      "aliases": [],
+      "details": "tracing is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. Prior to version 0.3.20, tracing-subscriber was vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to manipulate terminal title bars, clear screens or modify terminal display, and potentially mislead users through terminal manipulation. tracing-subscriber version 0.3.20 fixes this vulnerability by escaping ANSI control characters when writing events to destinations that may be printed to the terminal. A workaround involves avoiding printing logs to terminal emulators without escaping ANSI control sequences.",
+      "fixed_version": "0.3.20",
+      "published": "2025-08-29T22:15:32.887000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-58160"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/tracing"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/tokio-rs/tracing/security/advisories/GHSA-xwfj-jgwm-7wp5"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58160"
+        },
+        {
+          "type": "web",
+          "url": "https://rustsec.org/advisories/RUSTSEC-2025-0055.html"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-58160"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 3.1,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "tracing-subscriber: Tracing log pollution",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": []
 }

@@ -1,143 +1,141 @@
 {
-  "pullkitsan/mobsf-mcp-server": {
-    "trivy": [
-      {
-        "id": "CVE-2025-58754",
-        "identifier_type": "cve",
-        "affected_range": "1.8.4",
-        "aliases": [],
-        "details": "Axios is a promise based HTTP client for the browser and Node.js. When Axios prior to versions 0.30.2 and 1.12.0 runs on Node.js and is given a URL with the `data:` scheme, it does not perform HTTP. Instead, its Node http adapter decodes the entire payload into memory (`Buffer`/`Blob`) and returns a synthetic 200 response. This path ignores `maxContentLength` / `maxBodyLength` (which only protect HTTP responses), so an attacker can supply a very large `data:` URI and cause the process to allocate unbounded memory and crash (DoS), even if the caller requested `responseType: 'stream'`. Versions 0.30.2 and 1.12.0 contain a patch for the issue.",
-        "fixed_version": "1.12.0, 0.30.2",
-        "published": "2025-09-12T02:15:46.873000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-58754"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/commit/945435fc51467303768202250debb8d4ae892593"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/commit/a1b1d3f073a988601583a604f5f9f5d05a3d0b67"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/pull/7011"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/pull/7034"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/releases/tag/v0.30.2"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/releases/tag/v1.12.0"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/axios/axios/security/advisories/GHSA-4hjh-wcwx-xvwj"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58754"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-58754"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "axios: Axios DoS via lack of data size check",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-7783",
-        "identifier_type": "cve",
-        "affected_range": "4.0.2",
-        "aliases": [],
-        "details": "Use of Insufficiently Random Values vulnerability in form-data allows HTTP Parameter Pollution (HPP). This vulnerability is associated with program files lib/form_data.Js.\n\nThis issue affects form-data: < 2.5.4, 3.0.0 - 3.0.3, 4.0.0 - 4.0.3.",
-        "fixed_version": "2.5.4, 3.0.4, 4.0.4",
-        "published": "2025-07-18T17:15:44.747000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-7783"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/benweissmann/CVE-2025-7783-poc"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/form-data/form-data"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/form-data/form-data/commit/3d1723080e6577a66f17f163ecd345a21d8d0fd0"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/form-data/form-data/security/advisories/GHSA-fjxv-7rqg-78g4"
-          },
-          {
-            "type": "web",
-            "url": "https://lists.debian.org/debian-lts-announce/2025/07/msg00023.html"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7783"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-7783"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.4,
-            "version": "redhat"
-          }
-        ],
-        "severity": "CRITICAL",
-        "source": "trivy",
-        "summary": "form-data: Unsafe random function in form-data",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-58754",
+      "identifier_type": "cve",
+      "affected_range": "1.8.4",
+      "aliases": [],
+      "details": "Axios is a promise based HTTP client for the browser and Node.js. When Axios prior to versions 0.30.2 and 1.12.0 runs on Node.js and is given a URL with the `data:` scheme, it does not perform HTTP. Instead, its Node http adapter decodes the entire payload into memory (`Buffer`/`Blob`) and returns a synthetic 200 response. This path ignores `maxContentLength` / `maxBodyLength` (which only protect HTTP responses), so an attacker can supply a very large `data:` URI and cause the process to allocate unbounded memory and crash (DoS), even if the caller requested `responseType: 'stream'`. Versions 0.30.2 and 1.12.0 contain a patch for the issue.",
+      "fixed_version": "1.12.0, 0.30.2",
+      "published": "2025-09-12T02:15:46.873000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-58754"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/commit/945435fc51467303768202250debb8d4ae892593"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/commit/a1b1d3f073a988601583a604f5f9f5d05a3d0b67"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/pull/7011"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/pull/7034"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/releases/tag/v0.30.2"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/releases/tag/v1.12.0"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/axios/axios/security/advisories/GHSA-4hjh-wcwx-xvwj"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58754"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-58754"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "axios: Axios DoS via lack of data size check",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-7783",
+      "identifier_type": "cve",
+      "affected_range": "4.0.2",
+      "aliases": [],
+      "details": "Use of Insufficiently Random Values vulnerability in form-data allows HTTP Parameter Pollution (HPP). This vulnerability is associated with program files lib/form_data.Js.\n\nThis issue affects form-data: < 2.5.4, 3.0.0 - 3.0.3, 4.0.0 - 4.0.3.",
+      "fixed_version": "2.5.4, 3.0.4, 4.0.4",
+      "published": "2025-07-18T17:15:44.747000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-7783"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/benweissmann/CVE-2025-7783-poc"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/form-data/form-data"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/form-data/form-data/commit/3d1723080e6577a66f17f163ecd345a21d8d0fd0"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/form-data/form-data/security/advisories/GHSA-fjxv-7rqg-78g4"
+        },
+        {
+          "type": "web",
+          "url": "https://lists.debian.org/debian-lts-announce/2025/07/msg00023.html"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7783"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-7783"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.4,
+          "version": "redhat"
+        }
+      ],
+      "severity": "CRITICAL",
+      "source": "trivy",
+      "summary": "form-data: Unsafe random function in form-data",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": []
 }

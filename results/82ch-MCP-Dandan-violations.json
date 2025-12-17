@@ -1,388 +1,386 @@
 {
-  "82ch/MCP-Dandan": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected a request using 'http://'. This request will be unencrypted, and attackers could listen into traffic on the network and be able to obtain sensitive information. Use 'https://' instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
-        "rule_name": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
-        "rule_id": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/cli_proxy.py",
-        "line_range": "48-48",
-        "categories": [
-          "CWE-319: Cleartext Transmission of Sensitive Information"
-        ]
-      },
-      {
-        "id": "python.lang.compatibility.python36.python36-compatibility-Popen1",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "the `errors` argument to Popen is only available on Python 3.6+",
-        "fixed_version": null,
-        "published": null,
-        "references": [],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.lang.compatibility.python36.python36-compatibility-Popen1",
-        "rule_name": "python.lang.compatibility.python36.python36-compatibility-Popen1",
-        "rule_id": "python.lang.compatibility.python36.python36-compatibility-Popen1",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/cli_proxy.py",
-        "line_range": "506-516",
-        "categories": []
-      },
-      {
-        "id": "python.lang.compatibility.python36.python36-compatibility-Popen2",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "the `encoding` argument to Popen is only available on Python 3.6+",
-        "fixed_version": null,
-        "published": null,
-        "references": [],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.lang.compatibility.python36.python36-compatibility-Popen2",
-        "rule_name": "python.lang.compatibility.python36.python36-compatibility-Popen2",
-        "rule_id": "python.lang.compatibility.python36.python36-compatibility-Popen2",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/cli_proxy.py",
-        "line_range": "506-516",
-        "categories": []
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "506-506",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "557-557",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Unencrypted request over HTTP detected.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://www.npmjs.com/package/axios"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "719-727",
-        "categories": [
-          "CWE-319: Cleartext Transmission of Sensitive Information"
-        ]
-      },
-      {
-        "id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Unencrypted request over HTTP detected.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://www.npmjs.com/package/axios"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "920-920",
-        "categories": [
-          "CWE-319: Cleartext Transmission of Sensitive Information"
-        ]
-      },
-      {
-        "id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Unencrypted request over HTTP detected.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://www.npmjs.com/package/axios"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "971-974",
-        "categories": [
-          "CWE-319: Cleartext Transmission of Sensitive Information"
-        ]
-      },
-      {
-        "id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Unencrypted request over HTTP detected.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://www.npmjs.com/package/axios"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "1006-1010",
-        "categories": [
-          "CWE-319: Cleartext Transmission of Sensitive Information"
-        ]
-      },
-      {
-        "id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Unencrypted request over HTTP detected.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://www.npmjs.com/package/axios"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
-        "line_range": "1038-1042",
-        "categories": [
-          "CWE-319: Cleartext Transmission of Sensitive Information"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
-        "line_range": "500-500",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
-        "line_range": "500-500",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
-        "line_range": "503-503",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
-        "line_range": "503-503",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      }
-    ]
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected a request using 'http://'. This request will be unencrypted, and attackers could listen into traffic on the network and be able to obtain sensitive information. Use 'https://' instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+      "rule_name": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+      "rule_id": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/cli_proxy.py",
+      "line_range": "48-48",
+      "categories": [
+        "CWE-319: Cleartext Transmission of Sensitive Information"
+      ]
+    },
+    {
+      "id": "python.lang.compatibility.python36.python36-compatibility-Popen1",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "the `errors` argument to Popen is only available on Python 3.6+",
+      "fixed_version": null,
+      "published": null,
+      "references": [],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.lang.compatibility.python36.python36-compatibility-Popen1",
+      "rule_name": "python.lang.compatibility.python36.python36-compatibility-Popen1",
+      "rule_id": "python.lang.compatibility.python36.python36-compatibility-Popen1",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/cli_proxy.py",
+      "line_range": "506-516",
+      "categories": []
+    },
+    {
+      "id": "python.lang.compatibility.python36.python36-compatibility-Popen2",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "the `encoding` argument to Popen is only available on Python 3.6+",
+      "fixed_version": null,
+      "published": null,
+      "references": [],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.lang.compatibility.python36.python36-compatibility-Popen2",
+      "rule_name": "python.lang.compatibility.python36.python36-compatibility-Popen2",
+      "rule_id": "python.lang.compatibility.python36.python36-compatibility-Popen2",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/cli_proxy.py",
+      "line_range": "506-516",
+      "categories": []
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "506-506",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "557-557",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Unencrypted request over HTTP detected.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://www.npmjs.com/package/axios"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "719-727",
+      "categories": [
+        "CWE-319: Cleartext Transmission of Sensitive Information"
+      ]
+    },
+    {
+      "id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Unencrypted request over HTTP detected.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://www.npmjs.com/package/axios"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "920-920",
+      "categories": [
+        "CWE-319: Cleartext Transmission of Sensitive Information"
+      ]
+    },
+    {
+      "id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Unencrypted request over HTTP detected.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://www.npmjs.com/package/axios"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "971-974",
+      "categories": [
+        "CWE-319: Cleartext Transmission of Sensitive Information"
+      ]
+    },
+    {
+      "id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Unencrypted request over HTTP detected.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://www.npmjs.com/package/axios"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "1006-1010",
+      "categories": [
+        "CWE-319: Cleartext Transmission of Sensitive Information"
+      ]
+    },
+    {
+      "id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Unencrypted request over HTTP detected.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://www.npmjs.com/package/axios"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_name": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/front/electron/main.ts",
+      "line_range": "1038-1042",
+      "categories": [
+        "CWE-319: Cleartext Transmission of Sensitive Information"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
+      "line_range": "500-500",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
+      "line_range": "500-500",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
+      "line_range": "503-503",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpml7br1id/MCP-Dandan/server.py",
+      "line_range": "503-503",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    }
+  ]
 }

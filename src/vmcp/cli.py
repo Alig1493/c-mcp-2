@@ -62,8 +62,8 @@ def aggregate_command(repo_url: str, results_dir: str) -> None:
     # Save aggregated results to violations.json
     save_aggregated_results(org_name, repo_name, results, results_dir)
 
-    # Generate summary only (no detailed section)
-    summary = generate_summary_table(results)
+    # Generate summary table from all repo files in results directory
+    summary = generate_summary_table(results_dir)
 
     with open('SCAN_RESULTS.md', 'w') as f:
         f.write(summary)

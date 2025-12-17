@@ -1,233 +1,231 @@
 {
-  "semgrep/mcp": {
-    "trivy": [
-      {
-        "id": "CVE-2025-66416",
-        "identifier_type": "cve",
-        "affected_range": "1.12.2",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.23.0, tThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using FastMCP with streamable HTTP or SSE transport, and has not configured TransportSecuritySettings, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.23.0.",
-        "fixed_version": "1.23.0",
-        "published": "2025-12-02T19:15:52.520000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-66416"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-66416"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 8.1,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: DNS Rebinding Protection Disabled by Default in Model Context Protocol Python SDK",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-62727",
-        "identifier_type": "cve",
-        "affected_range": "0.47.2",
-        "aliases": [],
-        "details": "Starlette is a lightweight ASGI framework/toolkit. Starting in version 0.39.0 and prior to version 0.49.1 , an unauthenticated attacker can send a crafted HTTP Range header that triggers quadratic-time processing in Starlette's FileResponse Range parsing/merging logic. This enables CPU exhaustion per request, causing denial\u2011of\u2011service for endpoints serving files (e.g., StaticFiles or any use of FileResponse). This vulnerability is fixed in 0.49.1.",
-        "fixed_version": "0.49.1",
-        "published": "2025-10-28T21:15:40.447000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-62727"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/commit/4ea6e22b489ec388d6004cfbca52dd5b147127c5"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/commit/69ed26a85956ef4bd0161807eb27abf49be7cd3c"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/releases/tag/0.49.1"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/security/advisories/GHSA-7f5h-v6xp-fcq8"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62727"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-62727"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "starlette: Starlette DoS via Range header merging",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-66418",
-        "identifier_type": "cve",
-        "affected_range": "2.5.0",
-        "aliases": [],
-        "details": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0.",
-        "fixed_version": "2.6.0",
-        "published": "2025-12-05T16:15:51.053000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://github.com/urllib3/urllib3"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/urllib3/urllib3/commit/24d7b67eac89f94e11003424bcf0d8f7b72222a8"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-gm62-xv2j-4w53"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66418"
-          },
-          {
-            "type": "web",
-            "url": "https://ubuntu.com/security/notices/USN-7927-1"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-66418"
-          },
-          {
-            "type": "web",
-            "url": "https://www.openwall.com/lists/oss-security/2025/12/05/4"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "nvd"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "urllib3 is a user-friendly HTTP client library for Python. Starting in ...",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-66471",
-        "identifier_type": "cve",
-        "affected_range": "2.5.0",
-        "aliases": [],
-        "details": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data.",
-        "fixed_version": "2.6.0",
-        "published": "2025-12-05T17:16:04.400000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://github.com/urllib3/urllib3"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/urllib3/urllib3/commit/c19571de34c47de3a766541b041637ba5f716ed7"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-2xpw-w6gg-jr37"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66471"
-          },
-          {
-            "type": "web",
-            "url": "https://ubuntu.com/security/notices/USN-7927-1"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-66471"
-          },
-          {
-            "type": "web",
-            "url": "https://www.openwall.com/lists/oss-security/2025/12/05/4"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "nvd"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "urllib3 is a user-friendly HTTP client library for Python. Starting in ...",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-66416",
+      "identifier_type": "cve",
+      "affected_range": "1.12.2",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.23.0, tThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using FastMCP with streamable HTTP or SSE transport, and has not configured TransportSecuritySettings, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.23.0.",
+      "fixed_version": "1.23.0",
+      "published": "2025-12-02T19:15:52.520000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-66416"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66416"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 8.1,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: DNS Rebinding Protection Disabled by Default in Model Context Protocol Python SDK",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-62727",
+      "identifier_type": "cve",
+      "affected_range": "0.47.2",
+      "aliases": [],
+      "details": "Starlette is a lightweight ASGI framework/toolkit. Starting in version 0.39.0 and prior to version 0.49.1 , an unauthenticated attacker can send a crafted HTTP Range header that triggers quadratic-time processing in Starlette's FileResponse Range parsing/merging logic. This enables CPU exhaustion per request, causing denial\u2011of\u2011service for endpoints serving files (e.g., StaticFiles or any use of FileResponse). This vulnerability is fixed in 0.49.1.",
+      "fixed_version": "0.49.1",
+      "published": "2025-10-28T21:15:40.447000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-62727"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/commit/4ea6e22b489ec388d6004cfbca52dd5b147127c5"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/commit/69ed26a85956ef4bd0161807eb27abf49be7cd3c"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/releases/tag/0.49.1"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/security/advisories/GHSA-7f5h-v6xp-fcq8"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62727"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-62727"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "starlette: Starlette DoS via Range header merging",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-66418",
+      "identifier_type": "cve",
+      "affected_range": "2.5.0",
+      "aliases": [],
+      "details": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0.",
+      "fixed_version": "2.6.0",
+      "published": "2025-12-05T16:15:51.053000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/urllib3/urllib3/commit/24d7b67eac89f94e11003424bcf0d8f7b72222a8"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-gm62-xv2j-4w53"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66418"
+        },
+        {
+          "type": "web",
+          "url": "https://ubuntu.com/security/notices/USN-7927-1"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66418"
+        },
+        {
+          "type": "web",
+          "url": "https://www.openwall.com/lists/oss-security/2025/12/05/4"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "nvd"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "urllib3 is a user-friendly HTTP client library for Python. Starting in ...",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-66471",
+      "identifier_type": "cve",
+      "affected_range": "2.5.0",
+      "aliases": [],
+      "details": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data.",
+      "fixed_version": "2.6.0",
+      "published": "2025-12-05T17:16:04.400000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/urllib3/urllib3/commit/c19571de34c47de3a766541b041637ba5f716ed7"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-2xpw-w6gg-jr37"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66471"
+        },
+        {
+          "type": "web",
+          "url": "https://ubuntu.com/security/notices/USN-7927-1"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66471"
+        },
+        {
+          "type": "web",
+          "url": "https://www.openwall.com/lists/oss-security/2025/12/05/4"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "nvd"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "urllib3 is a user-friendly HTTP client library for Python. Starting in ...",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": []
 }

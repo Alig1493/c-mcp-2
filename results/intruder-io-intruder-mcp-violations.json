@@ -1,333 +1,331 @@
 {
-  "intruder-io/intruder-mcp": {
-    "trivy": [
-      {
-        "id": "CVE-2025-53365",
-        "identifier_type": "cve",
-        "affected_range": "1.7.1",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.10.0, if a client deliberately triggers an exception after establishing a streamable HTTP session, this can lead to an uncaught ClosedResourceError on the server side, causing the server to crash and requiring a restart to restore service. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.10.0 contains a patch for the issue.",
-        "fixed_version": "1.10.0",
-        "published": "2025-07-04T22:15:22.117000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-53365"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/7b420656de48cfdb90b39eb582e60b6d55c2f891"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/pull/967"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-j975-95f5-7wqh"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53365"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-53365"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: MCP Server Crash via ClosedResourceError",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-53366",
-        "identifier_type": "cve",
-        "affected_range": "1.7.1",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.9.4, a validation error in the MCP SDK can cause an unhandled exception when processing malformed requests, resulting in service unavailability (500 errors) until manually restarted. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.9.4 contains a patch for the issue.",
-        "fixed_version": "1.9.4",
-        "published": "2025-07-04T22:15:22.300000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-53366"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/29c69e6a47d0104d0afcea6ac35e7ab02fde809a"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/pull/822"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.9.4"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-3qhf-m339-9g5v"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53366"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-53366"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: MCP SDK Denial of Service Vulnerability",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-66416",
-        "identifier_type": "cve",
-        "affected_range": "1.7.1",
-        "aliases": [],
-        "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.23.0, tThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using FastMCP with streamable HTTP or SSE transport, and has not configured TransportSecuritySettings, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.23.0.",
-        "fixed_version": "1.23.0",
-        "published": "2025-12-02T19:15:52.520000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-66416"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-66416"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 8.1,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "mcp: DNS Rebinding Protection Disabled by Default in Model Context Protocol Python SDK",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-62727",
-        "identifier_type": "cve",
-        "affected_range": "0.46.2",
-        "aliases": [],
-        "details": "Starlette is a lightweight ASGI framework/toolkit. Starting in version 0.39.0 and prior to version 0.49.1 , an unauthenticated attacker can send a crafted HTTP Range header that triggers quadratic-time processing in Starlette's FileResponse Range parsing/merging logic. This enables CPU exhaustion per request, causing denial\u2011of\u2011service for endpoints serving files (e.g., StaticFiles or any use of FileResponse). This vulnerability is fixed in 0.49.1.",
-        "fixed_version": "0.49.1",
-        "published": "2025-10-28T21:15:40.447000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-62727"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/commit/4ea6e22b489ec388d6004cfbca52dd5b147127c5"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/commit/69ed26a85956ef4bd0161807eb27abf49be7cd3c"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/releases/tag/0.49.1"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/Kludex/starlette/security/advisories/GHSA-7f5h-v6xp-fcq8"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62727"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-62727"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "starlette: Starlette DoS via Range header merging",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-54121",
-        "identifier_type": "cve",
-        "affected_range": "0.46.2",
-        "aliases": [],
-        "details": "Starlette is a lightweight ASGI (Asynchronous Server Gateway Interface) framework/toolkit, designed for building async web services in Python. In versions 0.47.1 and below, when parsing a multi-part form with large files (greater than the default max spool size) starlette will block the main thread to roll the file over to disk. This blocks the event thread which means the application can't accept new connections. The UploadFile code has a minor bug where instead of just checking for self._in_memory, the logic should also check if the additional bytes will cause a rollover. The vulnerability is fixed in version 0.47.2.",
-        "fixed_version": "0.47.2",
-        "published": "2025-07-21T20:15:41.827000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-54121"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/encode/starlette"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/datastructures.py#L436C5-L447C14"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/encode/starlette/commit/9f7ec2eb512fcc3fe90b43cb9dd9e1d08696bec1"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/encode/starlette/discussions/2927#discussioncomment-13721403"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/encode/starlette/security/advisories/GHSA-2c2j-9gv5-cj73"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54121"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-54121"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 5.3,
-            "version": "redhat"
-          }
-        ],
-        "severity": "MEDIUM",
-        "source": "trivy",
-        "summary": "starlette: Starlette denial-of-service",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "dockerfile.security.missing-user.missing-user",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "dockerfile.security.missing-user.missing-user",
-        "rule_name": "dockerfile.security.missing-user.missing-user",
-        "rule_id": "dockerfile.security.missing-user.missing-user",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpxez2_wik/intruder-mcp/Dockerfile",
-        "line_range": "15-15",
-        "categories": [
-          "CWE-250: Execution with Unnecessary Privileges"
-        ]
-      }
-    ]
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-53365",
+      "identifier_type": "cve",
+      "affected_range": "1.7.1",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.10.0, if a client deliberately triggers an exception after establishing a streamable HTTP session, this can lead to an uncaught ClosedResourceError on the server side, causing the server to crash and requiring a restart to restore service. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.10.0 contains a patch for the issue.",
+      "fixed_version": "1.10.0",
+      "published": "2025-07-04T22:15:22.117000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-53365"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/7b420656de48cfdb90b39eb582e60b6d55c2f891"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/pull/967"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.10.0"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-j975-95f5-7wqh"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53365"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-53365"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: MCP Server Crash via ClosedResourceError",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-53366",
+      "identifier_type": "cve",
+      "affected_range": "1.7.1",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.9.4, a validation error in the MCP SDK can cause an unhandled exception when processing malformed requests, resulting in service unavailability (500 errors) until manually restarted. Impact may vary depending on the deployment conditions, and presence of infrastructure-level resilience measures. Version 1.9.4 contains a patch for the issue.",
+      "fixed_version": "1.9.4",
+      "published": "2025-07-04T22:15:22.300000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-53366"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/29c69e6a47d0104d0afcea6ac35e7ab02fde809a"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/pull/822"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.9.4"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-3qhf-m339-9g5v"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53366"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-53366"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: MCP SDK Denial of Service Vulnerability",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-66416",
+      "identifier_type": "cve",
+      "affected_range": "1.7.1",
+      "aliases": [],
+      "details": "The MCP Python SDK, called `mcp` on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to version 1.23.0, tThe Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication using FastMCP with streamable HTTP or SSE transport, and has not configured TransportSecuritySettings, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.23.0.",
+      "fixed_version": "1.23.0",
+      "published": "2025-12-02T19:15:52.520000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-66416"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/commit/d3a184119e4479ea6a63590bc41f01dc06e3fa99"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-9h52-p55h-vw2f"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66416"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66416"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 8.1,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "mcp: DNS Rebinding Protection Disabled by Default in Model Context Protocol Python SDK",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-62727",
+      "identifier_type": "cve",
+      "affected_range": "0.46.2",
+      "aliases": [],
+      "details": "Starlette is a lightweight ASGI framework/toolkit. Starting in version 0.39.0 and prior to version 0.49.1 , an unauthenticated attacker can send a crafted HTTP Range header that triggers quadratic-time processing in Starlette's FileResponse Range parsing/merging logic. This enables CPU exhaustion per request, causing denial\u2011of\u2011service for endpoints serving files (e.g., StaticFiles or any use of FileResponse). This vulnerability is fixed in 0.49.1.",
+      "fixed_version": "0.49.1",
+      "published": "2025-10-28T21:15:40.447000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-62727"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/commit/4ea6e22b489ec388d6004cfbca52dd5b147127c5"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/commit/69ed26a85956ef4bd0161807eb27abf49be7cd3c"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/releases/tag/0.49.1"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/Kludex/starlette/security/advisories/GHSA-7f5h-v6xp-fcq8"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62727"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-62727"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "starlette: Starlette DoS via Range header merging",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-54121",
+      "identifier_type": "cve",
+      "affected_range": "0.46.2",
+      "aliases": [],
+      "details": "Starlette is a lightweight ASGI (Asynchronous Server Gateway Interface) framework/toolkit, designed for building async web services in Python. In versions 0.47.1 and below, when parsing a multi-part form with large files (greater than the default max spool size) starlette will block the main thread to roll the file over to disk. This blocks the event thread which means the application can't accept new connections. The UploadFile code has a minor bug where instead of just checking for self._in_memory, the logic should also check if the additional bytes will cause a rollover. The vulnerability is fixed in version 0.47.2.",
+      "fixed_version": "0.47.2",
+      "published": "2025-07-21T20:15:41.827000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-54121"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/encode/starlette"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/datastructures.py#L436C5-L447C14"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/encode/starlette/commit/9f7ec2eb512fcc3fe90b43cb9dd9e1d08696bec1"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/encode/starlette/discussions/2927#discussioncomment-13721403"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/encode/starlette/security/advisories/GHSA-2c2j-9gv5-cj73"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54121"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-54121"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "starlette: Starlette denial-of-service",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "dockerfile.security.missing-user.missing-user",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "dockerfile.security.missing-user.missing-user",
+      "rule_name": "dockerfile.security.missing-user.missing-user",
+      "rule_id": "dockerfile.security.missing-user.missing-user",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpxez2_wik/intruder-mcp/Dockerfile",
+      "line_range": "15-15",
+      "categories": [
+        "CWE-250: Execution with Unnecessary Privileges"
+      ]
+    }
+  ]
 }

@@ -1,7 +1,5 @@
 {
-  "HaroldFinchIFT/vuln-nist-mcp-server": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": []
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": []
 }

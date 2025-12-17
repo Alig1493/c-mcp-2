@@ -1,283 +1,281 @@
 {
-  "qianniuspace/mcp-security-audit": {
-    "trivy": [
-      {
-        "id": "CVE-2025-66414",
-        "identifier_type": "cve",
-        "affected_range": "1.5.0",
-        "aliases": [],
-        "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
-        "fixed_version": "1.24.0",
-        "published": "2025-12-02T19:15:52.347000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-5889",
-        "identifier_type": "cve",
-        "affected_range": "2.0.1",
-        "aliases": [],
-        "details": "A vulnerability was found in juliangruber brace-expansion up to 1.1.11/2.0.1/3.0.0/4.0.0. It has been rated as problematic. Affected by this issue is the function expand of the file index.js. The manipulation leads to inefficient regular expression complexity. The attack may be launched remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 1.1.12, 2.0.2, 3.0.1 and 4.0.1 is able to address this issue. The name of the patch is a5b98a4f30d7813266b221435e1eaaf25a1b0ac5. It is recommended to upgrade the affected component.",
-        "fixed_version": "2.0.2, 1.1.12, 3.0.1, 4.0.1",
-        "published": "2025-06-09T19:15:25.460000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-5889"
-          },
-          {
-            "type": "web",
-            "url": "https://gist.github.com/mmmsssttt404/37a40ce7d6e5ca604858fe30814d9466"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion/commit/0b6a9781e18e9d2769bb2931f4856d1360243ed2"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion/commit/15f9b3c75ebf5988198241fecaebdc45eff28a9f"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion/commit/36603d5f3599a37af9e85eda30acd7d28599c36e"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion/commit/c3c73c8b088defc70851843be88ccc3af08e7217"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion/pull/65/commits/a5b98a4f30d7813266b221435e1eaaf25a1b0ac5"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/juliangruber/brace-expansion/releases/tag/v4.0.1"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-5889"
-          },
-          {
-            "type": "web",
-            "url": "https://vuldb.com/?ctiid.311660"
-          },
-          {
-            "type": "web",
-            "url": "https://vuldb.com/?id.311660"
-          },
-          {
-            "type": "web",
-            "url": "https://vuldb.com/?submit.585717"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-5889"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 3.1,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 3.1,
-            "version": "redhat"
-          }
-        ],
-        "severity": "LOW",
-        "source": "trivy",
-        "summary": "brace-expansion: juliangruber brace-expansion index.js expand redos",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      },
-      {
-        "id": "CVE-2025-64756",
-        "identifier_type": "cve",
-        "affected_range": "10.4.5",
-        "aliases": [],
-        "details": "Glob matches files using patterns the shell uses. Starting in version 10.2.0 and prior to versions 10.5.0 and 11.1.0, the glob CLI contains a command injection vulnerability in its -c/--cmd option that allows arbitrary command execution when processing files with malicious names. When glob -c <command> <patterns> are used, matched filenames are passed to a shell with shell: true, enabling shell metacharacters in filenames to trigger command injection and achieve arbitrary code execution under the user or CI account privileges. This issue has been patched in versions 10.5.0 and 11.1.0.",
-        "fixed_version": "11.1.0, 10.5.0",
-        "published": "2025-11-17T18:15:58.270000Z",
-        "references": [
-          {
-            "type": "web",
-            "url": "https://access.redhat.com/security/cve/CVE-2025-64756"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/isaacs/node-glob"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/isaacs/node-glob/commit/1e4e297342a09f2aa0ced87fcd4a70ddc325d75f"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/isaacs/node-glob/commit/47473c046b91c67269df7a66eab782a6c2716146"
-          },
-          {
-            "type": "web",
-            "url": "https://github.com/isaacs/node-glob/security/advisories/GHSA-5j98-mcp5-4vw2"
-          },
-          {
-            "type": "web",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64756"
-          },
-          {
-            "type": "web",
-            "url": "https://www.cve.org/CVERecord?id=CVE-2025-64756"
-          }
-        ],
-        "scores": [
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "ghsa"
-          },
-          {
-            "type": "cvss",
-            "value": 7.5,
-            "version": "redhat"
-          }
-        ],
-        "severity": "HIGH",
-        "source": "trivy",
-        "summary": "glob: glob: Command Injection Vulnerability via Malicious Filenames",
-        "rule_name": null,
-        "rule_id": null,
-        "confidence": null,
-        "file_location": null,
-        "line_range": null,
-        "categories": []
-      }
-    ],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
-        "rule_name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
-        "rule_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
-        "confidence": "MEDIUM",
-        "file_location": "/tmp/tmpyq3dxpip/mcp-security-audit/Dockerfile",
-        "line_range": "35-35",
-        "categories": [
-          "CWE-269: Improper Privilege Management"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpyq3dxpip/mcp-security-audit/src/handlers/security.ts",
-        "line_range": "51-51",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      },
-      {
-        "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://cwe.mitre.org/data/definitions/134.html"
-          }
-        ],
-        "scores": [],
-        "severity": "LOW",
-        "source": null,
-        "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpyq3dxpip/mcp-security-audit/src/handlers/security.ts",
-        "line_range": "84-84",
-        "categories": [
-          "CWE-134: Use of Externally-Controlled Format String"
-        ]
-      }
-    ]
-  }
+  "trivy": [
+    {
+      "id": "CVE-2025-66414",
+      "identifier_type": "cve",
+      "affected_range": "1.5.0",
+      "aliases": [],
+      "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
+      "fixed_version": "1.24.0",
+      "published": "2025-12-02T19:15:52.347000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-5889",
+      "identifier_type": "cve",
+      "affected_range": "2.0.1",
+      "aliases": [],
+      "details": "A vulnerability was found in juliangruber brace-expansion up to 1.1.11/2.0.1/3.0.0/4.0.0. It has been rated as problematic. Affected by this issue is the function expand of the file index.js. The manipulation leads to inefficient regular expression complexity. The attack may be launched remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 1.1.12, 2.0.2, 3.0.1 and 4.0.1 is able to address this issue. The name of the patch is a5b98a4f30d7813266b221435e1eaaf25a1b0ac5. It is recommended to upgrade the affected component.",
+      "fixed_version": "2.0.2, 1.1.12, 3.0.1, 4.0.1",
+      "published": "2025-06-09T19:15:25.460000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-5889"
+        },
+        {
+          "type": "web",
+          "url": "https://gist.github.com/mmmsssttt404/37a40ce7d6e5ca604858fe30814d9466"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion/commit/0b6a9781e18e9d2769bb2931f4856d1360243ed2"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion/commit/15f9b3c75ebf5988198241fecaebdc45eff28a9f"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion/commit/36603d5f3599a37af9e85eda30acd7d28599c36e"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion/commit/c3c73c8b088defc70851843be88ccc3af08e7217"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion/pull/65/commits/a5b98a4f30d7813266b221435e1eaaf25a1b0ac5"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/juliangruber/brace-expansion/releases/tag/v4.0.1"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-5889"
+        },
+        {
+          "type": "web",
+          "url": "https://vuldb.com/?ctiid.311660"
+        },
+        {
+          "type": "web",
+          "url": "https://vuldb.com/?id.311660"
+        },
+        {
+          "type": "web",
+          "url": "https://vuldb.com/?submit.585717"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-5889"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 3.1,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 3.1,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "brace-expansion: juliangruber brace-expansion index.js expand redos",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-64756",
+      "identifier_type": "cve",
+      "affected_range": "10.4.5",
+      "aliases": [],
+      "details": "Glob matches files using patterns the shell uses. Starting in version 10.2.0 and prior to versions 10.5.0 and 11.1.0, the glob CLI contains a command injection vulnerability in its -c/--cmd option that allows arbitrary command execution when processing files with malicious names. When glob -c <command> <patterns> are used, matched filenames are passed to a shell with shell: true, enabling shell metacharacters in filenames to trigger command injection and achieve arbitrary code execution under the user or CI account privileges. This issue has been patched in versions 10.5.0 and 11.1.0.",
+      "fixed_version": "11.1.0, 10.5.0",
+      "published": "2025-11-17T18:15:58.270000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-64756"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/isaacs/node-glob"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/isaacs/node-glob/commit/1e4e297342a09f2aa0ced87fcd4a70ddc325d75f"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/isaacs/node-glob/commit/47473c046b91c67269df7a66eab782a6c2716146"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/isaacs/node-glob/security/advisories/GHSA-5j98-mcp5-4vw2"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64756"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-64756"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "glob: glob: Command Injection Vulnerability via Malicious Filenames",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+      "rule_name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+      "rule_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+      "confidence": "MEDIUM",
+      "file_location": "/tmp/tmpyq3dxpip/mcp-security-audit/Dockerfile",
+      "line_range": "35-35",
+      "categories": [
+        "CWE-269: Improper Privilege Management"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpyq3dxpip/mcp-security-audit/src/handlers/security.ts",
+      "line_range": "51-51",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpyq3dxpip/mcp-security-audit/src/handlers/security.ts",
+      "line_range": "84-84",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    }
+  ]
 }

@@ -1,442 +1,440 @@
 {
-  "sanyambassi/thales-cdsp-cakm-mcp-server": {
-    "trivy": [],
-    "osv-scanner": [],
-    "semgrep": [
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "176-176",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "176-176",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1195-1195",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1195-1195",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1229-1229",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1229-1229",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1265-1265",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1265-1265",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1277-1277",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1277-1277",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1289-1289",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1289-1289",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
-          }
-        ],
-        "scores": [],
-        "severity": "MEDIUM",
-        "source": null,
-        "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1300-1300",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      },
-      {
-        "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "identifier_type": "semgrep_rule",
-        "affected_range": "",
-        "aliases": [],
-        "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
-        "fixed_version": null,
-        "published": null,
-        "references": [
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
-          },
-          {
-            "type": "web",
-            "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
-          },
-          {
-            "type": "web",
-            "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
-          }
-        ],
-        "scores": [],
-        "severity": "HIGH",
-        "source": null,
-        "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
-        "confidence": "LOW",
-        "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
-        "line_range": "1300-1300",
-        "categories": [
-          "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-        ]
-      }
-    ]
-  }
+  "trivy": [],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "176-176",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "176-176",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1195-1195",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1195-1195",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1229-1229",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1229-1229",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1265-1265",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1265-1265",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1277-1277",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1277-1277",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1289-1289",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1289-1289",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected possible formatted SQL query. Use parameterized queries instead.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+        }
+      ],
+      "scores": [],
+      "severity": "MEDIUM",
+      "source": null,
+      "summary": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_name": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "rule_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1300-1300",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    },
+    {
+      "id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql"
+        },
+        {
+          "type": "web",
+          "url": "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+        },
+        {
+          "type": "web",
+          "url": "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "confidence": "LOW",
+      "file_location": "/tmp/tmpfc53968s/thales-cdsp-cakm-mcp-server/src/database_tde_server/database/oracle.py",
+      "line_range": "1300-1300",
+      "categories": [
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      ]
+    }
+  ]
 }
