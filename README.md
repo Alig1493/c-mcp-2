@@ -25,7 +25,7 @@ make scan REPO_URL=https://github.com/org/mcp-repo
 make scan REPO_URL=https://github.com/org/mcp-repo SCANNERS=trivy
 
 # Scan with multiple scanners
-make scan REPO_URL=https://github.com/org/mcp-repo SCANNERS=trivy,osv-scanner,semgrep
+make scan REPO_URL=https://github.com/org/mcp-repo SCANNERS=trivy,osv-scanner,semgrep,yara
 ```
 
 ### Using GitHub Actions UI
@@ -48,6 +48,7 @@ Detect Languages → Select Scanners
 │  • Trivy                    │
 │  • OSV Scanner              │
 │  • Semgrep                  │
+│  • YARA                     │
 └────────────────────────────┘
          ↓
 Aggregate Results
@@ -76,6 +77,24 @@ Open Source Vulnerability database scanner. Checks dependencies against OSV data
 Static analysis security testing (SAST) tool. Analyzes source code for security patterns and potential vulnerabilities.
 
 **What it finds:** SQL injection, XSS, insecure crypto, hardcoded secrets, code quality issues
+
+### YARA
+Malware and threat detection scanner using pattern matching. Detects suspicious code patterns, backdoors, obfuscation, and known malware signatures.
+
+**What it finds:** Malicious code patterns and backdoors, known malware signatures (5290 rules), suspicious behavior (command injection, file manipulation), code obfuscation and anti-analysis techniques, credential harvesting patterns
+
+**Rules:** Uses [yara-forge-rules-core](https://yarahq.github.io/) with 5290 curated rules
+
+**What YARA helps us do:** YARA complements existing scanners by detecting malicious intent and behavior rather than just vulnerable code. While Semgrep finds coding mistakes (SQL injection, XSS), Trivy/OSV find known CVEs in dependencies, YARA identifies whether the code itself is malicious, contains backdoors, or exhibits suspicious patterns commonly found in malware.
+
+**Information YARA provides (vs. other scanners):**
+- **Behavioral Detection**: Identifies malicious patterns (crypto-mining, data exfiltration, C2 communication)
+- **Malware Signatures**: Matches known malware families and variants
+- **Code Fingerprinting**: Detects obfuscation, packing, and anti-analysis techniques
+- **Contextual Matches**: Shows exactly which strings/patterns matched and where
+- **Rule Provenance**: Includes rule author, date, and source repository for traceability
+
+**Rule Source:** YARA rules are curated and maintained by the YARA community through [YARA-Forge](https://yarahq.github.io/), a collaborative platform for high-quality YARA rules. The core ruleset includes contributions from security researchers worldwide and is regularly updated with new threat intelligence.
 
 ## Results Format
 
@@ -159,7 +178,8 @@ v-mcp-2/
 │   ├── scanners/           # Scanner implementations
 │   │   ├── trivy.py
 │   │   ├── osv.py
-│   │   └── semgrep.py
+│   │   ├── semgrep.py
+│   │   └── yara.py
 │   └── utils/
 │       ├── detect_language.py     # Language detection
 │       ├── aggregate_results.py   # Results merging
@@ -187,7 +207,7 @@ scanners:
 
 # Specific scanners only
 repo_url: https://github.com/org/mcp-repo
-scanners: trivy,osv-scanner
+scanners: trivy,osv-scanner,semgrep,yara
 ```
 
 ## License

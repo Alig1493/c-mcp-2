@@ -8,6 +8,7 @@ dependencies = [
     "aiohttp>=3.13.2",
     "httpx>=0.28.1",
     "pydantic>=2.12.5",
+    "yara-python>=4.5.0",
 ]
 
 [project.scripts]

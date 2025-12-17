@@ -6,6 +6,7 @@ from typing import Any
 
 from vmcp.models import VulnerabilityModel
 from vmcp.scanners import OSVScanner, SemgrepScanner, TrivyScanner
+from vmcp.scanners.yara import YaraScanner
 from vmcp.scanners.base import BaseScanner
 
 
@@ -16,6 +17,7 @@ class ScanOrchestrator:
         'trivy': TrivyScanner,
         'osv-scanner': OSVScanner,
         'semgrep': SemgrepScanner,
+        'yara': YaraScanner,
     }
 
     def __init__(self, repo_path: str, org_name: str, repo_name: str):

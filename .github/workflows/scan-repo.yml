@@ -26,7 +26,7 @@ jobs:
           
           # Default to all scanners if input is empty
           if [ -z "$SCANNERS" ]; then
-            SCANNERS="trivy,osv-scanner,semgrep"
+            SCANNERS="trivy,osv-scanner,semgrep,yara"
           fi
           
           # Convert comma-separated to JSON array
@@ -77,6 +77,9 @@ jobs:
             chmod +x /usr/local/bin/osv-scanner
           elif [ "${{ matrix.scanner }}" = "semgrep" ]; then
             pip install semgrep
+          elif [ "${{ matrix.scanner }}" = "yara" ]; then
+            sudo apt-get update && sudo apt-get install -y libyara-dev
+            pip install yara-python
           fi
 
       - name: Run scanner

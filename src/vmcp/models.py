@@ -14,7 +14,7 @@ type VulnerabilitySeverity = Literal[
     "CRITICAL",
     "WARNING",
 ]
-type VulnerabilitySource = Literal["osv", "trivy"]
+type VulnerabilitySource = Literal["osv", "trivy", "yara"]
 
 
 class ScmProvider(StrEnum):

@@ -48,17 +48,17 @@ def select_scanners(languages: dict[str, int]) -> list[str]:
 
     # Language-specific scanners
     language_scanners = {
-        'python': ['trivy', 'semgrep'],
-        'javascript': ['trivy', 'semgrep', 'npm-audit'],
-        'typescript': ['trivy', 'semgrep'],
-        'go': ['trivy', 'gosec'],
-        'java': ['trivy', 'semgrep'],
-        'ruby': ['trivy', 'bundler-audit'],
-        'rust': ['trivy', 'cargo-audit'],
-        'php': ['trivy', 'semgrep'],
-        'csharp': ['trivy', 'semgrep'],
-        'cpp': ['trivy', 'semgrep'],
-        'c': ['trivy', 'semgrep'],
+        'python': ['trivy', 'semgrep', 'yara'],
+        'javascript': ['trivy', 'semgrep', 'npm-audit', 'yara'],
+        'typescript': ['trivy', 'semgrep', 'yara'],
+        'go': ['trivy', 'gosec', 'yara'],
+        'java': ['trivy', 'semgrep', 'yara'],
+        'ruby': ['trivy', 'bundler-audit', 'yara'],
+        'rust': ['trivy', 'cargo-audit', 'yara'],
+        'php': ['trivy', 'semgrep', 'yara'],
+        'csharp': ['trivy', 'semgrep', 'yara'],
+        'cpp': ['trivy', 'semgrep', 'yara'],
+        'c': ['trivy', 'semgrep', 'yara'],
     }
 
     # Add language-specific scanners
@@ -69,6 +69,7 @@ def select_scanners(languages: dict[str, int]) -> list[str]:
     # Always include general scanners
     scanners.add('trivy')
     scanners.add('osv-scanner')
+    scanners.add('yara')
 
     return sorted(list(scanners))
 
