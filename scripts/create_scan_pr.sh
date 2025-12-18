@@ -69,57 +69,115 @@ if ! git diff --quiet || ! git diff --cached --quiet || [[ -n $(git ls-files --o
 
   # Create branch and commit
   git checkout -b "${BRANCH_NAME}"
-  git add results/ SCAN_RESULTS.md
+
+  # Add regular scan results if they exist
+  if [[ -d "results" ]] || [[ -f "SCAN_RESULTS.md" ]]; then
+    git add results/ SCAN_RESULTS.md 2>/dev/null || true
+  fi
+
+  # Add tool-based scan results if they exist
+  if [[ -d "results_tools" ]] || [[ -f "SCAN_RESULTS_TOOLS.md" ]]; then
+    git add results_tools/ SCAN_RESULTS_TOOLS.md 2>/dev/null || true
+  fi
+
+  # Determine scan type
+  SCAN_TYPE="regular"
+  RESULTS_DESC=""
+  if [[ -d "results_tools" ]] && [[ -f "SCAN_RESULTS_TOOLS.md" ]]; then
+    SCAN_TYPE="tool-based"
+    RESULTS_DESC="
+Results (tool-based):
+- tool-violations.json: results_tools/${ORG_NAME}-${REPO_NAME}-tool-violations.json
+- tools.json: results_tools/${ORG_NAME}-${REPO_NAME}-tools.json
+- Summary: SCAN_RESULTS_TOOLS.md"
+  else
+    RESULTS_DESC="
+Results:
+- violations.json: results/${ORG_NAME}-${REPO_NAME}-violations.json
+- Summary: SCAN_RESULTS.md"
+  fi
+
   git commit -m "chore: add vulnerability scan results for ${TARGET_REPO}
 
 Scanned repository: ${REPO_URL}
 Event: ${GITHUB_EVENT_NAME}
 Triggered-by: ${GIT_USER}
 Workflow: ${GITHUB_WORKFLOW}
-
-Results:
-- violations.json: results/${ORG_NAME}/${REPO_NAME}/violations.json
-- Summary: SCAN_RESULTS.md
+Scan type: ${SCAN_TYPE}
+${RESULTS_DESC}
 
 🔒 Automated vulnerability scan"
 
   git push -u origin "${BRANCH_NAME}"
 
-  # Count vulnerabilities if possible
-  VIOLATIONS_FILE="results/${ORG_NAME}/${REPO_NAME}/violations.json"
+  # Count vulnerabilities and prepare PR body based on scan type
   VULN_SUMMARY=""
-  if [[ -f "${VIOLATIONS_FILE}" ]]; then
-    # Try to extract vulnerability counts using jq if available
-    if command -v jq &> /dev/null; then
-      TOTAL_VULNS=$(jq '[.[][] | length] | add' "${VIOLATIONS_FILE}" 2>/dev/null || echo "0")
+  WHAT_INCLUDED=""
+  REVIEW_CHECKLIST=""
+
+  if [[ "${SCAN_TYPE}" == "tool-based" ]]; then
+    # Tool-based scan
+    VIOLATIONS_FILE="results_tools/${ORG_NAME}-${REPO_NAME}-tool-violations.json"
+    TOOLS_FILE="results_tools/${ORG_NAME}-${REPO_NAME}-tools.json"
+
+    if [[ -f "${VIOLATIONS_FILE}" ]] && command -v jq &> /dev/null; then
+      TOTAL_VULNS=$(jq '[.[][] | to_entries[] | .value | length] | add' "${VIOLATIONS_FILE}" 2>/dev/null || echo "0")
       VULN_SUMMARY="
 **Total Vulnerabilities Found:** ${TOTAL_VULNS}"
     fi
+
+    WHAT_INCLUDED="### 📊 What's Included
+
+- \`results_tools/${ORG_NAME}-${REPO_NAME}-tool-violations.json\` - Vulnerabilities grouped by MCP tool
+- \`results_tools/${ORG_NAME}-${REPO_NAME}-tools.json\` - Detected MCP tools metadata
+- \`SCAN_RESULTS_TOOLS.md\` - Aggregated summary table by tool"
+
+    REVIEW_CHECKLIST="### 📝 Review Checklist
+
+- [ ] Review \`SCAN_RESULTS_TOOLS.md\` for tool-level vulnerability summary
+- [ ] Check which MCP tools have the most vulnerabilities
+- [ ] Review tool metadata in \`*-tools.json\`
+- [ ] Prioritize fixes for high-risk tools
+- [ ] Decide on next actions for critical tool vulnerabilities"
+  else
+    # Regular scan
+    VIOLATIONS_FILE="results/${ORG_NAME}-${REPO_NAME}-violations.json"
+
+    if [[ -f "${VIOLATIONS_FILE}" ]] && command -v jq &> /dev/null; then
+      TOTAL_VULNS=$(jq '[.[] | length] | add' "${VIOLATIONS_FILE}" 2>/dev/null || echo "0")
+      VULN_SUMMARY="
+**Total Vulnerabilities Found:** ${TOTAL_VULNS}"
+    fi
+
+    WHAT_INCLUDED="### 📊 What's Included
+
+- \`results/${ORG_NAME}-${REPO_NAME}-violations.json\` - Detailed vulnerability data from all scanners
+- \`SCAN_RESULTS.md\` - Aggregated summary table"
+
+    REVIEW_CHECKLIST="### 📝 Review Checklist
+
+- [ ] Review \`SCAN_RESULTS.md\` for severity summary
+- [ ] Check \`violations.json\` for detailed findings
+- [ ] Verify CVE links are working
+- [ ] Decide on next actions for high-severity issues"
   fi
 
   # Prepare PR body
-  PR_BODY="## 🔒 Vulnerability Scan Results
+  PR_BODY="## 🔒 Vulnerability Scan Results (${SCAN_TYPE})
 
 Automated security scan for: **[${TARGET_REPO}](${REPO_URL})**
 ${VULN_SUMMARY}
 
-### 📊 What's Included
-
-- \`results/${ORG_NAME}/${REPO_NAME}/violations.json\` - Detailed vulnerability data from all scanners
-- \`SCAN_RESULTS.md\` - Aggregated summary table
+${WHAT_INCLUDED}
 
 ### 🔍 Scanners Used
 
 - **Trivy** - Container and filesystem vulnerabilities
 - **OSV Scanner** - Open source vulnerability database
 - **Semgrep** - Static analysis security testing
+- **YARA** - Malware and threat detection
 
-### 📝 Review Checklist
-
-- [ ] Review \`SCAN_RESULTS.md\` for severity summary
-- [ ] Check \`violations.json\` for detailed findings
-- [ ] Verify CVE links are working
-- [ ] Decide on next actions for high-severity issues
+${REVIEW_CHECKLIST}
 
 ---
 
