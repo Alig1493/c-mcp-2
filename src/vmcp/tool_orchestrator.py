@@ -89,6 +89,9 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
             'Gemfile', 'Gemfile.lock', 'composer.json', 'composer.lock'
         }
 
+        # Debug: print tool file paths
+        print(f"DEBUG: Tool file paths: {list(tool_by_file.keys())}")
+
         for vuln in vulnerabilities:
             assigned = False
 
@@ -98,6 +101,10 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
                 file_path = vuln.file_location.replace(f"{self.repo_path}/", "")
                 file_name = Path(file_path).name
 
+                # Debug: print vulnerability file location
+                if not file_name in dependency_files:
+                    print(f"DEBUG: Checking vuln in {file_path} (normalized from {vuln.file_location})")
+
                 # Check if it's a dependency file - these go to 'dependencies' category
                 if file_name in dependency_files:
                     tool_vulns['dependencies'].append(vuln)
@@ -105,6 +112,7 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
                 # Direct file match with tool file
                 elif file_path in tool_by_file:
                     tool_name = tool_by_file[file_path].name
+                    print(f"DEBUG: Direct match! Assigning to {tool_name}")
                     tool_vulns[tool_name].append(vuln)
                     assigned = True
                 else:
@@ -112,6 +120,7 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
                     for tool_file, tool in tool_by_file.items():
                         tool_dir = str(Path(tool_file).parent)
                         if tool_dir and file_path.startswith(tool_dir):
+                            print(f"DEBUG: Directory match! Assigning to {tool.name}")
                             tool_vulns[tool.name].append(vuln)
                             assigned = True
                             break
@@ -123,6 +132,7 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
 
             # Unknown category for everything else
             if not assigned:
+                print(f"DEBUG: No match for {file_path}, assigning to unknown")
                 tool_vulns['unknown'].append(vuln)
 
         # Remove empty tool categories
