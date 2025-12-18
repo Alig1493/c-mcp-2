@@ -81,6 +81,14 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
         for tool in self.tools:
             tool_by_file[tool.file_path] = tool
 
+        # Dependency file patterns
+        dependency_files = {
+            'package.json', 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml',
+            'requirements.txt', 'setup.py', 'pyproject.toml', 'Pipfile', 'poetry.lock',
+            'go.mod', 'go.sum', 'Cargo.toml', 'Cargo.lock',
+            'Gemfile', 'Gemfile.lock', 'composer.json', 'composer.lock'
+        }
+
         for vuln in vulnerabilities:
             assigned = False
 
@@ -88,26 +96,32 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
             if vuln.file_location:
                 # Normalize path
                 file_path = vuln.file_location.replace(f"{self.repo_path}/", "")
+                file_name = Path(file_path).name
 
-                # Direct file match
-                if file_path in tool_by_file:
+                # Check if it's a dependency file - these go to 'dependencies' category
+                if file_name in dependency_files:
+                    tool_vulns['dependencies'].append(vuln)
+                    assigned = True
+                # Direct file match with tool file
+                elif file_path in tool_by_file:
                     tool_name = tool_by_file[file_path].name
                     tool_vulns[tool_name].append(vuln)
                     assigned = True
                 else:
                     # Check if file is in the same directory as a tool
                     for tool_file, tool in tool_by_file.items():
-                        if file_path.startswith(Path(tool_file).parent.as_posix()):
+                        tool_dir = str(Path(tool_file).parent)
+                        if tool_dir and file_path.startswith(tool_dir):
                             tool_vulns[tool.name].append(vuln)
                             assigned = True
                             break
 
-            # Dependency vulnerabilities (from Trivy, OSV)
-            if not assigned and vuln.source in ['trivy', 'osv']:
+            # Vulnerabilities with no file location go to dependencies (usually dependency CVEs)
+            if not assigned and not vuln.file_location:
                 tool_vulns['dependencies'].append(vuln)
                 assigned = True
 
-            # Unknown category
+            # Unknown category for everything else
             if not assigned:
                 tool_vulns['unknown'].append(vuln)
 
