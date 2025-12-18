@@ -12,6 +12,11 @@ on:
         required: false
         type: string
         default: ''
+      command:
+        description: 'Scan command: scan or scan-tool'
+        required: false
+        type: string
+        default: 'scan'
 
 jobs:
   prepare-matrix:
@@ -84,13 +89,20 @@ jobs:
 
       - name: Run scanner
         run: |
-          uv run python -m vmcp.cli scan "${{ inputs.repo_url }}" --output-dir results --scanners ${{ matrix.scanner }}
+          if [ "${{ inputs.command }}" = "scan-tool" ]; then
+            OUTPUT_DIR="results_tools"
+          else
+            OUTPUT_DIR="results"
+          fi
+          uv run python -m vmcp.cli ${{ inputs.command }} "${{ inputs.repo_url }}" --output-dir "$OUTPUT_DIR" --scanners ${{ matrix.scanner }}
 
       - name: Upload scan results artifact
         uses: actions/upload-artifact@v4
         with:
           name: scan-results-${{ matrix.scanner }}
-          path: results/
+          path: |
+            results/
+            results_tools/
           retention-days: 1
 
   aggregate-parallel-results:
@@ -129,11 +141,15 @@ jobs:
         with:
           pattern: scan-results-*
           merge-multiple: true
-          path: results/
+          path: ./
 
       - name: Aggregate results
         run: |
-          uv run python -m vmcp.cli aggregate "${{ inputs.repo_url }}" --results-dir results
+          if [ "${{ inputs.command }}" = "scan-tool" ]; then
+            uv run python -m vmcp.cli aggregate-tool "${{ inputs.repo_url }}" --results-dir results_tools
+          else
+            uv run python -m vmcp.cli aggregate "${{ inputs.repo_url }}" --results-dir results
+          fi
 
       - name: Create Pull Request
         env:

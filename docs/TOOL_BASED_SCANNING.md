@@ -52,6 +52,21 @@ Traditional vulnerability scanning groups results by scanner (Trivy, OSV-Scanner
 
 ### Scanning with Tool Grouping
 
+#### Using Makefile (GitHub Actions)
+
+```bash
+# Scan a repository and group by tools using all scanners
+make scan-tool REPO_URL=https://github.com/org/mcp-server
+
+# Scan with specific scanners
+make scan-tool REPO_URL=https://github.com/org/mcp-server SCANNERS=trivy,semgrep
+
+# Scan with YARA only
+make scan-tool REPO_URL=https://github.com/org/mcp-server SCANNERS=yara
+```
+
+#### Using CLI Directly
+
 ```bash
 # Scan a repository and group by tools (defaults to results_tools/ directory)
 uv run python -m vmcp.cli scan-tool https://github.com/org/mcp-server
