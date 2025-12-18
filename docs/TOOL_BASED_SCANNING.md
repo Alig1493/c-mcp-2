@@ -54,20 +54,20 @@ Traditional vulnerability scanning groups results by scanner (Trivy, OSV-Scanner
 
 ```bash
 # Scan a repository and group by tools
-uv run python -m vmcp.cli scan https://github.com/org/mcp-server --by-tool
+uv run python -m vmcp.cli scan-tool https://github.com/org/mcp-server
 
 # Scan with specific scanners
-uv run python -m vmcp.cli scan https://github.com/org/mcp-server --by-tool --scanners trivy semgrep
+uv run python -m vmcp.cli scan-tool https://github.com/org/mcp-server --scanners trivy semgrep
 
 # Custom output directory
-uv run python -m vmcp.cli scan https://github.com/org/mcp-server --by-tool --output-dir results_tools
+uv run python -m vmcp.cli scan-tool https://github.com/org/mcp-server --output-dir results_tools
 ```
 
 ### Aggregating Tool-Based Results
 
 ```bash
 # Aggregate tool-based results and generate SCAN_RESULTS_TOOLS.md
-uv run python -m vmcp.cli aggregate https://github.com/org/mcp-server --by-tool --results-dir results_tools
+uv run python -m vmcp.cli aggregate-tool https://github.com/org/mcp-server --results-dir results_tools
 ```
 
 ## Tool Detection
@@ -130,12 +130,12 @@ Tool-based scanning generates a separate markdown report showing vulnerabilities
 ```bash
 # 1. Scan multiple MCP repositories with tool grouping
 for repo in repo1 repo2 repo3; do
-    uv run python -m vmcp.cli scan https://github.com/org/$repo --by-tool --output-dir tool_results
+    uv run python -m vmcp.cli scan-tool https://github.com/org/$repo --output-dir tool_results
 done
 
 # 2. Aggregate results for each repository
 for repo in repo1 repo2 repo3; do
-    uv run python -m vmcp.cli aggregate https://github.com/org/$repo --by-tool --results-dir tool_results
+    uv run python -m vmcp.cli aggregate-tool https://github.com/org/$repo --results-dir tool_results
 done
 
 # 3. View the tool-based summary

@@ -25,7 +25,7 @@ def get_repo(repo_url: str):
     return org_name, repo_name
 
 
-async def scan_repository(repo_url: str, output_dir: str, scanners: list[str] | None = None, by_tool: bool = False) -> None:
+async def scan_repository(repo_url: str, output_dir: str, scanners: list[str] | None = None) -> None:
     """Scan a repository for vulnerabilities."""
     org_name, repo_name = get_repo(repo_url)
     # Clone to temp directory
@@ -48,48 +48,77 @@ async def scan_repository(repo_url: str, output_dir: str, scanners: list[str] | 
 
         # Run scans
         print(f"Running {len(scanners)} scanners in parallel...")
+        orchestrator = ScanOrchestrator(str(repo_path), org_name, repo_name)
+        results = await orchestrator.run_all_scanners(scanners)
 
-        if by_tool:
-            # Tool-based scanning
-            orchestrator = ToolBasedScanOrchestrator(str(repo_path), org_name, repo_name)
-            results = await orchestrator.run_all_scanners_by_tool(scanners)
-            orchestrator.save_tool_results(results, output_dir)
-        else:
-            # Regular scanning
-            orchestrator = ScanOrchestrator(str(repo_path), org_name, repo_name)
-            results = await orchestrator.run_all_scanners(scanners)
-            orchestrator.save_results(results, output_dir)
+        # Save results (scanner-specific files)
+        orchestrator.save_results(results, output_dir)
 
 
-def aggregate_command(repo_url: str, results_dir: str, by_tool: bool = False) -> None:
+async def scan_repository_by_tool(repo_url: str, output_dir: str, scanners: list[str] | None = None) -> None:
+    """Scan a repository and group vulnerabilities by MCP tools."""
+    org_name, repo_name = get_repo(repo_url)
+    # Clone to temp directory
+    with tempfile.TemporaryDirectory() as temp_dir:
+        repo_path = Path(temp_dir) / repo_name
+
+        print(f"Cloning {repo_url}...")
+        subprocess.run(
+            ['git', 'clone', '--depth', '1', repo_url, str(repo_path)],
+            check=True,
+            capture_output=True
+        )
+
+        # Auto-detect scanners if not specified
+        if scanners is None:
+            print("Detecting repository languages...")
+            languages = detect_languages(str(repo_path))
+            scanners = select_scanners(languages)
+            print(f"Selected scanners: {', '.join(scanners)}")
+
+        # Run tool-based scans
+        print(f"Running {len(scanners)} scanners in parallel (tool-based mode)...")
+        orchestrator = ToolBasedScanOrchestrator(str(repo_path), org_name, repo_name)
+        results = await orchestrator.run_all_scanners_by_tool(scanners)
+
+        # Save tool-based results
+        orchestrator.save_tool_results(results, output_dir)
+
+
+def aggregate_command(repo_url: str, results_dir: str) -> None:
     """Aggregate results and generate scan results report."""
     print(f"Aggregating results from {results_dir}...")
     org_name, repo_name = get_repo(repo_url)
+    results = aggregate_results(org_name, repo_name, results_dir)
 
-    if by_tool:
-        # Tool-based aggregation
-        results = aggregate_tool_results(org_name, repo_name, results_dir)
-        save_tool_results(org_name, repo_name, results, results_dir)
+    # Save aggregated results to violations.json
+    save_aggregated_results(org_name, repo_name, results, results_dir)
 
-        # Generate summary table from all repo files in results directory
-        summary = generate_tool_summary_table(results_dir)
+    # Generate summary table from all repo files in results directory
+    summary = generate_summary_table(results_dir)
 
-        with open('SCAN_RESULTS_TOOLS.md', 'w') as f:
-            f.write(summary)
+    with open('SCAN_RESULTS.md', 'w') as f:
+        f.write(summary)
 
-        print("Generated SCAN_RESULTS_TOOLS.md with tool-based vulnerability summary")
-    else:
-        # Regular aggregation
-        results = aggregate_results(org_name, repo_name, results_dir)
-        save_aggregated_results(org_name, repo_name, results, results_dir)
+    print("Generated SCAN_RESULTS.md with vulnerability summary")
 
-        # Generate summary table from all repo files in results directory
-        summary = generate_summary_table(results_dir)
 
-        with open('SCAN_RESULTS.md', 'w') as f:
-            f.write(summary)
+def aggregate_tool_command(repo_url: str, results_dir: str) -> None:
+    """Aggregate tool-based results and generate tool vulnerability report."""
+    print(f"Aggregating tool-based results from {results_dir}...")
+    org_name, repo_name = get_repo(repo_url)
+    results = aggregate_tool_results(org_name, repo_name, results_dir)
 
-        print("Generated SCAN_RESULTS.md with vulnerability summary")
+    # Save aggregated tool results
+    save_tool_results(org_name, repo_name, results, results_dir)
+
+    # Generate summary table from all repo files in results directory
+    summary = generate_tool_summary_table(results_dir)
+
+    with open('SCAN_RESULTS_TOOLS.md', 'w') as f:
+        f.write(summary)
+
+    print("Generated SCAN_RESULTS_TOOLS.md with tool-based vulnerability summary")
 
 
 def main():
@@ -98,24 +127,37 @@ def main():
     subparsers = parser.add_subparsers(dest='command', help='Command to run')
 
     # Scan command
-    scan_parser = subparsers.add_parser('scan', help='Scan a repository')
+    scan_parser = subparsers.add_parser('scan', help='Scan a repository for vulnerabilities')
     scan_parser.add_argument('repo_url', help='Repository URL to scan')
     scan_parser.add_argument('--output-dir', default='results', help='Output directory for results')
     scan_parser.add_argument('--scanners', nargs='+', help='Specific scanners to use')
-    scan_parser.add_argument('--by-tool', action='store_true', help='Group results by MCP tools')
+
+    # Scan-tool command
+    scan_tool_parser = subparsers.add_parser('scan-tool', help='Scan a repository and group by MCP tools')
+    scan_tool_parser.add_argument('repo_url', help='Repository URL to scan')
+    scan_tool_parser.add_argument('--output-dir', default='results', help='Output directory for results')
+    scan_tool_parser.add_argument('--scanners', nargs='+', help='Specific scanners to use')
 
     # Aggregate command
     agg_parser = subparsers.add_parser('aggregate', help='Aggregate scan results')
     agg_parser.add_argument('repo_url', help='Repository URL to scan')
     agg_parser.add_argument('--results-dir', default='results', help='Results directory')
-    agg_parser.add_argument('--by-tool', action='store_true', help='Aggregate tool-based results')
+
+    # Aggregate-tool command
+    agg_tool_parser = subparsers.add_parser('aggregate-tool', help='Aggregate tool-based scan results')
+    agg_tool_parser.add_argument('repo_url', help='Repository URL to scan')
+    agg_tool_parser.add_argument('--results-dir', default='results', help='Results directory')
 
     args = parser.parse_args()
 
     if args.command == 'scan':
-        asyncio.run(scan_repository(args.repo_url, args.output_dir, args.scanners, args.by_tool))
+        asyncio.run(scan_repository(args.repo_url, args.output_dir, args.scanners))
+    elif args.command == 'scan-tool':
+        asyncio.run(scan_repository_by_tool(args.repo_url, args.output_dir, args.scanners))
     elif args.command == 'aggregate':
-        aggregate_command(args.repo_url, args.results_dir, args.by_tool)
+        aggregate_command(args.repo_url, args.results_dir)
+    elif args.command == 'aggregate-tool':
+        aggregate_tool_command(args.repo_url, args.results_dir)
     else:
         parser.print_help()
         sys.exit(1)
