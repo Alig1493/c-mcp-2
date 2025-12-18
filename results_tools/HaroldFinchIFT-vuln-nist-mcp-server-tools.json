@@ -1,0 +1,44 @@
+[
+  {
+    "name": "get_temporal_context",
+    "file_path": "vuln_nist_mcp_server.py",
+    "description": "Retrieve a CVE by its CVE-ID",
+    "line_number": 75,
+    "language": "python"
+  },
+  {
+    "name": "search_cves",
+    "file_path": "vuln_nist_mcp_server.py",
+    "description": "",
+    "line_number": 125,
+    "language": "python"
+  },
+  {
+    "name": "get_cve_by_id",
+    "file_path": "vuln_nist_mcp_server.py",
+    "description": "",
+    "line_number": 248,
+    "language": "python"
+  },
+  {
+    "name": "cves_by_cpe",
+    "file_path": "vuln_nist_mcp_server.py",
+    "description": "List CVEs associated with a specific CPE",
+    "line_number": 312,
+    "language": "python"
+  },
+  {
+    "name": "kevs_between",
+    "file_path": "vuln_nist_mcp_server.py",
+    "description": "List CVEs added to CISA KEV catalog in a date window.",
+    "line_number": 353,
+    "language": "python"
+  },
+  {
+    "name": "cve_change_history",
+    "file_path": "vuln_nist_mcp_server.py",
+    "description": "Retrieve change history for a CVE or a time window.",
+    "line_number": 445,
+    "language": "python"
+  }
+]
