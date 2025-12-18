@@ -1,0 +1,23 @@
+[
+  {
+    "name": "bake_recipe",
+    "file_path": "cyberchef_api_mcp_server/server.py",
+    "description": "Bake (execute) a recipe (a list of operations) in order to derive an outcome from the input data",
+    "line_number": 78,
+    "language": "python"
+  },
+  {
+    "name": "batch_bake_recipe",
+    "file_path": "cyberchef_api_mcp_server/server.py",
+    "description": "Bake (execute) a recipe (a list of operations) in order to derive an outcome from a batch of input data",
+    "line_number": 104,
+    "language": "python"
+  },
+  {
+    "name": "perform_magic_operation",
+    "file_path": "cyberchef_api_mcp_server/server.py",
+    "description": "CyberChef's magic operation is designed to automatically detect how your data is encoded and which operations can be",
+    "line_number": 130,
+    "language": "python"
+  }
+]
