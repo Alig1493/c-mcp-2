@@ -41,10 +41,6 @@ def aggregate_tool_results(org_name: str, repo_name: str, results_dir: str) -> l
     with open(metadata_file, 'r') as f:
         tools_metadata = json.load(f)
 
-    print(f"Loaded {len(tools_metadata)} tools from metadata:")
-    for tool in tools_metadata:
-        print(f"  - {tool['name']}")
-
     # Find all scanner-specific tool-violations files
     scanner_files = list(results_path.glob('*-tool-violations.json'))
 
