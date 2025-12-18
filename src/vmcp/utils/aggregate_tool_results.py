@@ -16,18 +16,49 @@ def aggregate_tool_results(org_name: str, repo_name: str, results_dir: str) -> d
     """
     Aggregate tool-based scanner results for a specific repository.
 
+    Merges scanner-specific *-tool-violations.json files into a single file.
     Format: {"scanner": {"tool_name": [vulns]}}
     """
     results_path = Path(results_dir)
+    aggregated_results: dict[str, dict[str, list[dict]]] = {}
 
-    # Load existing per-repo tool-violations file
-    per_repo_file = results_path / f'{org_name}-{repo_name}-tool-violations.json'
+    # Find all scanner-specific tool-violations files
+    scanner_files = list(results_path.glob('*-tool-violations.json'))
 
-    if per_repo_file.exists():
-        with open(per_repo_file, 'r') as f:
-            return json.load(f)
+    # Filter to only non-aggregated files (exclude org-repo-tool-violations.json)
+    scanner_files = [
+        f for f in scanner_files
+        if not f.name.startswith(f'{org_name}-{repo_name}-')
+    ]
 
-    return {}
+    if not scanner_files:
+        print(f"No scanner-specific tool-violations files found in {results_dir}")
+        return {}
+
+    # Merge all scanner results
+    for scanner_file in scanner_files:
+        try:
+            with open(scanner_file, 'r') as f:
+                scanner_data = json.load(f)
+
+            # Each file contains {"scanner_name": {"tool_name": [vulns]}}
+            for scanner_name, tool_results in scanner_data.items():
+                if scanner_name not in aggregated_results:
+                    aggregated_results[scanner_name] = {}
+
+                # Merge tool results for this scanner
+                for tool_name, vulns in tool_results.items():
+                    if tool_name not in aggregated_results[scanner_name]:
+                        aggregated_results[scanner_name][tool_name] = []
+                    aggregated_results[scanner_name][tool_name].extend(vulns)
+
+            print(f"Merged {scanner_file.name}")
+
+        except Exception as e:
+            print(f"Error reading {scanner_file}: {e}")
+            continue
+
+    return aggregated_results
 
 
 def save_tool_results(

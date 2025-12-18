@@ -120,31 +120,31 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
         self, results: dict[str, dict[str, list[VulnerabilityModel]]], output_dir: str
     ) -> None:
         """
-        Save tool-based scan results to JSON file.
+        Save tool-based scan results to scanner-specific JSON files.
 
-        Format: {"scanner": {"tool_name": [vulns]}}
-        Filename: <org>-<repo>-tool-violations.json
+        Format per file: {"scanner": {"tool_name": [vulns]}}
+        Filename pattern: <scanner>-tool-violations.json
+        These files will be merged during aggregation into org-repo-tool-violations.json
         """
         output_path = Path(output_dir)
         output_path.mkdir(parents=True, exist_ok=True)
 
-        # Format results
-        formatted_results: dict[str, dict[str, list[dict]]] = {}
+        # Save scanner-specific tool results to avoid parallel overwrite
         for scanner, tool_vulns in results.items():
-            formatted_results[scanner] = {}
+            formatted_tool_results: dict[str, list[dict]] = {}
             for tool_name, vulnerabilities in tool_vulns.items():
-                formatted_results[scanner][tool_name] = [
+                formatted_tool_results[tool_name] = [
                     vuln.model_dump(mode='json') for vuln in vulnerabilities
                 ]
 
-        # Save to org-repo-tool-violations.json
-        violations_file = output_path / f'{self.org_name}-{self.repo_name}-tool-violations.json'
-        with open(violations_file, 'w') as f:
-            json.dump(formatted_results, f, indent=2, default=str)
+            # Save to scanner-specific file
+            scanner_file = output_path / f'{scanner}-tool-violations.json'
+            with open(scanner_file, 'w') as f:
+                json.dump({scanner: formatted_tool_results}, f, indent=2, default=str)
 
-        print(f"Tool-based results saved to {violations_file}")
+            print(f"Tool-based results for {scanner} saved to {scanner_file}")
 
-        # Also save tool metadata
+        # Save tool metadata once (not scanner-specific)
         tools_metadata_file = output_path / f'{self.org_name}-{self.repo_name}-tools.json'
         tools_data = [tool.to_dict() for tool in self.tools]
         with open(tools_metadata_file, 'w') as f:
