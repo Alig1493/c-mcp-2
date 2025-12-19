@@ -35,6 +35,7 @@
 | [sanyambassi/thales-cdsp-cakm-mcp-server](https://github.com/sanyambassi/thales-cdsp-cakm-mcp-server) | [📋](results/sanyambassi-thales-cdsp-cakm-mcp-server-violations.json) | 14 | 0 | 7 | 7 | 0 | 0 | osv-scanner, semgrep, trivy | 🔴 |
 | [semgrep/mcp](https://github.com/semgrep/mcp) | [📋](results/semgrep-mcp-violations.json) | 4 | 0 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [vespo92/OPNSenseMCP](https://github.com/vespo92/OPNSenseMCP) | [📋](results/vespo92-OPNSenseMCP-violations.json) | 42 | 0 | 1 | 17 | 24 | 0 | osv-scanner, semgrep, trivy | 🔴 |
+| [yepcode/mcp-server-js](https://github.com/yepcode/mcp-server-js) | [📋](results/yepcode-mcp-server-js-violations.json) | 3 | 0 | 3 | 0 | 0 | 2 | osv-scanner, semgrep, trivy, yara | 🔴 |
 | [BurtTheCoder/mcp-shodan](https://github.com/BurtTheCoder/mcp-shodan) | [📋](results/BurtTheCoder-mcp-shodan-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [BurtTheCoder/mcp-virustotal](https://github.com/BurtTheCoder/mcp-virustotal) | [📋](results/BurtTheCoder-mcp-virustotal-violations.json) | 5 | 1 | 4 | 0 | 0 | 4 | osv-scanner, semgrep, trivy | 🔴 |
 | [jyjune/mcp_vms](https://github.com/jyjune/mcp_vms) | [📋](results/jyjune-mcp_vms-violations.json) | 6 | 1 | 4 | 1 | 0 | 6 | osv-scanner, semgrep, trivy | 🔴 |
