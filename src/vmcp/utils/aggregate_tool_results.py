@@ -172,13 +172,25 @@ def generate_tool_summary_table(results_dir: str) -> str:
         with open(json_file, 'r') as f:
             tools_data = json.load(f)
 
-        # Collect all vulnerabilities across all tools
-        all_vulnerabilities = []
-        all_scanners = set()
-        tool_names = []
+        # Separate actual MCP tools from virtual categories
+        actual_tools = []
+        dependencies_entry = None
+        unknown_entry = None
 
         for tool in tools_data:
-            tool_names.append(tool['name'])
+            if tool['name'] == 'dependencies':
+                dependencies_entry = tool
+            elif tool['name'] == 'unknown':
+                unknown_entry = tool
+            else:
+                # Actual MCP tool
+                actual_tools.append(tool)
+
+        # Collect all vulnerabilities across all categories
+        all_vulnerabilities = []
+        all_scanners = set()
+
+        for tool in tools_data:
             # Get all scanner keys (exclude metadata fields)
             scanner_keys = [k for k in tool.keys() if k not in ['name', 'file_path', 'description', 'line_number', 'language']]
             all_scanners.update(scanner_keys)
@@ -203,16 +215,34 @@ def generate_tool_summary_table(results_dir: str) -> str:
         # Format scanners list
         scanners_str = ', '.join(sorted(all_scanners)) if all_scanners else 'None'
 
-        # Format tools list
-        tools_str = ', '.join(tool_names[:5])  # Show first 5 tools
-        if len(tool_names) > 5:
-            tools_str += f' (+{len(tool_names) - 5} more)'
+        # Format actual tools list (not including dependencies/unknown)
+        tool_names = [t['name'] for t in actual_tools]
+        if tool_names:
+            tools_str = ', '.join(tool_names[:3])  # Show first 3 tools
+            if len(tool_names) > 3:
+                tools_str += f' (+{len(tool_names) - 3} more)'
+        else:
+            tools_str = '—'  # No actual tools detected
+
+        # Count vulnerabilities in dependencies
+        deps_count = 0
+        if dependencies_entry:
+            for scanner_key in [k for k in dependencies_entry.keys() if k not in ['name', 'file_path', 'description', 'line_number', 'language']]:
+                deps_count += len(dependencies_entry[scanner_key])
+
+        # Count vulnerabilities in unknown
+        unknown_count = 0
+        if unknown_entry:
+            for scanner_key in [k for k in unknown_entry.keys() if k not in ['name', 'file_path', 'description', 'line_number', 'language']]:
+                unknown_count += len(unknown_entry[scanner_key])
 
         # Store row data with sort key
         rows.append({
             'org_repo': org_repo,
             'tools': tools_str,
-            'tool_count': len(tool_names),
+            'tool_count': len(actual_tools),  # Only count actual tools
+            'deps_count': deps_count,
+            'unknown_count': unknown_count,
             'filename': f'{org_name}-{repo_name}-tools.json',
             'total': total_findings,
             'severity_counts': severity_counts,
@@ -231,19 +261,19 @@ def generate_tool_summary_table(results_dir: str) -> str:
         "",
         "This report shows vulnerabilities grouped by MCP tools.",
         "",
-        "| Project | Tools | Results | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |",
-        "|---------|-------|---------|-------|----------|------|--------|-----|---------|----------|--------|",
+        "| Project | MCP Tools | Results | Total | Critical | High | Medium | Low | Fixable | Scanners | Status |",
+        "|---------|-----------|---------|-------|----------|------|--------|-----|---------|----------|--------|",
     ]
 
     for row in rows:
         # Link to original GitHub repository
         repo_link = f"[{row['org_repo']}](https://github.com/{row['org_repo']})"
 
-        # Link to tools file
-        tools_link = f"[📋 {row['tool_count']} tools](results_tools/{row['filename']})"
+        # Link to results file
+        results_link = f"[📋 View](results_tools/{row['filename']})"
 
         lines.append(
-            f"| {repo_link} | {row['tools']} | {tools_link} | {row['total']} | "
+            f"| {repo_link} | {row['tools']} | {results_link} | {row['total']} | "
             f"{row['severity_counts']['CRITICAL']} | {row['severity_counts']['HIGH']} | "
             f"{row['severity_counts']['MEDIUM']} | {row['severity_counts']['LOW']} | "
             f"{row['fixable']} | {row['scanners']} | {row['status']} |"
