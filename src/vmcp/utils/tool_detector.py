@@ -270,15 +270,23 @@ class ToolDetector:
                 # Import here to avoid circular dependency
                 from vmcp.utils.runtime_tool_detector import detect_tools_runtime
 
-                # Run async detection
-                runtime_tools = asyncio.run(detect_tools_runtime(str(self.repo_path)))
+                # Check if there's already an event loop running
+                try:
+                    loop = asyncio.get_running_loop()
+                    # If we get here, there's already a loop running
+                    # We can't use asyncio.run(), so skip runtime detection
+                    print("⚠️  Event loop already running, skipping runtime detection")
+                    print("   Falling back to static analysis...")
+                except RuntimeError:
+                    # No event loop running, safe to use asyncio.run()
+                    runtime_tools = asyncio.run(detect_tools_runtime(str(self.repo_path)))
 
-                if runtime_tools:
-                    self.tools = runtime_tools
-                    print(f"✅ Runtime detection found {len(runtime_tools)} tools")
-                    return self.tools
-                else:
-                    print("⚠️  Runtime detection returned no tools, falling back to static analysis")
+                    if runtime_tools:
+                        self.tools = runtime_tools
+                        print(f"✅ Runtime detection found {len(runtime_tools)} tools")
+                        return self.tools
+                    else:
+                        print("⚠️  Runtime detection returned no tools, falling back to static analysis")
             except Exception as e:
                 print(f"⚠️  Runtime detection failed: {e}")
                 print("   Falling back to static analysis...")

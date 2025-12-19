@@ -100,8 +100,17 @@ class ToolBasedScanOrchestrator(ScanOrchestrator):
 
             # Check if vulnerability is in a specific tool file or its dependencies
             if vuln.file_location:
-                # Normalize path
-                file_path = vuln.file_location.replace(f"{self.repo_path}/", "")
+                # Normalize path - handle both absolute and relative paths
+                file_path = vuln.file_location
+
+                # If it's an absolute path, make it relative to repo_path
+                if Path(file_path).is_absolute():
+                    try:
+                        file_path = str(Path(file_path).relative_to(self.repo_path))
+                    except ValueError:
+                        # Path is absolute but not under repo_path, try string replacement
+                        file_path = file_path.replace(f"{self.repo_path}/", "")
+
                 file_name = Path(file_path).name
 
                 # Check if it's a dependency file - these go to 'dependencies' category

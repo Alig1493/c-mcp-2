@@ -64,7 +64,9 @@ class YaraScanner(BaseScanner):
                     try:
                         matches = rules.match(filepath)
                         for match in matches:
-                            vuln = self._parse_yara_match(match, filepath)
+                            # Convert absolute path to relative path for consistency
+                            relative_path = os.path.relpath(filepath, self.repo_path)
+                            vuln = self._parse_yara_match(match, relative_path)
                             vulnerabilities.append(vuln)
                     except yara.Error:
                         # Skip files that can't be scanned (permission errors, binary issues, etc.)
@@ -176,9 +178,17 @@ class YaraScanner(BaseScanner):
             return 'LOW'
 
     def _offset_to_line_range(self, filepath: str, offset: int) -> str:
-        """Convert byte offset to line number range."""
+        """Convert byte offset to line number range.
+
+        Args:
+            filepath: Relative path from repo root
+            offset: Byte offset in the file
+        """
         try:
-            with open(filepath, 'rb') as f:
+            # Convert relative path to absolute for file reading
+            abs_filepath = os.path.join(self.repo_path, filepath)
+
+            with open(abs_filepath, 'rb') as f:
                 content = f.read(offset + 1000)  # Read a bit more for context
 
             # Count newlines up to offset

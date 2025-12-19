@@ -45,6 +45,8 @@ class SemgrepScanner(BaseScanner):
 
     def _parse_semgrep_output(self, data: dict[str, Any]) -> list[VulnerabilityModel]:
         """Parse Semgrep JSON output."""
+        from pathlib import Path
+
         vulnerabilities = []
 
         for result in data.get('results', []):
@@ -69,6 +71,18 @@ class SemgrepScanner(BaseScanner):
             if isinstance(categories, str):
                 categories = [categories]
 
+            # Normalize file path to be relative to repo root
+            file_path = result.get('path', '')
+            if file_path:
+                try:
+                    # If path is absolute, make it relative to repo_path
+                    abs_path = Path(file_path)
+                    if abs_path.is_absolute():
+                        file_path = str(abs_path.relative_to(self.repo_path))
+                except (ValueError, AttributeError):
+                    # If relative_to fails, path might already be relative
+                    pass
+
             vulnerability = VulnerabilityModel(
                 id=result.get('check_id', ''),
                 identifier_type='semgrep_rule',
@@ -86,7 +100,7 @@ class SemgrepScanner(BaseScanner):
                 rule_name=result.get('check_id', ''),
                 rule_id=result.get('check_id', ''),
                 confidence=result.get('extra', {}).get('metadata', {}).get('confidence', 'MEDIUM'),
-                file_location=result.get('path', ''),
+                file_location=file_path,
                 line_range=f"{result.get('start', {}).get('line', '')}-{result.get('end', {}).get('line', '')}",
                 categories=categories,
             )
