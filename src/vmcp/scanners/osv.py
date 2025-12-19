@@ -83,8 +83,19 @@ class OSVScanner(BaseScanner):
                         except Exception:
                             pass
 
-                    # Determine severity
-                    severity = vuln.get('database_specific', {}).get('severity', 'UNKNOWN')
+                    # Determine severity and normalize it
+                    severity = vuln.get('database_specific', {}).get('severity', 'UNKNOWN').upper()
+
+                    # Map OSV severity values to our standard severity levels
+                    severity_map = {
+                        'MODERATE': 'MEDIUM',  # OSV uses MODERATE, we use MEDIUM
+                        'CRITICAL': 'CRITICAL',
+                        'HIGH': 'HIGH',
+                        'MEDIUM': 'MEDIUM',
+                        'LOW': 'LOW',
+                        'UNKNOWN': 'UNKNOWN',
+                    }
+                    severity = severity_map.get(severity, 'UNKNOWN')
 
                     vulnerability = VulnerabilityModel(
                         id=vuln.get('id', ''),
@@ -96,7 +107,7 @@ class OSVScanner(BaseScanner):
                         published=published,
                         references=references,
                         scores=scores,
-                        severity=severity.upper(),
+                        severity=severity,
                         source='osv',
                         summary=vuln.get('summary', ''),
                     )
