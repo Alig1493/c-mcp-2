@@ -1,0 +1,139 @@
+{
+  "unknown": {
+    "file_path": "",
+    "description": "Unclassified vulnerabilities",
+    "line_number": null,
+    "language": "N/A",
+    "semgrep": [
+      {
+        "id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "identifier_type": "semgrep_rule",
+        "affected_range": "",
+        "aliases": [],
+        "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+        "fixed_version": null,
+        "published": null,
+        "references": [
+          {
+            "type": "web",
+            "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+          }
+        ],
+        "scores": [],
+        "severity": "HIGH",
+        "source": null,
+        "summary": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "rule_name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "rule_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+        "confidence": "MEDIUM",
+        "file_location": "Dockerfile",
+        "line_range": "24-24",
+        "categories": [
+          "CWE-269: Improper Privilege Management"
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "file_path": "",
+    "description": "Project dependencies",
+    "line_number": null,
+    "language": "N/A",
+    "osv-scanner": [
+      {
+        "id": "GHSA-w48q-cv73-mx4w",
+        "identifier_type": "other",
+        "affected_range": "0",
+        "aliases": [
+          "CVE-2025-66414"
+        ],
+        "details": "The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with `StreamableHTTPServerTransport` or `SSEServerTransport` and has not enabled `enableDnsRebindingProtection`, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances.\n\nNote that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport.\n\nServers created via `createMcpExpressApp()` now have this protection enabled by default when binding to localhost. Users with custom Express configurations are advised to update to version `1.24.0` and apply the exported `hostHeaderValidation()` middleware when running an unauthenticated server on localhost.",
+        "fixed_version": "1.24.0",
+        "published": "2025-12-02T16:51:57Z",
+        "references": [
+          {
+            "type": "WEB",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
+          },
+          {
+            "type": "ADVISORY",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
+          },
+          {
+            "type": "WEB",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
+          },
+          {
+            "type": "WEB",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
+          },
+          {
+            "type": "WEB",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
+          },
+          {
+            "type": "PACKAGE",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+          }
+        ],
+        "scores": [],
+        "severity": "HIGH",
+        "source": "osv",
+        "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      }
+    ],
+    "trivy": [
+      {
+        "id": "CVE-2025-66414",
+        "identifier_type": "cve",
+        "affected_range": "1.19.1",
+        "aliases": [],
+        "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
+        "fixed_version": "1.24.0",
+        "published": "2025-12-02T19:15:52.347000Z",
+        "references": [
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
+          },
+          {
+            "type": "web",
+            "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
+          },
+          {
+            "type": "web",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
+          }
+        ],
+        "scores": [],
+        "severity": "HIGH",
+        "source": "trivy",
+        "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+        "rule_name": null,
+        "rule_id": null,
+        "confidence": null,
+        "file_location": null,
+        "line_range": null,
+        "categories": []
+      }
+    ]
+  }
+}
